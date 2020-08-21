@@ -14,7 +14,6 @@
     if(isset($_POST['action']) && $_POST['action'] == 'create'){
         $sql = "INSERT INTO `product`(`product_name`, `price`, `description`, `quantity`, `brand_id`, `type`) VALUES ('".$_POST['product_name']."','".$_POST['price']."','".$_POST['description']."','".$_POST['quantity']."','".$_POST['brand_id']."','".$_POST['type']."')";
         
-        echo $sql;
         $rs = getpdo($conn,$sql);
         if($rs){
         	$lastid = $conn->lastInsertId();
