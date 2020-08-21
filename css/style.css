@@ -1,4 +1,5 @@
 body {
+    background-color: #fff;
     font-family: 'Source Sans Pro', 'Prompt', sans-serif;
 }
 
@@ -77,7 +78,7 @@ form {
     top: 10px;
     left: 10px;
     font-size: 120%;
-    color: #607D8B;
+    color: #43425D;
     -webkit-transform-origin: 0 -150%;
     transform-origin: 0 -150%;
     -webkit-transition: -webkit-transform 300ms ease;
@@ -92,6 +93,100 @@ form {
     -webkit-transform: scale(0.6);
     transform: scale(0.6);
 }
+
+
+/* <style> */
+
+* {
+    box-sizing: border-box;
+}
+
+#regForm {
+    margin: 100px auto;
+    box-shadow: 5px 5px 5px 5px #888888;
+    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    /* width: 100%; */
+    font-size: 17px;
+    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    border: 1px solid #aaaaaa;
+}
+
+
+/* Mark input boxes that gets an error on validation: */
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+
+/* Hide all steps by default: */
+
+.tab {
+    display: none;
+}
+
+.tab h3 {
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+
+/* Make circles that indicate the steps of the form: */
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+
+/* Mark the steps that are finished and valid: */
+
+.step.finish {
+    background-color: #4CAF50;
+}
+
+
+/* </style> */
 
 .navbar {
     background-color: #fff!important;
@@ -110,25 +205,6 @@ form {
     margin-top: 50px;
 }
 
-.form-control {
-    border-radius: 20px;
-}
-
-.form-group {
-    width: 70%;
-    margin: auto;
-    padding-top: 30px;
-}
-
-.form-group2 {
-    text-align: center;
-    width: 47%;
-    margin: auto;
-    float: left;
-    margin-right: 10px;
-    padding-bottom: 30px;
-}
-
 .btu-login {
     margin-top: 20px;
     text-align: center;
@@ -137,25 +213,6 @@ form {
 .btu-login .btn {
     width: 150px;
     margin: 30px;
-}
-
-.form2 {
-    width: 60%;
-    height: 650px;
-    margin-top: 50px;
-    background-color: #fff;
-    margin-left: 350px;
-    border-radius: 0px 15px 15px 0px;
-}
-
-.slide-profile {
-    width: 25%;
-    height: 650px;
-    background-color: #EEEEEE;
-    border-radius: 15px 0px 0px 15px;
-    padding-top: 20px;
-    margin-left: 80px;
-    float: left;
 }
 
 .circle {
@@ -206,9 +263,148 @@ form {
 }
 
 .menu {
-    padding-left: 50px;
+    text-align: left;
+    padding-left: 30px;
 }
 
 .menu a {
     color: #707070;
 }
+
+footer {
+    width: 100%;
+    height: auto;
+    background-color: #333333;
+    height: 150px;
+}
+
+.foot-text {
+    width: 50%;
+    float: left;
+}
+
+.foot-text a {
+    font-size: 20px;
+    color: #fff;
+}
+
+.foot-icon {
+    float: right;
+    text-align: right;
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+/* ///// */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+    background: white;
+    color: #323a44;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.drop {
+    width: 96%;
+    height: 96%;
+    border: 3px dashed #DADFE3;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    background: white;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /*&:hover
+   * cursor: pointer
+   * background: #f5f5f5 */
+}
+
+.drop .cont {
+    width: 500px;
+    height: 170px;
+    color: #8E99A5;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.drop .cont i {
+    font-size: 400%;
+    color: #8E99A5;
+    position: relative;
+}
+
+.drop input {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: red;
+    opacity: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#list {
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#list .thumb {
+    height: 75px;
+    border: 1px solid #323a44;
+    margin: 10px 5px 0 0;
+}
+
+
+/* ///// */

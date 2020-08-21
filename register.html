@@ -80,6 +80,11 @@
                             <label>ชื่อผู้ใช้งาน</label>
                         </fieldset>
                         <fieldset class="material mb-3">
+                            <input type="email" id="email" autocomplete="off" required>
+                            <hr>
+                            <label>อีเมล</label>
+                        </fieldset>
+                        <fieldset class="material mb-3">
                             <input type="password" id="inputPassword"  autocomplete="off" required>
                             <hr>
                             <label>รหัสผ่าน</label>
@@ -137,7 +142,8 @@
                     username: $('#username').val(), 
                     password: $('#inputPassword').val(),
                     name: $('#name').val(),
-                    surname:$('#surname').val()
+                    surname:$('#surname').val(),
+                    email:$('#email').val()
                 }
             }).done(function( msg ) {
                 console.log(msg)

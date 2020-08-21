@@ -55,16 +55,46 @@
         </div>
         <form id="regForm" action="#">
             <div class="tab">
-                <h3>อายุของคุณ</h3>
+                <h3>ระยะเวลาในการเล่นกีฬาแบดมินตัน</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="age" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                น้อยกว่า 20 ปี
-                            </label>
+                    <input class="form-check-input" type="radio" name="play" id="play" value="1" checked="">
+                    <label class="form-check-label" for="play">
+                        มากกว่า 9 เดือน แต่ไม่ถึง 1 ปี
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="age" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
+                    <input class="form-check-input" type="radio" name="play" id="play2" value="2">
+                    <label class="form-check-label" for="play2">
+                        มากกว่า 1 ปีขึ้นไป
+                    </label>
+                </div>
+            </div>
+            <div class="tab">
+                <h3>ความถี่ในการเล่นแบดมินตัน</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="f" id="f" value="1" checked="">
+                    <label class="form-check-label" for="play">
+                        น้อยกว่า 2 วัน ต่อ สัปดาห์ 
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="f" id="f2" value="2">
+                    <label class="form-check-label" for="f2">
+                        มากกว่า 3 วัน ต่อสัปดาห์
+                    </label>
+                </div>
+            </div>
+            <div class="tab">
+                <h3>อายุของคุณ</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="age" id="age" value="1" checked="">
+                    <label class="form-check-label" for="age">
+                        น้อยกว่า 20 ปี
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="age" id="age2" value="2">
+                    <label class="form-check-label" for="age2">
                                 มากกว่า 20 ปีขึ้นไป
                     </label>
                 </div>
@@ -74,14 +104,14 @@
                 <div class="row">
                     <div class="col">
                         <fieldset class="material mb-3">
-                            <input type="text" placeholder="" autocomplete="off" required>
+                            <input type="number" id="weight" placeholder="" autocomplete="off">
                             <hr>
                             <label>น้ำหนัก</label>
                         </fieldset>
                     </div>
                     <div class="col">
                         <fieldset class="material mb-3">
-                            <input type="text" placeholder="" autocomplete="off" required>
+                            <input type="number" id="height" placeholder="" autocomplete="off">
                             <hr>
                             <label>ส่วนสูง</label>
                         </fieldset>
@@ -89,117 +119,159 @@
                 </div>
             </div>
             <div class="tab">
-                <h3>ประสบการณ์ในการเล่นแบดมินตัน</h3>
+                <h3>เพศ</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="play" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                น้อยกว่า 3 เดือน หรือ ผู้เล่นใหม่
-                            </label>
+                    <input class="form-check-input" type="radio" name="sex" id="sex" value="1" checked="">
+                    <label class="form-check-label" for="sex">
+                        ชาย
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="play" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                มากกว่า 3 เดือน 
-                            </label>
-                </div>
-            </div>
-            <div class="tab">
-                <h3>ต่ำแหน่งที่คุณเล่นประจำ</h3>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="position" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                หน้าเน็ต
-                            </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="position" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                ท้ายคอร์ท
-                            </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="position" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                เล่นได้ทุกต่ำแหน่ง
-                            </label>
+                    <input class="form-check-input" type="radio" name="sex" id="sex2" value="2">
+                    <label class="form-check-label" for="sex2">
+                        หญิง
+                    </label>
                 </div>
             </div>
             <div class="tab">
-                <h3>สไตล์การเล่นของคุณ</h3>
+                <h3>คุณคิดว่าลูกตบหรือเกมบุกของคุณมีโอกาสในการทำคะแนนได้มากน้อยแค่ไหนในหนึ่งเกม</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="style" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                สายรุกหรือบุก
-                            </label>
+                    <input class="form-check-input" type="radio" name="style" id="style" value="1" checked="">
+                    <label class="form-check-label" for="style">
+                        มีโอกาสน้อยถึงน้อยมาก
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="style" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                สายรับหรือวางลูก
-                            </label>
+                    <input class="form-check-input" type="radio" name="style" id="style2" value="2">
+                    <label class="form-check-label" for="style2">
+                        มีโอกาสครึ่งๆ 50/50
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="style" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                สาย All-Around
-                            </label>
+                    <input class="form-check-input" type="radio" name="style" id="style3" value="3">
+                    <label class="form-check-label" for="style3">
+                        มีโอกาสสูงถึงสูงมาก
+                    </label>
                 </div>
             </div>
+            <div class="tab">
+                <h3>คุณคิดว่าเกมตั้งรับหรือการเล่นเป็นฝ่ายป้องกันของคุณมีประสิทธิภาพมากน้อยแต่ไหนที่มีโอกาสทำแต้มในหนึ่งเกม</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="s" id="s" value="1" checked="">
+                    <label class="form-check-label" for="s">
+                        มีโอกาสน้อยถึงน้อยมาก
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="s" id="s2" value="2">
+                    <label class="form-check-label" for="s2">
+                        มีโอกาสครึ่งๆ 50/50
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="s" id="s3" value="3">
+                    <label class="form-check-label" for="s3">
+                        มีโอกาสสูงถึงสูงมาก
+                    </label>
+                </div>
+            </div>
+            <div class="tab">
+                <h3>บริเวณหรือตำแหน่งในสนามแบดที่คุณรับลูกตบหรือตีเซฟบ่อยหรือมากที่สุดในหนึ่งเกม (เกมรับ)</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position_d" id="position_d" value="1" checked="">
+                    <label class="form-check-label" for="position_d">
+                        หน้าเน็ท
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position_d" id="position_d2" value="2">
+                    <label class="form-check-label" for="position_d2">
+                        กลางคอร์ท
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position_d" id="position_d3" value="3">
+                    <label class="form-check-label" for="position_d3">
+                        ท้ายคอร์ท
+                    </label>
+                </div>
+            </div>
+            <div class="tab">
+                <h3>บริเวณหรือตำแหน่งในสนามแบดที่คุณตีลูกหนักหรือลูกตบบ่อยที่สุดในหนึ่งเกม (เกมบุก)</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position" id="position" value="1" checked="">
+                    <label class="form-check-label" for="position">
+                        หน้าเน็ต
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position" id="position2" value="2">
+                    <label class="form-check-label" for="position2">
+                        กลางคอร์ท  
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position" id="position3" value="3">
+                    <label class="form-check-label" for="position3">
+                        ท้ายคอร์ท 
+                    </label>
+                </div>
+            </div><!-- 
             <div class="tab">
                 <h3>อาการบาดหรืออาการเมื่อยจากการเล่น (บริเวณแขน)</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="hurt" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input class="form-check-input" type="radio" name="hurt" id="hurt" value="1" checked="">
+                    <label class="form-check-label" for="hurt">
                                 ไม่มีอาการ-มีอาการน้อย
                             </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="hurt" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                มีอาการปานกลาง-ถึงมาก
-                            </label>
+                    <input class="form-check-input" type="radio" name="hurt" id="hurt2" value="2">
+                    <label class="form-check-label" for="hurt2">
+                        มีอาการปานกลาง-ถึงมาก
+                    </label>
                 </div>
-            </div>
+            </div> -->
             <div class="tab">
                 <h3>แบรนด์ไม้แบดมินตันที่คุณชื่นชอบ</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="brand" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                Yonex
-                            </label>
+                    <input class="form-check-input" type="radio" name="brand" id="brand" value="1" checked="">
+                    <label class="form-check-label" for="brand">
+                        Yonex
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="brand" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                Victor
-                            </label>
+                    <input class="form-check-input" type="radio" name="brand" id="brand2" value="2">
+                    <label class="form-check-label" for="brand2">
+                        Victor
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="brand" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                Lining
-                            </label>
+                    <input class="form-check-input" type="radio" name="brand" id="brand3" value="3">
+                    <label class="form-check-label" for="brand3">
+                        Lining
+                    </label>
                 </div>
             </div>
             <div class="tab">
                 <h3>เงินทุนในการซื้อไม้แบดไม้มินตัน</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="money" value="option1">
-                    <label class="form-check-label" for="exampleRadios1">
-                                1,000-2,000 บาท
-                            </label>
+                    <input class="form-check-input" type="radio" name="money" id="money" value="1" checked="">
+                    <label class="form-check-label" for="money">
+                        1,000-2,000 บาท
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="money" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                2,000-3,500 บาท
-                            </label>
+                    <input class="form-check-input" type="radio" name="money" id="money2" value="2">
+                    <label class="form-check-label" for="money2">
+                        2,000-3,500 บาท
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="money" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                                3,500 บาทขึ้นไป
-                            </label>
+                    <input class="form-check-input" type="radio" name="money" id="money3" value="3">
+                    <label class="form-check-label" for="money3">
+                        3,500 บาทขึ้นไป
+                    </label>
                 </div>
             </div>
             <div style="overflow:auto;">
@@ -213,6 +285,9 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step" id="condition"></span>
+                <span class="step"></span>
+                <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
@@ -221,8 +296,34 @@
             </div>
         </form>
 
+        <div id="summary" class="d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2>ผลการวิเคราะห์</h2>
+                    การเล่นได้ทั้งรุกและรับ สามารถเล่นได้หลากหลายแต่ไม่มีส่วนไหนโดดเด่น เหมาะสำหรับผู้เล่นที่กำลังค้นหาสไตล์การเล่นของตัวเอง
+                </div>
+                <div class="col-12">
+                    <h2>ไม้แบดมินตันที่เหมาะกับคุณ</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-10">
+                            <div class="row mt-3" id="result">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
@@ -251,6 +352,13 @@
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
             if (n == 1 && !validateForm()) return false;
+            if(parseInt($('input[name=age]:checked').val()) == 1){
+                $('#condition').addClass('d-none')
+                if (currentTab == 2 && n > 0) n++;
+                if (currentTab == 4 && n < 0) n--;
+            }else{
+                $('#condition').removeClass('d-none')
+            }
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
@@ -258,11 +366,87 @@
             // if you have reached the end of the form...
             if (currentTab >= x.length) {
                 // ... the form gets submitted:
-                document.getElementById("regForm").submit();
+                // 
+                calculate()
+
+                $('#regForm').addClass('d-none');
+                $('#summary').removeClass('d-none');
                 return false;
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
+        }
+
+        const calculate = () => {
+            var weight = parseFloat($('#weight').val());
+            var height = parseFloat($('#height').val())/100;
+            var bmi = weight / (height * height);
+
+            if(bmi == NaN) bmi = 0;
+
+            var exp = parseInt($('input[name=play]:checked').val());
+            var f = parseInt($('input[name=f]:checked').val());
+
+            var sex = parseInt($('input[name=sex]:checked').val());
+
+            var style = parseInt($('input[name=style]:checked').val());
+            var s = parseInt($('input[name=s]:checked').val());
+
+
+            var position_d = parseInt($('input[name=position_d]:checked').val());
+            var position = parseInt($('input[name=position]:checked').val());
+
+
+            var brand = parseInt($('input[name=brand]:checked').val());
+
+            var price = parseInt($('input[name=money]:checked').val());
+            
+
+            $.ajax({
+                method: "POST",
+                url: "service/product.php",
+                data: { 
+                    action: 'calculate',
+                    bmi:bmi, 
+                    exp: exp,
+                    f: f,
+                    sex,
+                    style:style,
+                    s:s,
+                    position_d:position_d,
+                    position:position,
+                    brand:brand,
+                    price:price
+                }
+            }).done(function( msg ) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                console.log(msg)
+                if(msg.code === 200){
+                     // window.location.href = "login.html";
+                     var res = msg.result;
+                     for(i = 0; i < res.length ; i++)
+                        $('#result').append(Card(res[i]));
+                }else{
+                    $('#result').append('<p>ไม่พบไม้แบตที่เหมาะกับคุณ</p>');
+                }
+            });
+            console.log(bmi)
+        }
+
+        Card = (item) => {
+            var img = item.path ? item.path : 'https://via.placeholder.com/150';
+            return `
+                <div class="card col-4">
+                  <img class="card-img-top" src="${img}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">${item.product_name}</h5>
+                    <span>${item.price}</span>
+                    <p class="card-text">${item.description}</p>
+                    <a href="#" class="btn btn-primary">ไปรถเข็น</a>
+                  </div>
+                </div>
+            `
         }
 
         function validateForm() {
@@ -297,10 +481,6 @@
             x[n].className += " active";
         }
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

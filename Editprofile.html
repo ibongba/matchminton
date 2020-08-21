@@ -81,14 +81,14 @@
                         <div class="row">
                             <div class="col">
                                 <fieldset class="material mb-3">
-                                    <input type="text" placeholder="John" autocomplete="off" required>
+                                    <input type="text" id="name" placeholder="John" autocomplete="off" required>
                                     <hr>
                                     <label>ชื่อ</label>
                                 </fieldset>
                             </div>
                             <div class="col">
                                 <fieldset class="material mb-3">
-                                    <input type="text" placeholder="Doe" autocomplete="off" required>
+                                    <input type="text" id="surname" placeholder="Doe" autocomplete="off" required>
                                     <hr>
                                     <label>นามสกุล</label>
                                 </fieldset>
@@ -97,13 +97,13 @@
                         <div class="row">
                             <div class="col">
                                 <fieldset class="material mb-3">
-                                    <input type="text" placeholder="John" autocomplete="off" required>
+                                    <input type="text" id="phone" placeholder="023576274" autocomplete="off" required>
                                     <hr>
                                     <label>หมายเลขโทรศัพท์</label>
                                 </fieldset>
-                                <button type="button" class="btn btn-success">รับ OTP</button>
+                                <!-- <button type="button" class="btn btn-success">รับ OTP</button> -->
                             </div>
-                            <div class="col">
+                            <!-- <div class="col">
                                 <fieldset class="material mb-3">
                                     <div id="divOuter">
                                         <div id="divInner">
@@ -111,16 +111,13 @@
                                             <p>Ex.2345</p>
                                         </div>
                                     </div>
-                                    <!-- <input type="text" placeholder="Doe" autocomplete="off" required>
-                                    <hr>
-                                    <label>นามสกุล</label> -->
                                 </fieldset>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row">
                             <div class="col">
                                 <fieldset class="material mb-3">
-                                    <input type="text" placeholder="John" autocomplete="off" required>
+                                    <input type="text" id="email" placeholder="test@test.app" autocomplete="off" required>
                                     <hr>
                                     <label>อีเมล์</label>
                                 </fieldset>
@@ -130,16 +127,47 @@
                             </div>
                         </div>
                         <div class="form-label">
-                            <button class="btn btn-secondary" style="background-color: #43425D;">บันทึก</button>
+                            <button class="btn btn-secondary" type="button" onclick="edit(this)" style="background-color: #43425D;">บันทึก</button>
                         </div>
 
                 </div>
             </div>
         </section>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        $('#name').val(user.name);
+        $('#surname').val(user.surname);
+        $('#phone').val(user.phone);
+        $('#email').val(user.email);
+
+        const edit = (e) =>{
+            $.ajax({
+                method: "POST",
+                url: "service/member.php",
+                data: { 
+                    action: 'edit',
+                    user_id: user.user_id,
+                    name: $('#name').val(), 
+                    surname: $('#surname').val(),
+                    phone: $('#phone').val(),
+                    email:$('#email').val()
+                }
+            }).done(function( msg ) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if(msg.code === 200){
+                    alert('แก้ไขข้อมูลสำเร็จ');
+
+                    localStorage.setItem('user', JSON.stringify(msg.result));
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -105,7 +105,7 @@
                 console.log(msg);
                 msg = JSON.parse(msg)
                 if(msg.code === 200){
-                    localStorage.setItem('id', JSON.stringify(msg.result));
+                    localStorage.setItem('user', JSON.stringify(msg.result));
                     window.location.href = "index.html";
                 }
             });
