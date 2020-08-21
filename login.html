@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">หน้าแรก <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
@@ -41,10 +41,18 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        ยินดีต้อนรับ คุณ &nbsp;
-                    </li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ยินดีต้อนรับ คุณ
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>&nbsp;
                     <li class="nav-item">
-                        <a href="#"><i class="fas fa-user"></i></a>
+                        <a href="login.html"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
             </div>
@@ -89,22 +97,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        
-        const login = (e) =>{
+        const login = (e) => {
             e.disabled = true;
 
             $.ajax({
                 method: "POST",
                 url: "service/member.php",
-                data: { 
+                data: {
                     action: 'login',
-                    username: $('#username').val(), 
+                    username: $('#username').val(),
                     password: $('#password').val(),
                 }
-            }).done(function( msg ) {
+            }).done(function(msg) {
                 console.log(msg);
                 msg = JSON.parse(msg)
-                if(msg.code === 200){
+                if (msg.code === 200) {
                     localStorage.setItem('user', JSON.stringify(msg.result));
                     window.location.href = "index.html";
                 }

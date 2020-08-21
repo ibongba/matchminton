@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="home.html">หน้าแรก <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
@@ -44,10 +44,18 @@
                     </li>
 
                     <li class="nav-item">
-                        &nbsp; ยินดีต้อนรับ คุณ &nbsp;
-                    </li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>&nbsp;
                     <li class="nav-item">
-                        <a href="#"><i class="fas fa-user"></i></a>
+                        <a href="login.html"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
             </div>
@@ -145,22 +153,22 @@
         $('#phone').val(user.phone);
         $('#email').val(user.email);
 
-        const edit = (e) =>{
+        const edit = (e) => {
             $.ajax({
                 method: "POST",
                 url: "service/member.php",
-                data: { 
+                data: {
                     action: 'edit',
                     user_id: user.user_id,
-                    name: $('#name').val(), 
+                    name: $('#name').val(),
                     surname: $('#surname').val(),
                     phone: $('#phone').val(),
-                    email:$('#email').val()
+                    email: $('#email').val()
                 }
-            }).done(function( msg ) {
+            }).done(function(msg) {
                 console.log(msg)
                 msg = JSON.parse(msg)
-                if(msg.code === 200){
+                if (msg.code === 200) {
                     alert('แก้ไขข้อมูลสำเร็จ');
 
                     localStorage.setItem('user', JSON.stringify(msg.result));

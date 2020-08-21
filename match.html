@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="home.html">หน้าแรก <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
@@ -40,10 +40,19 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        ยินดีต้อนรับ คุณ &nbsp;
-                    </li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ยินดีต้อนรับ คุณ
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>&nbsp;
+
                     <li class="nav-item">
-                        <a href="#"><i class="fas fa-user"></i></a>
+                        <a href="login.html"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
             </div>
@@ -216,7 +225,8 @@
                         ท้ายคอร์ท 
                     </label>
                 </div>
-            </div><!-- 
+            </div>
+            <!-- 
             <div class="tab">
                 <h3>อาการบาดหรืออาการเมื่อยจากการเล่น (บริเวณแขน)</h3>
                 <div class="form-check">
@@ -352,11 +362,11 @@
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
             if (n == 1 && !validateForm()) return false;
-            if(parseInt($('input[name=age]:checked').val()) == 1){
+            if (parseInt($('input[name=age]:checked').val()) == 1) {
                 $('#condition').addClass('d-none')
                 if (currentTab == 2 && n > 0) n++;
                 if (currentTab == 4 && n < 0) n--;
-            }else{
+            } else {
                 $('#condition').removeClass('d-none')
             }
             // Hide the current tab:
@@ -379,10 +389,10 @@
 
         const calculate = () => {
             var weight = parseFloat($('#weight').val());
-            var height = parseFloat($('#height').val())/100;
+            var height = parseFloat($('#height').val()) / 100;
             var bmi = weight / (height * height);
 
-            if(bmi == NaN) bmi = 0;
+            if (bmi == NaN) bmi = 0;
 
             var exp = parseInt($('input[name=play]:checked').val());
             var f = parseInt($('input[name=f]:checked').val());
@@ -400,34 +410,34 @@
             var brand = parseInt($('input[name=brand]:checked').val());
 
             var price = parseInt($('input[name=money]:checked').val());
-            
+
 
             $.ajax({
                 method: "POST",
                 url: "service/product.php",
-                data: { 
+                data: {
                     action: 'calculate',
-                    bmi:bmi, 
+                    bmi: bmi,
                     exp: exp,
                     f: f,
                     sex,
-                    style:style,
-                    s:s,
-                    position_d:position_d,
-                    position:position,
-                    brand:brand,
-                    price:price
+                    style: style,
+                    s: s,
+                    position_d: position_d,
+                    position: position,
+                    brand: brand,
+                    price: price
                 }
-            }).done(function( msg ) {
+            }).done(function(msg) {
                 console.log(msg)
                 msg = JSON.parse(msg)
                 console.log(msg)
-                if(msg.code === 200){
-                     // window.location.href = "login.html";
-                     var res = msg.result;
-                     for(i = 0; i < res.length ; i++)
+                if (msg.code === 200) {
+                    // window.location.href = "login.html";
+                    var res = msg.result;
+                    for (i = 0; i < res.length; i++)
                         $('#result').append(Card(res[i]));
-                }else{
+                } else {
                     $('#result').append('<p>ไม่พบไม้แบตที่เหมาะกับคุณ</p>');
                 }
             });

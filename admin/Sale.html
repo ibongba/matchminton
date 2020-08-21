@@ -15,73 +15,38 @@
 <body>
 
     <div class="container">
-        <div class="top-nav" style=" height: 100px;">
-            <img src="../images/LOGO_MATCHMINTON.png" alt="" style="width: 35%;">
-            <img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="">
+        <div class="top-nav mb-4" style=" height: 100px;">
+            <img src="../images/LOGO_MATCHMINTON.png" alt="" style="width: 35%; margin:0 auto; display: block;">
         </div>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home.html">หน้าแรก <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ซื้อขาย</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ห้องชุมชน</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <i class="fas fa-shopping-cart"></i>
-                    </li>
-
-                    <li class="nav-item">
-                        &nbsp; ยินดีต้อนรับ คุณ &nbsp;
-                    </li>
-                    <li class="nav-item">
-                        <a href="#"><i class="fas fa-user"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         <div class="saleform">
-            <form>
+            <form method='post' enctype="multipart/form-data">
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">ชื่อสินค้าที่คุณต้องการขาย</label>
+                    <label for="name" class="col-sm-5 col-form-label">ชื่อสินค้าที่คุณต้องการขาย</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" id="name" placeholder="ชื่อสินค้า เช่น Astrox 99">
+                        <input type="text" class="form-control" id="product_name" placeholder="ชื่อสินค้า เช่น Astrox 99">
                         <p style="color: #707070;">ไม่ควรใส่อักชระพิเศษ เช่น ! * # > }</p>
                     </div>
                 </div>
                 <div class="form-group row">
 
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">เลือกหมวดหมู่สินค้า</label>
+                    <label for="type" class="col-sm-5 col-form-label">เลือกหมวดหมู่สินค้า</label>
                     <div class="col-sm-7">
-                        <select class="custom-select">
-                        <option selected>เลือกหมวดหมู่</option>
-                        <option value="1">ไม้แบดมินตัน</option>
-                        <option value="2">รองเท้า</option>
-                        <option value="3">เสื้อกีฬา</option>
-                        <option value="4">กางเกงกีฬา</option>
-                        <option value="5">กระเป๋า</option>
-                        <option value="6">เอ็นแบดมินตัน</option>
-                        <option value="7">กริ๊ปพันด้าม</option>
-                      </select>
+                        <select class="custom-select" id="type" onchange="changeType(this)">
+                            <option selected disabled="true">เลือกหมวดหมู่</option>
+                            <option value="1">ไม้แบดมินตัน</option>
+                            <option value="2">รองเท้า</option>
+                            <option value="3">เสื้อกีฬา</option>
+                            <option value="4">กางเกงกีฬา</option>
+                            <option value="5">กระเป๋า</option>
+                            <option value="6">เอ็นแบดมินตัน</option>
+                            <option value="7">กริ๊ปพันด้าม</option>
+                          </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">แบรนด์/ยี่ห้อ</label>
+                    <label for="brand_id" class="col-sm-5 col-form-label">แบรนด์/ยี่ห้อ</label>
                     <div class="col-sm-7">
-                        <select class="custom-select">
+                        <select class="custom-select" id="brand_id">
                             <option selected>เลือกแบรนด์/ยี่ห้อ</option>
                             <option value="1">Yonex</option>
                             <option value="2">Lining</option>
@@ -97,16 +62,15 @@
                           </select>
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="exampleFormControlFile1" class="col-sm-5 col-form-label">รูปสินค้า</label>
+                    <label for="files" class="col-sm-5 col-form-label">รูปสินค้า</label>
                     <div class="col-sm-7">
-                        <div class="wrapper" style="height: 150px">
+                        <div class="wrapper" style="height: 150px;">
                             <div class="drop">
                                 <div class="cont">
                                     <i class="fas fa-file-image py-3"></i>
                                 </div>
-                                <output id="list"></output><input id="files" multiple="true" name="files[]" type="file" />
+                                <output id="list"></output><input id="files" name="files[]" multiple="true" name="files[]" type="file" />
                             </div>
                         </div>
                         <p>ใส่รูปได้สูงสุด 6 รูป</p>
@@ -115,101 +79,93 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">ระบุราคา</label>
+                    <label for="price" class="col-sm-5 col-form-label">ระบุราคา</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" id="price" placeholder="ราคา เช่น 9999">
+                        <input type="number" class="form-control" id="price" placeholder="ราคา เช่น 9999">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">เบอร์โทรศัพท์ที่ติต่อได้</label>
+                    <label for="quantity" class="col-sm-5 col-form-label">จำนวนสินค้าที่มี</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" id="phone" placeholder="เช่น 08XXXXXXX">
+                        <input type="number" class="form-control" id="quantity" placeholder="จำนวน เช่น 10,100">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">รายละเอียดสินค้า</label>
+                    <label for="detail" class="col-sm-5 col-form-label">รายละเอียดสินค้า</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" id="Detail" placeholder="เช่น สภาพสินค้า สี อายุการใช้งาน ระยะประกัน">
+                        <input type="text" class="form-control" id="detail" placeholder="เช่น สภาพสินค้า สี อายุการใช้งาน ระยะประกัน">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">ข้อมูลสินค้าประเภท ไม้แบดมินตัน</label>
-                    <div class="col-sm-7">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                            <label class="form-check-label" for="gridRadios1">
-                            ไม่ใช่ไม้แบดมินตัน</label>
+                <div id="racket" class="d-none">
+                    <div class="form-group row">
+                        <label for="flex" class="col-sm-5 col-form-label">Flex</label>
+                        <div class="col-sm-7">
+                            <select class="custom-select" id="flex">
+                                    <option selected>เลือกความอ่อนของก้าน</option>
+                                    <option value="1">Extra Stiff</option>
+                                    <option value="2">Stiff</option>
+                                    <option value="3">Medium</option>
+                                    <option value="4">Flexible</option>
+                                    <option value="5">Hi Flexible</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Flex</label>
-                    <div class="col-sm-7">
-                        <select class="custom-select">
-                                <option selected>เลือกความอ่อนของก้าน</option>
-                                <option value="1">Extra Stiff</option>
-                                <option value="2">Stiff</option>
-                                <option value="3">Medium</option>
-                                <option value="4">Flexible</option>
-                                <option value="5">Hi Flexible</option>
-                        </select>
+                    <div class="form-group row">
+                        <label for="balance" class="col-sm-5 col-form-label">Balance</label>
+                        <div class="col-sm-7">
+                            <select class="custom-select" id="balance">
+                                <option selected>เลือกความสมดุลของไม้</option>
+                                <option value="1">Head Heavy</option>
+                                <option value="2">Even Balance</option>
+                                <option value="3">Head Light</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Balance</label>
-                    <div class="col-sm-7">
-                        <select class="custom-select">
-                            <option selected>เลือกความสมดุลของไม้</option>
-                            <option value="1">Head Heavy</option>
-                            <option value="2">Even Balance</option>
-                            <option value="3">Head Light</option>
-                        </select>
+                    <div class="form-group row">
+                        <label for="weight" class="col-sm-5 col-form-label">Weight</label>
+                        <div class="col-sm-7">
+                            <select class="custom-select" id="weight">
+                                <option selected> เลือกน้ำหนักไม้</option>
+                                <option value="1">3U (85.0-89.9 g)</option>
+                                <option value="2">4U (80.0-84.9 g)</option>
+                                <option value="3">5U (75.0-79.9 g)</option>
+                                <option value="4">6U (70.0-74.9 g)</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Weight</label>
-                    <div class="col-sm-7">
-                        <select class="custom-select">
-                            <option selected> เลือกน้ำหนักไม้</option>
-                            <option value="1">3U (85.0-89.9 g)</option>
-                            <option value="2">4U (80.0-84.9 g)</option>
-                            <option value="3">5U (75.0-79.9 g)</option>
-                            <option value="4">6U (70.0-74.9 g)</option>
-                        </select>
+                    <div class="form-group row">
+                        <label for="grip_size" class="col-sm-5 col-form-label">Grip Size</label>
+                        <div class="col-sm-7">
+                            <select class="custom-select" id="grip_size">
+                                <option selected> เลือกขนาดด้ามจับ</option>
+                                <option value="1">G3 (3.75 inches)</option>
+                                <option value="2">G4 (3.50 inches)</option>
+                                <option value="3">G5 (3.25 inches)</option>
+                                <option value="4">G6 (3.00 inches)</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Grip Size</label>
-                    <div class="col-sm-7">
-                        <select class="custom-select">
-                            <option selected> เลือกขนาดด้ามจับ</option>
-                            <option value="1">G3 (3.75 inches)</option>
-                            <option value="2">G4 (3.50 inches)</option>
-                            <option value="3">G5 (3.25 inches)</option>
-                            <option value="4">G6 (3.00 inches)</option>
-                        </select>
+                    <div class="form-group row">
+                        <label for="level" class="col-sm-5 col-form-label">Level</label>
+                        <div class="col-sm-7">
+                            <select class="custom-select" id="level">
+                                <option selected>เลือกความเหมาะสมกับผู้เล่น</option>
+                                <option value="1">Beginner to Intermediate</option>
+                                <option value="2">Intermediate to Advanced</option>
+                                <option value="3">Advanced/Professional</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Level</label>
-                    <div class="col-sm-7">
-                        <select class="custom-select">
-                            <option selected>เลือกความเหมาะสมกับผู้เล่น</option>
-                            <option value="1">Beginner to Intermediate</option>
-                            <option value="2">Intermediate to Advanced</option>
-                            <option value="3">Advanced/Professional</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Max Tension</label>
-                    <div class="col-sm-7">
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-5 col-form-label">ความตึงของเอ็นที่รองรับ &nbsp; ≤ </label>
-                            <div class="col-sm-5">
-                                <input type="email" class="form-control" id="Max-Tension">
+                    <div class="form-group row">
+                        <label for="tension" class="col-sm-5 col-form-label">Max Tension</label>
+                        <div class="col-sm-7">
+                            <div class="form-group row">
+                                <label for="tension" class="col-sm-5 col-form-label">ความตึงของเอ็นที่รองรับ &nbsp; ≤ </label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="tension">
+                                </div>
+                                <label for="tension" class="col-sm-2 col-form-label">   Ibs</label>
                             </div>
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">   Ibs</label>
                         </div>
                     </div>
                 </div>
@@ -218,7 +174,7 @@
                     คลิกปุ่ม "ลงขาย" เพื่อยอมรับข้อ <a href="">กำหนดและเงื่อนไข</a>
                 </div>
                 <div class="ok py-5" style="text-align: center; ">
-                    <button type="button" class="btn btn-warning" style="background-color: #FF8000;">ลงขาย</button>
+                    <button type="button" onclick="create(this);" class="btn btn-warning" style="background-color: #FF8000;">ลงขาย</button>
                 </div>
             </form>
         </div>
@@ -283,6 +239,58 @@
         }
 
         $('#files').change(handleFileSelect);
+
+        const changeType = (e) => {
+            if ($('#type option:selected').val() == 1) {
+                $('#racket').removeClass('d-none')
+            } else {
+                $('#racket').addClass('d-none')
+            }
+        }
+
+        const create = (e) => {
+            e.disabled = true;
+
+            var form_data = new FormData();
+            var totalfiles = document.getElementById('files').files.length;
+            for (var index = 0; index < totalfiles; index++) {
+                form_data.append("files[]", document.getElementById('files').files[index]);
+            }
+            form_data.append('action', 'create');
+            form_data.append('product_name', $('#name').val());
+            form_data.append('type', $('#type option:selected').val());
+            form_data.append('price', $('#price').val());
+            form_data.append('description', $('#detail').val());
+            form_data.append('quantity', $('#quantity').val());
+            form_data.append('brand_id', $('#brand_id option:selected').val());
+
+
+            if ($('#type option:selected').val() == 1) {
+                form_data.append('racket', 1);
+                form_data.append('grip_size', $('#grip_size option:selected').val());
+                form_data.append('balance', $('#balance option:selected').val());
+                form_data.append('tension', $('#tension').val());
+                form_data.append('weight', $('#weight option:selected').val());
+                form_data.append('level', $('#level option:selected').val());
+                form_data.append('flex', $('#flex option:selected').val());
+            }
+
+            $.ajax({
+                method: "POST",
+                url: "../service/product.php",
+                data: form_data,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    // window.location.href = "login.html";
+                }
+            });
+            e.disabled = false;
+        }
     </script>
 </body>
 
