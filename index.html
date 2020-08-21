@@ -19,7 +19,7 @@
             <img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="">
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,12 +38,27 @@
                         <a class="nav-link" href="#">ห้องชุมชน</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" id="not-login">
                     <li class="nav-item">
                         <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
                     </li>
                     <li class="nav-item">
                         <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav px-0" id="is-login">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -340,6 +355,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js "></script>
+
+    <script>
+
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if(user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        }
+        else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+        
+    </script>
 </body>
 
 </html>
