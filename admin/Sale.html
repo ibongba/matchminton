@@ -73,7 +73,7 @@
                                 <output id="list"></output><input id="files" name="files[]" multiple="true" name="files[]" type="file" />
                             </div>
                         </div>
-                        <p>ใส่รูปได้สูงสุด 6 รูป</p>
+                        <!-- <p>ใส่รูปได้สูงสุด 6 รูป</p> -->
 
                     </div>
                 </div>
@@ -257,7 +257,7 @@
                 form_data.append("files[]", document.getElementById('files').files[index]);
             }
             form_data.append('action', 'create');
-            form_data.append('product_name', $('#name').val());
+            form_data.append('product_name', $('#product_name').val());
             form_data.append('type', $('#type option:selected').val());
             form_data.append('price', $('#price').val());
             form_data.append('description', $('#detail').val());
