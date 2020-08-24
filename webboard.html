@@ -29,7 +29,7 @@
                         <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
+                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ซื้อขาย</a>
@@ -38,7 +38,7 @@
                         <a class="nav-link" href="#">ห้องชุมชน</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav px-0" id="is-login">
                     <li class="nav-item">
                         <button type="button" class="btn btn-info">ตั้งกระทู้</button>
                     </li>
@@ -46,18 +46,18 @@
                     <li class="nav-item">
                         &nbsp;<i class="fas fa-shopping-cart"></i>
                     </li>
-
                     <li class="nav-item">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ยินดีต้อนรับ คุณ
-                            </button>
+                                    ยินดีต้อนรับ คุณ
+                                </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                             </div>
                         </div>
-                    </li>&nbsp;
+                    </li>
+
                     <li class="nav-item">
                         <a href="login.html"><i class="fas fa-user"></i></a>
                     </li>
@@ -69,6 +69,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+    </script>
 </body>
 
 </html>

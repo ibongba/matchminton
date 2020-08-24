@@ -29,7 +29,7 @@
                         <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ไม้กับผู้เล่น</a>
+                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ซื้อขาย</a>
@@ -46,8 +46,6 @@
                         <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
                     </li>
                 </ul>
-
-
                 <ul class="navbar-nav px-0" id="is-login">
                     <li class="nav-item">
                         <div class="dropdown">
@@ -357,14 +355,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js "></script>
 
     <script>
-
         var user = JSON.parse(localStorage.getItem('user'));
         console.log(user)
-        if(user != null) {
+        if (user != null) {
             $('#not-login').addClass('d-none')
             $('#is-login').removeClass('d-none')
-        }
-        else {
+        } else {
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
         }
@@ -374,7 +370,6 @@
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
         }
-        
     </script>
 </body>
 
