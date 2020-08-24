@@ -161,6 +161,28 @@ button:hover {
 }
 
 
+p.line {
+    color: #e1e1e1;
+    background: #fff;
+    position: relative;
+}
+
+p.line:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 2px solid #e1e1e1;
+    width: 100%;
+    top: calc(50% - 1px);
+}
+
+p.line span{
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding-right: .5rem;
+}
+
 /* Make circles that indicate the steps of the form: */
 
 .step {
