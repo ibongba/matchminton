@@ -32,39 +32,30 @@
                         <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ซื้อขาย</a>
+                        <a class="nav-link" href="buySale.html">ซื้อขาย</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ห้องชุมชน</a>
+                        <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav px-0" id="is-login">
-<<<<<<< HEAD
                     <li class="nav-item">
-                        <i class="fas fa-shopping-cart"></i>
+                        &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
                     </li>
-=======
->>>>>>> 28791dee3a4bacf5181eb81e6e7ca1726ce40f0a
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    ยินดีต้อนรับ คุณ
-                                </button>
+                            <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </p>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<<<<<<< HEAD
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
                                 <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                             </div>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a href="login.html"><i class="fas fa-user"></i></a>
-=======
-                                <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
-                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
-                            </div>
-                        </div>
->>>>>>> 28791dee3a4bacf5181eb81e6e7ca1726ce40f0a
                     </li>
                 </ul>
             </div>
@@ -182,7 +173,7 @@
             localStorage.removeItem('user')
             window.location.href = "login.html";
         }
-        
+
 
         const edit = (e) => {
             $.ajax({
