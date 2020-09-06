@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ORDER</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-nav" style=" height: 100px;">
+            <img src="images/LOGO_MATCHMINTON.png" alt="" style="width: 35%;">
+            <img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="">
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buySale.html">ซื้อขาย</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav px-0" id="is-login">
+                    <li class="nav-item">
+                        <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
+                    </li>
+
+                    <li class="nav-item">
+                        &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </p>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row my-3">
+            <div class="col">
+                <div style="width: auto; height: 300px; background-color: #888888;"></div>
+
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-8 border p-3">
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <img src="images/AX99YX-SSHIO-A1.png" class="w-100 col-3 float-left" alt="">
+                            <h6>ASTROX 99</h6>
+                            <p>Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                            <p class="float-left" style="color: #FF8000;">฿139.00</p>
+                            <div class="input-group col-4 my-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
+                                </div>
+                                <input type="text" class="form-control text-center" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <img src="images/AX99YX-SSHIO-I.png" class="w-100 col-3 float-left" alt="">
+                            <h6>ASTROX 99</h6>
+                            <p>Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                            <p class="float-left" style="color: #FF8000;">฿139.00</p>
+                            <div class="input-group col-4 my-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
+                                </div>
+                                <input type="text" class="form-control text-center" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 border p-3 ">
+                        <p><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร 31/4 </p>
+                        <p>สรุปรายการสั่งซื้อ</p>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>ยอดรวมจำนวน 2 ชิ้น</th>
+                                    <td>฿0.00</td>
+                                </tr>
+                                <tr>
+                                    <th>ค่าจัดส่ง</th>
+                                    <td>฿0.00</td>
+                                </tr>
+                                <tr>
+                                    <th>ค่าธรรมเนียม</th>
+                                    <td>฿15.00</td>
+                                </tr>
+                                <tr>
+                                    <th>ยอดรวมทั้งสิ้น</th>
+                                    <td>฿15.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-warning w-100" style="background-color: #FF8000;">ดำเนินการชำระเงิน</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div style="width: auto; height: 300px; background-color: #888888;"></div>
+            </div>
+        </div>
+        <div class="col-12 pt-5">
+            <h2 style="line-height: 0.8;margin-bottom: 0;">สินค้าแนะนำ</h2>
+            <p class="line"><span>MATCHMINTON</span></p>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">ASTROX 99
+                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                        </h5>
+                        <p>฿7,790.00</p>
+                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ใส่ในรถเข็น</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">ASTROX 99
+                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                        </h5>
+                        <p>฿7,790.00</p>
+                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">ASTROX 99
+                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                        </h5>
+                        <p>฿7,790.00</p>
+                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container -->
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+    </script>
+</body>
+
+</html>
