@@ -1,10 +1,10 @@
 body {
     background-color: #fff;
-    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    font-family: 'Prompt', sans-serif;
 }
 
 h1 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Prompt', sans-serif;
     letter-spacing: 24px;
     /* padding-left: 24px; */
 }
@@ -104,7 +104,7 @@ form {
 #regForm {
     margin: 100px auto;
     box-shadow: 5px 5px 5px 5px #888888;
-    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    font-family: 'Prompt', sans-serif;
     padding: 40px;
     width: 70%;
     min-width: 300px;
@@ -118,7 +118,7 @@ input {
     padding: 10px;
     /* width: 100%; */
     font-size: 17px;
-    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    font-family: 'Prompt', sans-serif;
     border: 1px solid #aaaaaa;
 }
 
@@ -148,7 +148,7 @@ button {
     border: none;
     padding: 10px 20px;
     font-size: 17px;
-    font-family: 'Source Sans Pro', 'Prompt', sans-serif;
+    font-family: 'Prompt', sans-serif;
     cursor: pointer;
 }
 
@@ -159,7 +159,6 @@ button:hover {
 #prevBtn {
     background-color: #bbbbbb;
 }
-
 
 p.line {
     color: #e1e1e1;
@@ -176,12 +175,13 @@ p.line:after {
     top: calc(50% - 1px);
 }
 
-p.line span{
+p.line span {
     background: #fff;
     position: relative;
     z-index: 1;
     padding-right: .5rem;
 }
+
 
 /* Make circles that indicate the steps of the form: */
 
@@ -318,7 +318,7 @@ footer {
     color: #fff;
 }
 
-.card{
+.card {
     margin: 1rem 0;
 }
 
@@ -336,7 +336,7 @@ footer {
 
 body,
 html {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 100%;
     font-weight: 400;
     background: white;

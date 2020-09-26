@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-    <title>create theme</title>
+    <title>MyTheme</title>
 </head>
 
 <body>
@@ -124,60 +124,59 @@
 
             </div>
             <div class="col-9">
-                <form class="mx-0 p-0">
-                    <div class="form-group">
-                        <input type="text" class="form-control p-0" id="header" aria-describedby="header" placeholder="หัวข้อเรื่อง">
-                        <small id="header" class="form-text text-muted"> * พิมได้ไม่เกิน 120 ตัวอักษร (0/120)</small>
+                <h3>กระทู้ของคุณ</h3>
+                <div class="card my-0">
+                    <div class="card-body">
+                        <span class="float-left"><h5 class="card-title">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</h5></span>
+                        <span class="float-right"><p>18 ส.ค. 2563</p></span>
+                        <br><br>
+                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
+                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
                     </div>
-                </form>
-                <div id="summernote"></div>
-                <script>
-                    $('#summernote').summernote({
-                        placeholder: 'เขียนกระทู้',
-                        tabsize: 2,
-                        height: 400,
-                        toolbar: [
-                            ['style', ['style']],
-                            ['font', ['bold', 'underline', 'clear']],
-                            ['color', ['color']],
-                            ['para', ['ul', 'ol', 'paragraph']],
-                            ['table', ['table']],
-                            ['insert', ['link', 'picture', 'video']],
-                            ['view', ['fullscreen', 'codeview', 'help']]
-                        ]
-                    });
-                </script>
-                <small id="header" class="form-text text-muted"> * พิมได้ไม่เกิน 10,000 ตัวอักษร (0/10,000)</small>
-                <div class="row justify-content-md-center my-5"> <button type="button" class="btn btn-info">ตั้งกระทู้</button></div>
-            </div><br>
-
+                </div>
+                <div class="card  my-0">
+                    <div class="card-body">
+                        <img src="images/real.png" alt="" class="float-left mx-2"><span class="float-left mx-2 pt-3"><h5 class="card-title">ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ</h5></span>
+                        <span class="float-right pt-3"><p>18 ส.ค. 2563</p></span>
+                        <br><br><br>
+                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
+                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
+                    </div>
+                </div>
+                <div class="card my-0">
+                    <div class="card-body">
+                        <span class="float-left"><h5 class="card-title">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</h5></span>
+                        <span class="float-right"><p>18 ส.ค. 2563</p></span>
+                        <br><br>
+                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
+                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- container -->
 
 
-    </div>
-    <!-- container -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            console.log(user)
+            if (user != null) {
+                $('#not-login').addClass('d-none')
+                $('#is-login').removeClass('d-none')
+            } else {
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        var user = JSON.parse(localStorage.getItem('user'));
-        console.log(user)
-        if (user != null) {
-            $('#not-login').addClass('d-none')
-            $('#is-login').removeClass('d-none')
-        } else {
-            $('#not-login').removeClass('d-none')
-            $('#is-login').addClass('d-none')
-        }
-
-        logout = () => {
-            localStorage.removeItem('user')
-            $('#not-login').removeClass('d-none')
-            $('#is-login').addClass('d-none')
-        }
-    </script>
+            logout = () => {
+                localStorage.removeItem('user')
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
+        </script>
 </body>
 
 </html>

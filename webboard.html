@@ -17,11 +17,16 @@
 
 <body>
     <div class="container">
-        <div class="top w-100-nav" style=" height: 100px;">50 h-25 <img src="images/LOGO_MATCHMINTON.png" alt="" style="width: 35%;">
-            <img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="">
+        <div class="top w-100-nav">
+            <div class="row">
+                <div class="col"><img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100%;"></div>
+                <div class="col pt-5"><img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="" style="width: 100%;">
+                </div>
+                <div class="col"></div>
+            </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,11 +45,18 @@
                         <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav" id="not-login">
+                    <li class="nav-item mx-3">
+                        <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav px-0" id="is-login">
                     <li class="nav-item">
                         <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
                     </li>
-
                     <li class="nav-item">
                         &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
                     </li>
@@ -54,7 +66,7 @@
                                 ยินดีต้อนรับ คุณ
                             </p>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
                                 <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                             </div>
                         </div>
@@ -66,7 +78,7 @@
 
     <div style="background-color: #0CB3AC; width: 100%; height: 38px;">
         <div class="container">
-            <div class="col-md-3 float-left"><i class="fas fa-chalkboard"></i> หน้าแรก</div>
+            <div class="col-md-3 float-left p-2"><i class="fas fa-chalkboard"></i> หน้าแรก</div>
             <div class="input-group col-md-4 mb-3 float-right">
                 <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <div class="input-group-append">
@@ -110,7 +122,7 @@
         </div>
 
         <div class="card">
-            <h5 class="card-header" style="background-color: #0CB3AC;">Highline</h5>
+            <h3 class="card-header p-3" style="background-color: #0CB3AC; color: #34495E;"><b>Highline</b></h3>
             <div class="card-body" style="border: solid 1px #0CB3AC;">
                 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -188,27 +200,49 @@
         </div>
 
         <div class="card">
-            <h5 class="card-header" style="background-color: #0CB3AC;">Realtime
-                <p style="font-size: small; color: #fff;">กระทู้ที่มีคนเปิดอ่านมากในขณะนี้ อัปเดตตลอดเวลา</p>
-            </h5>
+            <h3 class="card-header p-3" style="background-color: #0CB3AC; color: #34495E;"><b>Realtime</b>
+                <p class="m-0" style="font-size: small; color: #fff;">กระทู้ที่มีคนเปิดอ่านมากในขณะนี้ อัปเดตตลอดเวลา</p>
+            </h3>
             <div class="card-body" style="border: solid 1px #0CB3AC;">
                 <div class="row">
-                    <div class="col" style="border: 1px solid #0CB3AC;">
+                    <div class="col" style="border-right: 1px solid #0CB3AC; border-bottom:1px solid #0CB3AC;">
                         <img src="images/image.png" alt="" class="w-25 m-2 float-left">
                         <p class="p-3">รีวิวไม้แบดมินตัน Yonex Nanoflare 700 Limited ราคา 5,025ของพร้อมส่ง</p>
                     </div>
-                    <div class="col" style="border: 1px solid #0CB3AC;">
+                    <div class="col" style="border-bottom:1px solid #0CB3AC;">
                         <img src="images/badminton-court.svg" alt="" class="w-25 m-2 float-left">
                         <p class="p-3">สนามแบดมินตัน BKK เปิดใหม่ย่านหนองแขม พื้นสนาม ไม้ปาเก้ Gosen มีก๊วนประจำมาแจมได้
                         </p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" style="border: 1px solid #0CB3AC;">
+                    <div class="col" style="border-right: 1px solid #0CB3AC; border-bottom:1px solid #0CB3AC;">
                         <img src="images/racket.svg" alt="" class="w-25 m-2 float-left">
                         <p class="p-3">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</p>
                     </div>
-                    <div class="col" style="border: 1px solid #0CB3AC;">
+                    <div class="col" style=" border-bottom:1px solid #0CB3AC;">
+                        <img src="images/real.png" alt="" class="w-25 m-2 float-left">
+                        <p class="p-3">ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="border-right: 1px solid #0CB3AC; border-bottom:1px solid #0CB3AC;">
+                        <img src="images/image.png" alt="" class="w-25 m-2 float-left">
+                        <p class="p-3">รีวิวไม้แบดมินตัน Yonex Nanoflare 700 Limited ราคา 5,025ของพร้อมส่ง</p>
+                    </div>
+                    <div class="col" style="border-bottom:1px solid #0CB3AC;">
+                        <img src="images/badminton-court.svg" alt="" class="w-25 m-2 float-left">
+                        <p class="p-3">สนามแบดมินตัน BKK เปิดใหม่ย่านหนองแขม พื้นสนาม ไม้ปาเก้ Gosen มีก๊วนประจำมาแจมได้
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="border-right: 1px solid #0CB3AC;">
+                        <img src="images/racket.svg" alt="" class="w-25 m-2 float-left">
+                        <p class="p-3">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</p>
+                    </div>
+                    <div class="col">
                         <img src="images/real.png" alt="" class="w-25 m-2 float-left">
                         <p class="p-3">ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ
                         </p>
@@ -226,11 +260,11 @@
         <div class="row">
             <div class="col-8">
                 <div class="card">
-                    <h5 class="card-header" style="background-color: #0CB3AC;">Matchminton Pick
-                        <p style="font-size: small; color: #fff;">กระทู้คุณภาพคัดเลือกโดยทีมงาน</p>
-                    </h5>
+                    <h3 class="card-header p-3" style="background-color: #0CB3AC; color: #34495E;"><b>Matchminton Pick</b>
+                        <p class="m-0" style="font-size: small; color: #fff;">กระทู้คุณภาพคัดเลือกโดยทีมงาน</p>
+                    </h3>
                     <div class="card-body" style="border: solid 1px #0CB3AC;">
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/badminton-court.svg" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>สนามแบดมินตัน BKK เปิดใหม่ย่านหนองแขม พื้นสนาม ไม้ปาเก้ Gosen มีก๊วนประจำมาแจมได้
@@ -239,7 +273,7 @@
                                 <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 23</p>
                             </div>
                         </div>
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/racket.svg" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ
@@ -248,10 +282,28 @@
                                 <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
                             </div>
                         </div>
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/real.png" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ
+                                </p>
+                                <p class="text-muted float-left">สมาชิกหมายเลข 1111 23 ชั่วโมง</p>
+                                <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
+                            </div>
+                        </div>
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
+                            <img src="images/badminton-court.svg" class="mr-3" alt="...">
+                            <div class="media-body p-3">
+                                <p>สนามแบดมินตัน BKK เปิดใหม่ย่านหนองแขม พื้นสนาม ไม้ปาเก้ Gosen มีก๊วนประจำมาแจมได้
+                                </p>
+                                <p class="text-muted float-left">สมาชิกหมายเลข 1111 23 ชั่วโมง</p>
+                                <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 23</p>
+                            </div>
+                        </div>
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
+                            <img src="images/racket.svg" class="mr-3" alt="...">
+                            <div class="media-body p-3">
+                                <p>รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ
                                 </p>
                                 <p class="text-muted float-left">สมาชิกหมายเลข 1111 23 ชั่วโมง</p>
                                 <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
@@ -262,11 +314,11 @@
                 </div>
 
                 <div class="card">
-                    <h5 class="card-header" style="background-color: #0CB3AC;">กระทู้ล่าสุด
-                        <p style="font-size: small; color: #fff;">กกระทู้ที่มีคนเปิดอ่านมากในขณะนี้ อัปเดตตลอดเวลา</p>
-                    </h5>
+                    <h3 class="card-header p-3" style="background-color: #0CB3AC; color: #34493E;"><b>กระทู้ล่าสุด</b>
+                        <p class="m-0" style="font-size: small; color: #fff;">กระทู้ที่มีคนเปิดอ่านมากในขณะนี้ อัปเดตตลอดเวลา</p>
+                    </h3>
                     <div class="card-body" style="border: solid 1px #0CB3AC;">
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/badminton-court.svg" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>สนามแบดมินตัน BKK เปิดใหม่ย่านหนองแขม พื้นสนาม ไม้ปาเก้ Gosen มีก๊วนประจำมาแจมได้
@@ -275,7 +327,7 @@
                                 <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 23</p>
                             </div>
                         </div>
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/racket.svg" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ
@@ -284,7 +336,25 @@
                                 <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
                             </div>
                         </div>
-                        <div class="media position-relative p-2" style="border: solid 1px #0CB3AC;">
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
+                            <img src="images/real.png" class="mr-3" alt="...">
+                            <div class="media-body p-3">
+                                <p>ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ
+                                </p>
+                                <p class="text-muted float-left">สมาชิกหมายเลข 1111 23 ชั่วโมง</p>
+                                <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
+                            </div>
+                        </div>
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
+                            <img src="images/racket.svg" class="mr-3" alt="...">
+                            <div class="media-body p-3">
+                                <p>รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ
+                                </p>
+                                <p class="text-muted float-left">สมาชิกหมายเลข 1111 23 ชั่วโมง</p>
+                                <p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p>
+                            </div>
+                        </div>
+                        <div class="media position-relative p-2" style="border-bottom: solid 1px #0CB3AC;">
                             <img src="images/real.png" class="mr-3" alt="...">
                             <div class="media-body p-3">
                                 <p>ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ
@@ -302,19 +372,19 @@
                     <h5 class="card-header" style="background-color: #0CB3AC;color: #fff;">สินค้าแนะนำ</h5>
                     <div class="card-body" style="border: solid 1px #0CB3AC;">
                         <div class="row justify-content-md-center">
-                            <a href="" style="width: 120px;height: 120px;margin: 10px;">
+                            <a href="" style="width: 120px;height: 120px;margin: 15px;">
                                 <img src="images/2018110219134029889.png" alt="" width="100%">
                                 <p class="text-center text-dark">THURSTER K HMR LIGHT H</p>
                             </a>
-                            <a href="" style="width: 120px;height: 120px;margin: 10px;">
+                            <a href="" style="width: 120px;height: 120px;margin: 15px;">
                                 <img src="images/VT01DGEX-BL-A.png" alt="" width="100%">
                                 <p class="text-center text-dark">VOLTRIC 0.1 DG</p>
                             </a>
-                            <a href="" style="width: 120px;height: 120px;margin: 10px;">
-                                <img src="images/AX99YX-SSHIO-A1.png" alt="" width="100%">
+                            <a href="" style="width: 120px;height: 120px;margin: 15px;">
+                                <img src="images/AX99 full.png" alt="" width="100%">
                                 <p class="text-center text-dark">ASTROX 99</p>
                             </a>
-                            <a href="" style="width: 120px;height: 120px;margin: 10px;">
+                            <a href="" style="width: 120px;height: 120px;margin: 15px;">
                                 <img src="images/duora-55.png" alt="" width="100%">
                                 <p class="text-center text-dark">DUORA 55</p>
                             </a>
@@ -340,21 +410,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        // var user = JSON.parse(localStorage.getItem('user'));
-        // console.log(user)
-        // if (user != null) {
-        //     $('#not-login').addClass('d-none')
-        //     $('#is-login').removeClass('d-none')
-        // } else {
-        //     $('#not-login').removeClass('d-none')
-        //     $('#is-login').addClass('d-none')
-        // }
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
 
-        // logout = () => {
-        //     localStorage.removeItem('user')
-        //     $('#not-login').removeClass('d-none')
-        //     $('#is-login').addClass('d-none')
-        // }
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
     </script>
 </body>
 
