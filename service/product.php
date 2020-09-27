@@ -146,7 +146,7 @@
         }
 
         $rs = getpdo($conn,$sql);
-        if($rs){
+        if(gettype($rs) == 'array'){
             $res = array("code" => 200, "result" => $rs);
             echo json_encode($res);
             return ;
