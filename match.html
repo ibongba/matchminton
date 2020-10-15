@@ -399,7 +399,7 @@
             var height = parseFloat($('#height').val()) / 100;
             var bmi = weight / (height * height);
 
-            if (bmi == NaN) bmi = 0;
+            if (bmi) bmi = 0;
 
             var exp = parseInt($('input[name=play]:checked').val());
             var f = parseInt($('input[name=f]:checked').val());
@@ -440,64 +440,66 @@
                     // listRacket listWeight listBalance
                     //
 
-                    let racket, weight, balance;
+                    let racket = 0,
+                        weight = 0,
+                        balance = 0;
 
                     if ((exp == 1 || exp == 2) && f == 1) {
                         if (sex == 1) {
                             if (bmi == 0) {
-                                weight = 0;
-                            } else if (bmi < 19) {
                                 weight = 1;
-                            } else if (bmi >= 19) {
+                            } else if (bmi < 19) {
                                 weight = 0;
+                            } else if (bmi >= 19) {
+                                weight = 1;
                             }
                         } else {
-                            if ($bmi == 0) {
-                                weight = 0;
-                            } else if (Bmi < 18) {
+                            if (bmi == 0) {
                                 weight = 1;
-                            } else if (bmi >= 18) {
+                            } else if (bmi < 18) {
                                 weight = 0;
+                            } else if (bmi >= 18) {
+                                weight = 1;
                             }
                         }
 
                         if ((style == 1 && (s == 1 || s == 2)) || (style == 2 && s == 1)) {
                             racket = 1;
                         } else {
-                            racket = 2;
+                            racket = 0;
                         }
                     } else {
                         if (sex == 1) {
                             if (bmi == 0) {
-                                weight = 0;
-                            } else if (bmi < 19) {
                                 weight = 1;
-                            } else if (bmi >= 19) {
+                            } else if (bmi < 19) {
                                 weight = 0;
+                            } else if (bmi >= 19) {
+                                weight = 1;
                             }
                         } else {
                             if (bmi == 0) {
-                                weight = 2;
-                            } else if (bmi < 18) {
                                 weight = 1;
+                            } else if (bmi < 18) {
+                                weight = 0;
                             } else if (bmi >= 18) {
-                                weight = 3;
+                                weight = 2;
                             }
                         }
 
                         if ((style == 1 && (s == 1 || s == 2)) || (style == 2 && (s == 1 || s == 2)) || (style == 3 && s == 3)) {
-                            racket = 2;
+                            racket = 0;
                         } else if (style == 1 && s == 3) {
                             racket = 1;
                         } else {
-                            racket = 0;
+                            racket = 2;
                         }
                     }
 
                     if ((position_d == 2 || position_d == 3) && position == 3) {
-                        balance = 0;
-                    } else if (position == 1) {
                         balance = 2;
+                    } else if (position == 1) {
+                        balance = 0;
                     } else {
                         balance = 1;
                     }
