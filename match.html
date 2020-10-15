@@ -550,9 +550,10 @@
 							balance = 1;
 						}
 
-						$('#cal').append(verifyCol('racket', listRacket[racket]));
-						$('#cal').append(verifyCol('weight', listWeight[weight]));
-						$('#cal').append(verifyCol('balance', listBalance[balance]));
+						$('#cal').append(verifyCol('racket ' + listRacket[racket].name, listRacket[racket].detail));
+						$('#cal').append(verifyCol('weight ' + listWeight[weight].name, listWeight[weight].detail));
+						$('#cal').append(verifyCol('balance ' + listBalance[balance].name, listBalance[balance].detail));
+
 						$('#cal').append(verifyCol('ผลการวิเคราะห์', 'test'));
 
 						var res = msg.result;
