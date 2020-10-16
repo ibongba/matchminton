@@ -399,7 +399,7 @@
             var height = parseFloat($('#height').val()) / 100;
             var bmi = weight / (height * height);
 
-            if (bmi) bmi = 0;
+            if (!bmi) bmi = 0;
 
             var exp = parseInt($('input[name=play]:checked').val());
             var f = parseInt($('input[name=f]:checked').val());
