@@ -11,8 +11,86 @@
     <link rel="stylesheet" href="css/style.css">
     <title>HOME</title>
 </head>
+<style>
+    .slider {
+        background: #333;
+        height: 400px;
+        width: 100%;
+    }
+    
+    #logo {
+        background-image: url("images/LOGO_MATCHMINTON.png");
+        width: 150px;
+        height: 70px;
+    }
+    
+    .navbar-toggler {
+        margin-top: 15px;
+    }
+</style>
 
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-left">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto" href="#">
+            <div id="logo"></div>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile -->
+        <!-- <div class="collapse" id="navbarMobile">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Link</a>
+                </li>
+            </ul>
+        </div> -->
+    </nav>
     <div class="container">
         <div class="top w-100-nav">
             <div class="row">
@@ -119,9 +197,9 @@
                 <p class="line"><span>MATCHMINTON</span></p>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-lg-8">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="card">
                                 <img src="images/news1.PNG" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -133,7 +211,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="card">
                                 <img src="images/news2.PNG" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -145,14 +223,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="images/news3.PNG" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">CHEN Yu Fei ชนะ TAI Tzu Ying คว้าแชมป์ World Tour Finals 2019 พร้อมขึ้นเป็นมือหนึ่งโลก</h5>
-                            <p class="card-text">ในที่สุด การแข่งขัน HSBC BWF World Tour Finals 2019 ที่จะแข่งขันที่เมือง Guangzhou ประเทศจีน ก็จบลงด้วยความสำเร็จ ของนักกีฬาจากจีน ที่สามารถคว้าแชมป์ได้ทั้ง 3 ประเภทที่ชิงชนะเลิศ ขณะที่ญี่ปุ่นได้แชมป์เดียวจาก Kento MOMOTA</p>
-                            <button type="button" class="btn btn-secondary">31 ก.ค. 2563</button>
-                            <a href="#" class="btn btn-primary">อ่านต่อ</a>
+                        <div class="col">
+                            <div class="card">
+                                <img src="images/news3.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CHEN Yu Fei ชนะ TAI Tzu Ying คว้าแชมป์ World Tour Finals 2019 พร้อมขึ้นเป็นมือหนึ่งโลก</h5>
+                                    <p class="card-text">ในที่สุด การแข่งขัน HSBC BWF World Tour Finals 2019 ที่จะแข่งขันที่เมือง Guangzhou ประเทศจีน ก็จบลงด้วยความสำเร็จ ของนักกีฬาจากจีน ที่สามารถคว้าแชมป์ได้ทั้ง 3 ประเภทที่ชิงชนะเลิศ ขณะที่ญี่ปุ่นได้แชมป์เดียวจาก Kento
+                                        MOMOTA
+                                    </p>
+                                    <button type="button" class="btn btn-secondary">31 ก.ค. 2563</button>
+                                    <a href="#" class="btn btn-primary">อ่านต่อ</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="all my-5">
@@ -161,8 +243,7 @@
                         <p style="width:40%; border:1px #000 solid; float: right; "></p>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="ad" style="width: auto;height: 150px; background-color: #eee;"></div>
+                <div class="col-lg-4">
                     <div class="topPlayer">
                         <div class="topHead my-5">
                             <h3><strong>TOP PLAYER</strong></h3>
@@ -339,6 +420,12 @@
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="" style="height:50px; background-color: aqua; width: 60px;"></div>
+            <div class="col" style="height:50px; background-color: green;"></div>
+        </div>
+    </div> -->
     <footer>
         <div class=" container ">
             <div class="foot-text py-5 ">

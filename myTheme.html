@@ -123,35 +123,9 @@
 
 
             </div>
-            <div class="col-9">
+            <div class="col-9" id="card">
                 <h3>กระทู้ของคุณ</h3>
-                <div class="card my-0">
-                    <div class="card-body">
-                        <span class="float-left"><h5 class="card-title">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</h5></span>
-                        <span class="float-right"><p>18 ส.ค. 2563</p></span>
-                        <br><br>
-                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
-                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
-                    </div>
-                </div>
-                <div class="card  my-0">
-                    <div class="card-body">
-                        <img src="images/real.png" alt="" class="float-left mx-2"><span class="float-left mx-2 pt-3"><h5 class="card-title">ใครเคยข้อเท้าพลิกบ้าง ทำไงให้หายไว้ๆ</h5></span>
-                        <span class="float-right pt-3"><p>18 ส.ค. 2563</p></span>
-                        <br><br><br>
-                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
-                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
-                    </div>
-                </div>
-                <div class="card my-0">
-                    <div class="card-body">
-                        <span class="float-left"><h5 class="card-title">รีวิวไม้แบดท๊อป 10 ประจำปี 2563 บอกเลยมีแต่เด็ดๆ</h5></span>
-                        <span class="float-right"><p>18 ส.ค. 2563</p></span>
-                        <br><br>
-                        <span class="float-left"><a href="webbroadEdit.html" class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><p class="card-title">ลบ</p></span>
-                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 12</p></span>
-                    </div>
-                </div>
+
             </div>
         </div>
         <!-- container -->
@@ -175,6 +149,43 @@
                 localStorage.removeItem('user')
                 $('#not-login').removeClass('d-none')
                 $('#is-login').addClass('d-none')
+            }
+            $().ready(() => {
+                $.ajax({
+                    method: "POST",
+                    url: "service/themes.php",
+                    data: {
+                        action: 'get_theme_with_id',
+                        user_id: user.user_id
+                    },
+                }).done(function(msg) {
+                    console.log(msg)
+                    msg = JSON.parse(msg)
+                    if (msg.code === 200) {
+                        msg.result.map((item) => {
+                            $("#card").append(card(item));
+                            return;
+                        })
+                    }
+                });
+            })
+            card = (item) => {
+                const date = new Date(item.create_at)
+                const result = date.toLocaleDateString('th-TH', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                })
+                return `
+                <div class="card my-0">
+                    <div class="card-body">
+                        <span class="float-left"><h5 class="card-title">${item.title}</h5></span>
+                        <span class="float-right"><p>${result}</p></span>
+                        <br><br>
+                        <span class="float-left"><a href="webbroadEdit.html?id=${item.theme_id}"  class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3" onclick="delete()"><p class="card-title">ลบ</p></span>
+                        <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 0</p></span>
+                    </div>
+                </div>`
             }
         </script>
 </body>

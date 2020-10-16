@@ -434,3 +434,52 @@ button:focus {
 
 
 /* ////// */
+
+.theme-card {
+    border-top: 1px solid #0CB3AC;
+}
+
+.theme-card:nth-child(odd) {
+    border-right: 1px solid #0CB3AC;
+}
+
+.theme-card:nth-child(1),
+.theme-card:nth-child(2) {
+    border-top: none;
+}
+
+.theme-card .theme-body {
+    flex-direction: column;
+}
+
+.theme-card .theme-body .d-flex {
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #e1e1e1;
+    font-size: 0.875rem;
+}
+
+.media {
+    border-top: 1px solid #0CB3AC;
+}
+
+.media:nth-child(1) {
+    border-top: none;
+}
+
+.text-bottom {
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #e1e1e1;
+    font-size: 0.875rem;
+}
+
+.media .media-body .d-flex {
+    flex-direction: column;
+}
+
+.media .media-body .media-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
