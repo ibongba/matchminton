@@ -20,7 +20,7 @@
             return ;
         }
     }else if (isset($_POST['action']) && $_POST['action'] == 'get_theme'){
-        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id` FROM `theme`";
+        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id`,`ref_theme` FROM `theme` WHERE `ref_theme` IS NULL";
         if (isset($_POST['order_by'])) {
            $sql .= " ORDER BY ".$_POST['order_by']." DESC";
         }
@@ -76,6 +76,35 @@
         $rs = getpdo($conn,$sql);
         if(isset($rs)){
         	$res = array("code" => 200, "result" => $rs[0]);
+        	echo json_encode($res);
+            return ;
+        }
+    }else if(isset($_POST['action']) && $_POST['action'] == 'create_comment'){
+    	
+        $sql = "INSERT INTO `theme`( `content`,`fk_user_id`, `ref_theme`) VALUES ('".$_POST['summernote']."','".$_POST['user_id']."','".$_POST['ref_theme']."')";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs[0]);
+        	echo json_encode($res);
+            return ;
+        }
+    }else if(isset($_POST['action']) && $_POST['action'] == 'get_comment'){
+    	
+        $sql = "INSERT INTO `theme`( `content`,`fk_user_id`, `ref_theme`) VALUES ('".$_POST['summernote']."','".$_POST['user_id']."','".$_POST['ref_theme']."')";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs[0]);
+        	echo json_encode($res);
+            return ;
+        }
+    }else if(isset($_POST['action']) && $_POST['action'] == 'get_comment_with_id'){
+        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id`, `ref_theme` FROM `theme` WHERE `ref_theme`='".$_POST['theme_id']."'";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs);
         	echo json_encode($res);
             return ;
         }

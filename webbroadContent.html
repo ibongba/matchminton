@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 
 
@@ -93,53 +91,16 @@
     </div>
 
     <div class="container">
-        <div class="card">
-            <h5 class="card-header" style="background-color: #34495E; color: #0CB3AC;">ชื่อหัวข้อเรื่องกระทู้------------------------------------------------------------------------</h5>
-            <div class="card-body" style="background-color: #34495E; color: #fff;">
-                <p>หมวดหมู่ ชื่อห้อง</p>
-                <div class="text-center">
-                    <img src="images/knowledge.png" alt="" class="w-50">
-                </div>
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text p-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,<br> consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et <br> justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit
-                </p>
-                <div class="media position-relative col-md-4 pl-5 float-left">
-                    <img src="images/news1.PNG" class="mr-3 w-25" alt="...">
-                    <div class="media-body">
-                        <p class="m-0">สมาชิกหมายเลข 99999</p>
-                        <p>30 สิงหาคม เวลา 00:00 น.</p>
-                    </div>
-                </div>
-                <a href="" class="float-right text-muted">ตอบกลับ</a>
-            </div>
+        <div class="card" id="callcontent">
+
         </div>
 
         <div class="card ml-5 p-5" style="background-color: #0CB3AC;">
             <div class="card-body" style="background-color: #eee; color: #fff;">
                 <div id="summernote"></div>
-                <script>
-                    $('#summernote').summernote({
-                        placeholder: 'เขียนกระทู้',
-                        tabsize: 2,
-                        height: 400,
-                        toolbar: [
-                            ['style', ['style']],
-                            ['font', ['bold', 'underline', 'clear']],
-                            ['color', ['color']],
-                            ['para', ['ul', 'ol', 'paragraph']],
-                            ['table', ['table']],
-                            ['insert', ['link', 'picture', 'video']],
-                            ['view', ['fullscreen', 'codeview', 'help']]
-                        ]
-                    });
-                </script>
-                <button type="button" class="btn btn-success float-left">ส่งข้อความ</button>
-                <div class="media position-relative col-md-4 pl-5 pt-2 text-dark">
+
+                <button type="button" class="btn btn-success float-left" onclick="create(this);">ส่งข้อความ</button>
+                <div class="media position-relative col-md-4 pl-5 pt-2 text-dark" style="border: 0px;">
                     <img src="images/news1.PNG" class="mr-3 w-25" alt="...">
                     <div class="media-body">
                         <p class="mt-0">สมาชิกหมายเลข 99999</p>
@@ -148,32 +109,16 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-body" style="background-color: #34495E; color: #fff;">
-                <p class="text-muted">ความคิดเห็นที่ 1</p>
-                <p class="card-text p-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,<br> consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et <br> justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit
-                </p>
-                <div class="media position-relative col-md-4 pl-5 float-left">
-                    <img src="images/news1.PNG" class="mr-3 w-25" alt="...">
-                    <div class="media-body">
-                        <p class="m-0">สมาชิกหมายเลข 99999</p>
-                        <p>30 สิงหาคม เวลา 00:00 น.</p>
-                    </div>
-                </div>
-                <a href="" class="float-right text-muted">ตอบกลับ</a>
-            </div>
-        </div>
+        <div id="getcontent"></div>
+
 
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         console.log(user)
@@ -190,6 +135,152 @@
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
         }
+        $('#summernote').summernote({
+            placeholder: 'เขียนกระทู้',
+            tabsize: 2,
+            height: 400,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+
+        const create = (e) => {
+            var form_data = new FormData();
+            var user = JSON.parse(localStorage.getItem('user'));
+            form_data.append('action', 'create_comment');
+            form_data.append('summernote', $('#summernote').summernote('code'));
+            form_data.append('user_id', user.user_id);
+            form_data.append('ref_theme', getUrlVars()["id"]);
+
+            $.ajax({
+                method: "POST",
+                url: "service/themes.php",
+                data: form_data,
+                processData: false,
+                contentType: false,
+            }).done(function(msg) {
+                console.log(msg);
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    window.location.href = "webboard.html";
+                }
+            });
+
+        }
+
+        function getUrlVars() {
+            var vars = [],
+                hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "service/themes.php",
+                data: {
+                    action: 'get_edit_theme',
+                    theme_id: getUrlVars()["id"]
+
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    $("#callcontent").append(callcontent(msg.result));
+                    // $('#summernote').summernote('code', msg.result.content);
+                    return;
+                }
+            });
+        })
+        callcontent = (item) => {
+            var img = item.image ? item.image : 'https://via.placeholder.com/150';
+            const date = new Date(item.create_at)
+            const result = date.toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            })
+            return `
+            
+                <h5 class="card-header" style="background-color: #34495E; color: #0CB3AC;">ชื่อหัวข้อเรื่องกระทู้--${item.title}</h5>
+                <div class="card-body" style="background-color: #34495E; color: #fff;">
+                    <p>หมวดหมู่ ชื่อห้อง</p>
+                    <div class="text-center">
+                        <img src="${img}" alt="" class="w-25">
+                    </div>
+                    <h5 class="card-title">${item.title}</h5>
+                    <p class="card-text p-2">${item.content}</p>
+                    <hr style="border: azure 1px dashed;">
+                    <div class="media position-relative col-md-4 pl-5 float-left" style="border:0px">
+                        <img src="${img}" class="mr-3 w-25" alt="...">
+                        <div class="media-body">
+                            <p class="m-0">สมาชิกหมายเลข ${item.fk_user_id}</p>
+                            <p>${result}</p>
+                        </div>
+                    </div>
+                </div>
+           `
+        }
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "service/themes.php",
+                data: {
+                    action: 'get_comment_with_id',
+                    theme_id: getUrlVars()["id"]
+
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#getcontent").append(getcontent(item));
+                        return;
+                    })
+                }
+            });
+        })
+        getcontent = (item) => {
+            var img = item.image ? item.image : 'https://via.placeholder.com/150';
+            const date = new Date(item.create_at)
+            const result = date.toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            })
+            return `
+            <div class="card">
+                <div class="card-body" style="background-color: #34495E; color: #fff;">
+                    <p class="text-muted">ความคิดเห็นที่ </p>
+                    <p class="card-text p-2">${item.content}</p>
+                    <hr style="border: azure 1px dashed;">
+                    <div class="media position-relative col-md-4 pl-5 float-left mt-3" style="border: 0px">
+                        <img src="${img}" class="mr-3 w-25" alt="...">
+                        <div class="media-body">
+                            <p class="m-0">สมาชิกหมายเลข ${item.fk_user_id}</p>
+                            <p>${result}</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+           `
+        }
+    </script>
+    <script>
     </script>
 </body>
 

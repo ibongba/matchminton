@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2020 at 12:12 AM
+-- Generation Time: Oct 18, 2020 at 08:09 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -116,16 +116,22 @@ CREATE TABLE `theme` (
   `status` int(11) NOT NULL DEFAULT 1,
   `create_at` datetime NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `fk_user_id` int(11) NOT NULL
+  `fk_user_id` int(11) NOT NULL,
+  `ref_theme` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `theme`
 --
 
-INSERT INTO `theme` (`theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id`) VALUES
-(1, '<p>fzdxfd</p>', 'TYRYR', 'court', 1, '2020-10-16 19:28:45', '2020-10-16 13:04:59', 3),
-(2, '<p>fzdxfd</p>', 'TYRYR', 'court', 1, '2020-10-16 19:29:29', '2020-10-16 13:05:03', 3);
+INSERT INTO `theme` (`theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id`, `ref_theme`) VALUES
+(1, '<p>fzdxfd</p>', 'TYRYR', 'court', 1, '2020-10-16 19:28:45', '2020-10-18 15:19:19', 3, NULL),
+(2, '<p>testttttttttttttttttttttttttttttttttttttttttttttttttt</p>', 'TEST', 'court', 1, '2020-10-16 19:29:29', '2020-10-18 15:28:43', 3, NULL),
+(3, '<p>tetdgycgcgcytc</p>', 'test2', 'racket', 1, '2020-10-18 23:05:48', '2020-10-18 16:05:48', 3, NULL),
+(4, '<p>efwefefefrgtgfsdfdgfhfghgfdxd</p>', '', '', 1, '2020-10-18 23:33:49', '2020-10-18 16:33:49', 3, 3),
+(5, '<p>swewretrgegregege</p>', '', '', 1, '2020-10-18 23:33:57', '2020-10-18 16:33:57', 3, 3),
+(6, '<p>swewretrgegregege</p>', '', '', 1, '2020-10-18 23:34:15', '2020-10-18 16:34:15', 3, 3),
+(9, '<p>bhjsgdjagsdjgasj</p>', '', '', 1, '2020-10-19 00:47:02', '2020-10-18 17:47:02', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +208,7 @@ ALTER TABLE `racket_detail`
 -- AUTO_INCREMENT for table `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `theme_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `theme_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

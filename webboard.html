@@ -369,7 +369,9 @@
                 day: 'numeric',
             })
             return `
-                    <div class="col-md-6 theme-card">
+           
+                <div class="col-md-6 theme-card">
+                    <a href="webbroadContent.html?id=${item.theme_id}" class="text-dark">
                         <img src="${img}" alt="" class="w-25 m-2 float-left">
                         <div class="d-flex p-3 h-100 theme-body">
                             <p>${item.title}</p>
@@ -377,7 +379,9 @@
                                 <p>${result}</p>
                             </div>
                         </div>
-                    </div>`
+                    </a>
+                </div>
+            `
         }
 
         $().ready(() => {
@@ -409,7 +413,7 @@
                 day: 'numeric',
             })
             return `
-            <div class="media p-2">
+            <a href="webbroadContent.html?id=${item.theme_id}" class="media p-2 text-dark">
                 <div class="media-body p-3 d-flex"> 
                     <img class="mr-3 float-left" src="${img}" alt="..." width="150" >
                     <div class="d-flex px-4 w-100">
@@ -421,7 +425,7 @@
                         </div> 
                     </div>
                 </div>
-            </div>`
+            </a>`
         }
     </script>
 </body>
