@@ -112,6 +112,11 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
 
         function getUrlVars() {
             var vars = [],
@@ -123,13 +128,6 @@
                 vars[hash[0]] = hash[1];
             }
             return vars;
-        }
-
-
-        logout = () => {
-            localStorage.removeItem('user')
-            $('#not-login').removeClass('d-none')
-            $('#is-login').addClass('d-none')
         }
         $().ready(() => {
             $.ajax({

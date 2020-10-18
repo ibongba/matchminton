@@ -12,7 +12,7 @@
             return ;
         }
     }else if (isset($_POST['action']) && $_POST['action'] == 'get_theme_with_id'){
-        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id` FROM `theme` WHERE  `fk_user_id` = '".$_POST['user_id']."'";
+        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id` FROM `theme` WHERE  `fk_user_id` = '".$_POST['user_id']."' AND `status` = '1'";
         $rs = getpdo($conn,$sql);
         if(isset($rs)){
         	$res = array("code" => 200, "result" => $rs);
@@ -51,6 +51,33 @@
                 echo json_encode($res);
                 return;
             }
+        }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'get_trash'){
+        $sql = "SELECT `theme_id`, `content`, `title`, `category`, `status`, `create_at`, `update_at`, `fk_user_id` FROM `theme` WHERE  `fk_user_id` = '".$_POST['user_id']."' AND `status` = '0'";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs);
+        	echo json_encode($res);
+            return ;
+        }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'delete_theme'){
+        $sql = "UPDATE `theme` SET `status`= '0' WHERE  `theme_id` = '".$_POST['theme_id']."' ";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs[0]);
+        	echo json_encode($res);
+            return ;
+        }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'call_theme'){
+        $sql = "UPDATE `theme` SET `status`= '1' WHERE  `theme_id` = '".$_POST['theme_id']."'";
+        // echo $sql;
+        $rs = getpdo($conn,$sql);
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs[0]);
+        	echo json_encode($res);
+            return ;
         }
     }
 

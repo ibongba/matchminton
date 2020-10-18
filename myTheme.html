@@ -182,10 +182,30 @@
                         <span class="float-left"><h5 class="card-title">${item.title}</h5></span>
                         <span class="float-right"><p>${result}</p></span>
                         <br><br>
-                        <span class="float-left"><a href="webbroadEdit.html?id=${item.theme_id}"  class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3" onclick="delete()"><p class="card-title">ลบ</p></span>
+                        <span class="float-left"><a href="webbroadEdit.html?id=${item.theme_id}"  class="text-dark"><p class="card-title">แก้ไข</p></a></span><span class="float-left mx-3"><a href=""  class="text-dark" onclick=dtheme(${item.theme_id})><p class="card-title">ลบ</p></a></span>
                         <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 0</p></span>
-                    </div>
+                    </div> 
                 </div>`
+            }
+        </script>
+        <script>
+            const dtheme = (id) => {
+                $.ajax({
+                    method: "POST",
+                    url: "service/themes.php",
+                    data: {
+                        action: 'delete_theme',
+                        theme_id: id
+                    }
+                }).done(function(msg) {
+                    console.log(msg)
+                    msg = JSON.parse(msg)
+                    if (msg.code === 200) {
+                        alert('ลบข้อมูลสำเร็จ');
+
+                        localStorage.setItem('user', JSON.stringify(msg.result));
+                    }
+                });
             }
         </script>
 </body>
