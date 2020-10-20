@@ -295,27 +295,8 @@ p.line span {
 }
 
 footer {
-    width: 100%;
     height: auto;
     background-color: #333333;
-    height: 150px;
-}
-
-.foot-text {
-    width: 50%;
-    float: left;
-}
-
-.foot-text a {
-    font-size: 20px;
-    color: #fff;
-}
-
-.foot-icon {
-    float: right;
-    text-align: right;
-    width: 50%;
-    font-size: 20px;
     color: #fff;
 }
 
