@@ -55,8 +55,9 @@
         $price = $_POST['price'];
 
 
-        $sql = "SELECT * FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` LEFT JOIN `product_image` ON `product`.`product_id`= `product_image`.`fk_product_id` WhERE ";
-
+        $sql_base = "SELECT * FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WhERE ";
+        $sql = "";
+        
         if(($exp == 1 || $exp == 2) && $f == 1){
             if($sex == 1){
                 if($bmi == 0){
@@ -135,9 +136,13 @@
             $sql .= " and (`price` > '3500') ";
         }
 
-        $rs = getpdo($conn,$sql);
+        $rs = getpdo($conn,$sql_base.$sql);
         if(gettype($rs) == 'array'){
-            $res = array("code" => 200, "result" => $rs);
+
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WHERE ".$sql." )";
+            $rs2 = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
             echo json_encode($res);
             return ;
         }

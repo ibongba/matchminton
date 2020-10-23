@@ -589,7 +589,10 @@
 						$('#cal').append(verifyCol('ผลการวิเคราะห์ ' + cal.name, cal.detail));
 
 						var res = msg.result;
-						for (i = 0; i < res.length; i++) $('#result').append(Card(res[i]));
+						for (i = 0; i < res.product.length; i++) {
+							let image = res.product_images.find((item)=>res.product[i].product_id == item.fk_product_id);
+							$('#result').append(Card(res.product[i],image))
+						};
 					} else {
 						$('#result').append('<p>ไม่พบไม้แบตที่เหมาะกับคุณ</p>');
 					}
@@ -610,8 +613,8 @@
 			         `;
 			};
 
-			Card = (item) => {
-				var img = item.path ? item.path : 'https://via.placeholder.com/150';
+			Card = (item,image) => {
+				var img = image.path ? 'service/'+image.path : 'https://via.placeholder.com/150';
 				return `
 			             <div class="card col-4">
 			               <img class="card-img-top" src="${img}" alt="Card image cap">
