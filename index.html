@@ -9,109 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/knowledge.css">
     <title>HOME</title>
 </head>
-<style>
-    .navbar button {
-        white-space: nowrap;
-    }
-    
-    .headerLogo {
-        width: 1000px;
-        height: 100px;
-    }
-    
-    .navbar-light .navbar-nav .nav-link {
-        color: #0AB2AC;
-        font-size: x-large;
-        font-weight: bold;
-    }
-    
-    .banner-img {
-        /* background-color: #000; */
-        background-image: url(images/banner.PNG);
-        height: 500px;
-        background-position: center;
-        /* background-repeat: no-repeat; */
-        background-size: cover;
-        position: relative;
-    }
-    
-    .navbar-light .navbar-nav .nav-link:focus,
-    .navbar-light .navbar-nav .nav-link:hover {
-        color: #fff;
-    }
-    
-    .bg-video {
-        /* background-color: #000; */
-        background-image: url(images/bg-video.png);
-        /* height: 600px; */
-        background-position: top;
-        /* background-repeat: no-repeat; */
-        background-size: cover;
-        position: relative;
-    }
-    
-    .video-card .video-body {
-        flex-direction: column;
-        text-align: right;
-        color: #fff;
-    }
-    
-    .video-card .video-body .d-flex {
-        align-items: flex-end;
-        justify-content: flex-start;
-        color: #e1e1e1;
-    }
-    
-    .caption-new {
-        position: absolute;
-        right: 5%;
-        bottom: 20px;
-        left: 5%;
-        z-index: 10;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: #fff;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-    }
-    
-    .img-kl1 {
-        background-image: url(images/kl1.png);
-        background-position: top;
-        height: 300px;
-        /* background-repeat: no-repeat; */
-        background-size: cover;
-        position: relative;
-    }
-    
-    .img-kl2 {
-        background-image: url(images/kl2.png);
-        background-position: top;
-        height: 300px;
-        /* background-repeat: no-repeat; */
-        background-size: cover;
-        position: relative;
-    }
-    
-    .img-kl3 {
-        background-image: url(images/kl3.png);
-        background-position: top;
-        height: 300px;
-        /* background-repeat: no-repeat; */
-        background-size: cover;
-        position: relative;
-    }
-</style>
+
 
 <body>
-    <div class="container-fluid p-0">
-        <div class="banner-img">
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #000;">
+        <div class="container-fluid p-0">
+
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-                <button class="navbar-toggler btn-left" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+                <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
-            </button>
+                    </button>
 
                 <div class="collapse navbar-collapse nav-fill w-100" id="nav-left">
                     <ul class="nav navbar-nav nav-fill w-100">
@@ -139,29 +49,50 @@
                         <li class="nav-item" id="not-login">
                             <a class="nav-link" href="login.html">LOGIN</a>
                         </li>
-                    </ul>
-                    <ul class="navbar-nav px-0" id="is-login"> -->
-                        <li class="nav-item">
+                        <!-- </ul> 
+                         <ul class="navbar-nav px-0"> 
+                         <li class="nav-item">
                             <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
-                        </li>
-                        <li class="nav-item">
+                        </li> 
+                         <li class="nav-item">
                             &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <li class="nav-item" id="is-login">
                             <div class="dropdown">
-                                <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: x-large; padding-top: 8px; font-weight: bold; color: #0AB2AC;">
                                     ยินดีต้อนรับ คุณ
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
                                     <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                                     <a class="dropdown-item" href="createtheme.html"><i class="fas fa-scroll"></i> ตั้งกระทู้</a>
+                                    <a class="dropdown-item" href="order.html"><i class="fas fa-shopping-cart"></i> ตะกร้าสินค้า</a>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+            <div class="collapse ml-3" id="navbarMobile">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="match.html">MATCHING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buySale.html">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webboard.html">COMMUNITY</a>
+                    </li>
+                    <li class="nav-item" id="not-login">
+                        <a class="nav-link" href="login.html">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="banner-img pt-2" style=" background-image: url(images/banner.PNG);">
             <div class="text-light text-right m-5">
                 <h2>MATCH LIVE. PLAY CATCH-UP. RELIVE THE DRAMA.</h2>
                 <h3>
@@ -171,25 +102,6 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-faded bg-light">
-        <div class="collapse ml-3" id="navbarMobile">
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="match.html">MATCHING</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="buySale.html">SHOP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="webboard.html">COMMUNITY</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">LOGIN</a>
-                </li>
-            </ul>
-        </div>
-
-    </nav>
     <div class="container">
         <div class="my-5">
             <h2>MATCH SCHEDULE</h2>
@@ -272,7 +184,7 @@
     </div>
 
     <div class="container-fluid p-0">
-        <div class="bg-video p-5">
+        <div class="bg-video p-5" style="background-image: url(images/bg-video.png);">
             <div class="text ">
                 <h2>
                     <font style="color: #0AB2AC;">FEATURED VIDEOS</font>
@@ -370,19 +282,19 @@
                 <h2>KNOWLEDGES</h2>
                 <h5>สาระและความรู้</h5>
                 <div class="row">
-                    <div class="img-kl1 col-md-12">
+                    <div class="img-kl1 col-md-12 mb-1" style="background-image: url(images/kl1.png);">
                         <div class="caption-new d-md-block">
                             <h5>การเล่นกีฬาแบดมินตัน <br>สามารถลดความเสี่ยงโรคหัวใจได้ถึง 56%</h5>
                             <button type="button" class="btn btn-success" style="background-color: #0cb3ac;">อ่านต่อ <i class="fas fa-play"></i></button>
                         </div>
                     </div>
-                    <div class="img-kl2 col-md-7 col-sm-12">
+                    <div class="img-kl2 col-md-7  mb-1" style="background-image: url(images/kl2.png);">
                         <div class="caption-new d-md-block">
                             <h5>ประวัติกีฬาแบดมินตัน</h5>
                             <button type="button" class="btn btn-success" style="background-color: #0cb3ac;">อ่านต่อ <i class="fas fa-play"></i></button>
                         </div>
                     </div>
-                    <div class="img-kl3 col-md-5">
+                    <div class="img-kl3 col-md-5 mb-1" style="background-image: url(images/kl3.png);">
                         <div class="caption-new d-md-block">
                             <h5>กฎกติกา <br>การเล่นแบดมินตัน</h5>
                             <button type="button" class="btn btn-success" style="background-color: #0cb3ac;">อ่านต่อ <i class="fas fa-play"></i></button>
