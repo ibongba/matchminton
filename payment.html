@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ORDER</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top w-100-nav">
+            <div class="row justify-content-center">
+                <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 350px;">
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buySale.html">ซื้อขาย</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" id="not-login">
+                    <li class="nav-item mx-3">
+                        <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav px-0" id="is-login">
+                    <li class="nav-item ">
+                        <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
+                    </li>
+                    <li class="nav-item">
+                        &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </p>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <font style="color: #0CB3AC;"><i class="fas fa-map-marker-alt"></i> ที่อยู่ในการจัดส่ง</font>
+                </h5>
+                <p class="card-text">
+                    <font class="font-weight-bold">อดิศร ปกรณ์พานิช (+66) 949656199</font> 40/100 พันหมื่น แสนล้าน สิบหลาย ร้อยล้าน พันล้าน แสนล้าน ล้าล้าน กรุงเทพมหานคร 10160</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>สั่งซื้อสินค้าแล้ว</th>
+                            <th class="text-center">ราคาต่อหน่วย</th>
+                            <th class="text-center">จำนวน</th>
+                            <th class="text-right">รายการย่อย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>จำหน่ายโดย <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100px;"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <img src="images/AX99YX-SSHIO-A1.png" class="align-self-center mr-3 border" alt="..." style="width: 50px; height: 50px;">
+                                    <div class="media-body py-3">
+                                        <p class="m-0">3D CALIBAR 300C COMBAT</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">฿4,590</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right">฿4,590</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <img src="images/AX99YX-SSHIO-I.png" class="align-self-center mr-3 border" alt="..." style="width: 50px; height: 50px;">
+                                    <div class="media-body py-3">
+                                        <p class="mt-0">ASTROX 99</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">฿4,590</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right">฿4,590</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="row pt-3">
+                    <div class="col-md-4">
+                        <form class="p-0 m-0">
+                            <div class="form-group row">
+                                <label for="inputsend" class="col-sm-3 col-form-label pr-0">หมายเหตุ: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputsend" placeholder="ไม่บังคับ (ฝากถึงผู้จัดส่ง)">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5 style="color: #0CB3AC;">Shipping Opion</h5>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5 class="font-weight-bold">จัดส่งแบบปกติ J&T</h5>
+                        <p class="m-0 text-muted">จะได้รับสินค้าไม่เกิน 3 - 7 วัน</p>
+                    </div>
+                    <div class="col text-right">
+                        <h5>฿22</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-right">
+                    <h5>ยอดสั่งซื้อทั้งหมด (1 ชิ้น):
+                        <font style="color: #0CB3AC;">฿4,602</font>
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5>วิธีการชำระเงิน</h5>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-info mr-2">
+                      <input type="radio" name="pay" id="pay1" > บัตรเครดิต/บัตรเดบิต
+                    </label>
+                    <label class="btn btn-outline-info mr-2">
+                      <input type="radio" name="pay" id="pay2"> IBanking / Mobile Banking
+                    </label>
+                    <label class="btn btn-outline-info mr-2">
+                      <input type="radio" name="pay" id="pay3"> ชำระผ่าน ATM
+                    </label>
+                    <label class="btn btn-outline-info mr-2">
+                        <input type="radio" name="pay" id="pay4"> โอน/ชำระผ่านบัญชีธนาคาร
+                      </label>
+                </div>
+                <hr>
+                <h5>เลือกบัญชีการชำระเงิน</h5>
+                <div class="form-check pb-2">
+                    <input class="form-check-input pt-2" type="radio" name="account" id="account1" value="acc1" checked>
+                    <label class="form-check-label" for="account1">
+                     <img src="images/visa-light-large.png" alt="" width="40"> ธนาคารกรุงไทย **** 9999
+                    </label>
+                </div>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choose_acc"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button>
+                <!-- Modal -->
+                <div class="modal fade" id="choose_acc" tabindex="-1" aria-labelledby="choose_accLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="choose_accLabel">เพิ่มบัตรเครดิต/บัตรเดบิต</h5>
+                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> -->
+                            </div>
+                            <div class="modal-body">
+                                <form class="m-0">
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-3">
+                                            <input type="text" class="form-control" placeholder="City">
+                                        </div>
+                                        <div class="col-md-7 mb-3">
+                                            <input type="text" class="form-control" placeholder="State">
+                                        </div>
+                                        <i class="fab fa-cc-visa mr-2" style="font-size: 40px; color:navy;"></i>
+                                        <i class="fab fa-cc-jcb mr-2" style="font-size: 40px; color:#f24b;"></i>
+                                        <i class="fab fa-cc-mastercard" style="font-size: 40px; color:red;"></i>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="inputDate">วันที่หมดอายุ</label>
+                                            <select id="inputDate" class="form-control">
+                                            <option selected>เดือน</option>
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <!-- <label for="inputYear"> </label> -->
+                                            <select id="inputYear" class="form-control" style="margin-top: 2rem;">
+                                            <option selected>ปี</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputCvc">CVC</label>
+                                            <input type="text" class="form-control" id="inputCvc">
+                                        </div>
+
+                                        <div class="col-md-12 mb-3">
+                                            <input type="text" class="form-control" placeholder="ที่อยู่">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="เลขไปรษณีย์">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ยกเลิก</button>
+                                <button type="button" class="btn btn-outline-danger">ยืนยัน</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-right">
+                    <div class="col-md-10">
+                        <h5>ยอดรวมสินค้า</h5>
+                        <h5>รวมการจัดส่ง</h5>
+                        <h5>การชำรเงินทั้งหมด</h5>
+                    </div>
+                    <div class="col">
+                        <h5>฿ 4,590</h5>
+                        <h5>฿ 22</h5>
+                        <h5>
+                            <font style="color: #0CB3AC;">฿4,602</font>
+                        </h5>
+                    </div>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#confirmPayment">สั่งซื้อสินค้า</button>
+
+                <!-- Modal confirmPaymentLabel-->
+                <div class="modal fade" id="confirmPayment" tabindex="-1" aria-labelledby="confirmPaymentLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title" id="confirmPaymentLabel">Modal title</h5> -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        จำนวนเงินที่ต้องชำระ
+                                    </div>
+                                    <div class="col text-right">
+                                        ฿ 61
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark " data-dismiss="modal">ยกเลิก</button>
+                                <a href="orderdetail.html" class="btn btn-danger">ชำระ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ORDER DETAIL</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top w-100-nav">
+            <div class="row justify-content-center">
+                <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 350px;">
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buySale.html">ซื้อขาย</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" id="not-login">
+                    <li class="nav-item mx-3">
+                        <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav px-0" id="is-login">
+                    <li class="nav-item ">
+                        <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
+                    </li>
+                    <li class="nav-item">
+                        &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ยินดีต้อนรับ คุณ
+                            </p>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="card">
+            <!-- <h5 class="card-header">Featured</h5> -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="folat-left font-weight-normal">หมายเลขคำสั่งซื้อ: 1132458421 </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="float-right">
+                            <font class="text-right" style="color: #0CB3AC;">กำลังจัดส่ง</font>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h6 class="font-weight-normal">
+                            <div class="media">
+                                <img src="images/AX99YX-SSHIO-A1.png" class="align-self-center mr-3 border" alt="..." style="width: 50px; height: 50px;">
+                                <div class="media-body ">
+                                    <p class="m-0">3D CALIBAR 300C COMBAT</p>
+                                    <p>x 1</p>
+                                </div>
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="col d-flex justify-content-end" style="flex-direction: column;">
+                        <h6 class="align-self-end" style="flex-direction: column;color: #0CB3AC;">฿ 4,590</h6>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-right">
+                    <h5><img src="images/LOGO_MATCHMINTON.jpg" alt="" width="100"> ยอดสั่งซื้อทั้งหมด (1 ชิ้น):
+                        <font style="color: #0CB3AC;">฿4,602</font>
+                    </h5>
+                </div>
+                <hr>
+                <h6 class="text-right">ติดต่อผู้ขาย: 0949656199 <button type="button" class="btn btn-danger" style="background-color: #FF8000;border-color: #FF8000;">ดูข้อมูลการสั่งซื้อ</button></h6>
+            </div>
+        </div>
+        <div class="card">
+            <!-- <h5 class="card-header">Featured</h5> -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="folat-left font-weight-normal">หมายเลขคำสั่งซื้อ: 1132458421 </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="float-right">
+                            <font class="text-right" style="color: #0CB3AC;">กำลังจัดส่ง</font>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h6 class="font-weight-normal">
+                            <div class="media">
+                                <img src="images/AX99YX-SSHIO-A1.png" class="align-self-center mr-3 border" alt="..." style="width: 50px; height: 50px;">
+                                <div class="media-body ">
+                                    <p class="m-0">3D CALIBAR 300C COMBAT</p>
+                                    <p>x 1</p>
+                                </div>
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="col d-flex justify-content-end" style="flex-direction: column;">
+                        <h6 class="align-self-end" style="flex-direction: column;color: #0CB3AC;">฿ 4,590</h6>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-right">
+                    <h5><img src="images/LOGO_MATCHMINTON.jpg" alt="" width="100"> ยอดสั่งซื้อทั้งหมด (1 ชิ้น):
+                        <font style="color: #0CB3AC;">฿4,602</font>
+                    </h5>
+                </div>
+                <hr>
+                <h6 class="text-right">ติดต่อผู้ขาย: 0949656199 <button type="button" class="btn btn-danger" style="background-color: #FF8000;border-color: #FF8000;">ดูข้อมูลการสั่งซื้อ</button></h6>
+            </div>
+        </div>
+        <div class="card">
+            <!-- <h5 class="card-header">Featured</h5> -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="folat-left font-weight-normal">หมายเลขคำสั่งซื้อ: 1132458421 </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="float-right">
+                            <font class="text-right" style="color: #0CB3AC;">กำลังจัดส่ง</font>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h6 class="font-weight-normal">
+                            <div class="media">
+                                <img src="images/AX99YX-SSHIO-A1.png" class="align-self-center mr-3 border" alt="..." style="width: 50px; height: 50px;">
+                                <div class="media-body ">
+                                    <p class="m-0">3D CALIBAR 300C COMBAT</p>
+                                    <p>x 1</p>
+                                </div>
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="col d-flex justify-content-end" style="flex-direction: column;">
+                        <h6 class="align-self-end" style="flex-direction: column;color: #0CB3AC;">฿ 4,590</h6>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-right">
+                    <h5><img src="images/LOGO_MATCHMINTON.jpg" alt="" width="100"> ยอดสั่งซื้อทั้งหมด (1 ชิ้น):
+                        <font style="color: #0CB3AC;">฿4,602</font>
+                    </h5>
+                </div>
+                <hr>
+                <h6 class="text-right">ติดต่อผู้ขาย: 0949656199 <button type="button" class="btn btn-danger" style="background-color: #FF8000;border-color: #FF8000;">ดูข้อมูลการสั่งซื้อ</button></h6>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+    </script>
+</body>
+
+</html>

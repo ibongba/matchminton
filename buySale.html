@@ -15,33 +15,30 @@
 <body>
     <div class="container">
         <div class="top w-100-nav">
-            <div class="row">
-                <div class="col"><img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100%;"></div>
-                <div class="col pt-5"><img src="https://via.placeholder.com/300x60?text=234x60+Half+BannerC/O https://placeholder.com/banner-ads/" alt="" style="width: 100%;">
-                </div>
-                <div class="col"></div>
+            <div class="row justify-content-center">
+                <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 350px;">
             </div>
         </div>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="buySale.html">ซื้อขาย</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
                     </li>
                 </ul>
+                <!-- navbar ในส่วนที่ยังไม่ได้ login จะแสดง เข้าสู่ระบบ / สมัครสมาชิก -->
                 <ul class="navbar-nav" id="not-login">
                     <li class="nav-item mx-3">
                         <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
@@ -50,6 +47,7 @@
                         <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
                     </li>
                 </ul>
+                <!-- navbar ในส่วนที่ login จะแสดง ตั้งกระทู้ / ยินดีต้อนรับ / ตะกร้าสินค้า -->
                 <ul class="navbar-nav px-0" id="is-login">
                     <li class="nav-item">
                         <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
