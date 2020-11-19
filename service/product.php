@@ -24,7 +24,8 @@
         	}
 
         	if(isset($_POST['racket']) && $_POST['racket'] == 1){
-        		$sql = "INSERT INTO `racket_detail`(`grip_size`, `balance`, `tension`, `weight`, `flex`,`level`,`fk_product_id`) VALUES ('".$_POST['grip_size']."','".$_POST['balance']."','".$_POST['tension']."','".$_POST['weight']."','".$_POST['flex']."','".$_POST['level']."','".$lastid."')";
+                $sql = "INSERT INTO `racket_detail`(`grip_size`, `balance`, `tension`, `weight_min`, `weight_max`, `flex`,`level`,`fk_product_id`) VALUES ('".$_POST['grip_size']."','".$_POST['balance']."','".$_POST['tension']."','".$_POST['weight_min']."','".$_POST['weight_max']."','".$_POST['flex']."','".$_POST['level']."','".$lastid."')";
+                echo $sql;
         		$rs = getpdo($conn,$sql);
         		if($rs){
 					$res = array("code" => 200, "result" => $rs);
@@ -147,6 +148,19 @@
             return ;
         }
 
+    }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card'){
+        $sql_pro = "SELECT * FROM `product` JOIN product_image ON `product_id` = product_image.fk_product_id JOIN racket_detail ON `product_id` = racket_detail.fk_product_id ORDER BY `product_id` DESC";
+        $rs = getpdo($conn,$sql_pro);
+
+        if(gettype($rs) == 'array'){
+
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`)";
+            $rs2 = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
+        	echo json_encode($res);
+            return ;
+        }
     }
 
     $result = array("message" => "Error someting");

@@ -21,16 +21,16 @@
         <div class="saleform">
             <form method='post' enctype="multipart/form-data">
                 <div class="form-group row">
-                    <label for="name" class="col-sm-5 col-form-label">ชื่อสินค้าที่คุณต้องการขาย</label>
-                    <div class="col-sm-7">
+                    <label for="name" class="col-md-6 col-form-label">ชื่อสินค้าที่คุณต้องการขาย</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="product_name" placeholder="ชื่อสินค้า เช่น Astrox 99">
                         <p style="color: #707070;">ไม่ควรใส่อักชระพิเศษ เช่น ! * # > }</p>
                     </div>
                 </div>
                 <div class="form-group row">
 
-                    <label for="type" class="col-sm-5 col-form-label">เลือกหมวดหมู่สินค้า</label>
-                    <div class="col-sm-7">
+                    <label for="type" class="col-md-6 col-form-label">เลือกหมวดหมู่สินค้า</label>
+                    <div class="col-md-6">
                         <select class="custom-select" id="type" onchange="changeType(this)">
                             <option selected disabled="true">เลือกหมวดหมู่</option>
                             <option value="1">ไม้แบดมินตัน</option>
@@ -44,8 +44,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="brand_id" class="col-sm-5 col-form-label">แบรนด์/ยี่ห้อ</label>
-                    <div class="col-sm-7">
+                    <label for="brand_id" class="col-md-6 col-form-label">แบรนด์/ยี่ห้อ</label>
+                    <div class="col-md-6">
                         <select class="custom-select" id="brand_id">
                             <option selected>เลือกแบรนด์/ยี่ห้อ</option>
                             <option value="1">Yonex</option>
@@ -63,8 +63,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="files" class="col-sm-5 col-form-label">รูปสินค้า</label>
-                    <div class="col-sm-7">
+                    <label for="files" class="col-md-6 col-form-label">รูปสินค้า</label>
+                    <div class="col-md-6">
                         <div class="wrapper" style="height: 150px;">
                             <div class="drop">
                                 <div class="cont">
@@ -79,27 +79,27 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="price" class="col-sm-5 col-form-label">ระบุราคา</label>
-                    <div class="col-sm-7">
+                    <label for="price" class="col-md-6 col-form-label">ระบุราคา</label>
+                    <div class="col-md-6">
                         <input type="number" class="form-control" id="price" placeholder="ราคา เช่น 9999">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="quantity" class="col-sm-5 col-form-label">จำนวนสินค้าที่มี</label>
-                    <div class="col-sm-7">
+                    <label for="quantity" class="col-md-6 col-form-label">จำนวนสินค้าที่มี</label>
+                    <div class="col-md-6">
                         <input type="number" class="form-control" id="quantity" placeholder="จำนวน เช่น 10,100">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="detail" class="col-sm-5 col-form-label">รายละเอียดสินค้า</label>
-                    <div class="col-sm-7">
+                    <label for="detail" class="col-md-6 col-form-label">รายละเอียดสินค้า</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="detail" placeholder="เช่น สภาพสินค้า สี อายุการใช้งาน ระยะประกัน">
                     </div>
                 </div>
                 <div id="racket" class="d-none">
                     <div class="form-group row">
-                        <label for="flex" class="col-sm-5 col-form-label">Flex</label>
-                        <div class="col-sm-7">
+                        <label for="flex" class="col-md-6 col-form-label">Flex</label>
+                        <div class="col-md-6">
                             <select class="custom-select" id="flex">
                                     <option selected>เลือกความอ่อนของก้าน</option>
                                     <option value="1">Stiff</option>
@@ -109,8 +109,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="balance" class="col-sm-5 col-form-label">Balance</label>
-                        <div class="col-sm-7">
+                        <label for="balance" class="col-md-6 col-form-label">Balance</label>
+                        <div class="col-md-6">
                             <select class="custom-select" id="balance">
                                 <option selected>เลือกความสมดุลของไม้</option>
                                 <option value="1">Head Heavy</option>
@@ -120,20 +120,20 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="weight" class="col-sm-5 col-form-label">Weight</label>
-                        <div class="col-sm-7">
-                            <select class="custom-select" id="weight">
-                                <option selected> เลือกน้ำหนักไม้</option>
-                                <option value="1">3U (85.0-89.9 g)</option>
-                                <option value="2">4U (80.0-84.9 g)</option>
-                                <option value="3">5U (75.0-79.9 g)</option>
-                                <option value="4">6U (70.0-74.9 g)</option>
-                            </select>
+                        <label for="weight" class="col-md-6 col-form-label">Weight</label>
+                        <div class="col-md-3">
+                            <label>Min</label>
+                            <input type="number " class="form-control " id="weight_min" placeholder="min" value="70">
                         </div>
+                        <div class="col-md-3 ">
+                            <label>Max</label>
+                            <input type="number " class="form-control " id="weight_max" placeholder="max" value="90">
+                        </div>
+
                     </div>
                     <div class="form-group row">
-                        <label for="grip_size" class="col-sm-5 col-form-label">Grip Size</label>
-                        <div class="col-sm-7">
+                        <label for="grip_size" class="col-md-6 col-form-label">Grip Size</label>
+                        <div class="col-md-6">
                             <select class="custom-select" id="grip_size">
                                 <option selected> เลือกขนาดด้ามจับ</option>
                                 <option value="1">G3 (3.75 inches)</option>
@@ -144,8 +144,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="level" class="col-sm-5 col-form-label">Level</label>
-                        <div class="col-sm-7">
+                        <label for="level" class="col-md-6 col-form-label">Level</label>
+                        <div class="col-md-6">
                             <select class="custom-select" id="level">
                                 <option selected>เลือกความเหมาะสมกับผู้เล่น</option>
                                 <option value="1">Beginner to Intermediate</option>
@@ -155,11 +155,11 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="tension" class="col-sm-5 col-form-label">Max Tension</label>
-                        <div class="col-sm-7">
+                        <label for="tension" class="col-md-6 col-form-label">Max Tension</label>
+                        <div class="col-md-6">
                             <div class="form-group row">
-                                <label for="tension" class="col-sm-5 col-form-label">ความตึงของเอ็นที่รองรับ &nbsp; ≤ </label>
-                                <div class="col-sm-5">
+                                <label for="tension" class="col-md-6 col-form-label">ความตึงของเอ็นที่รองรับ &nbsp; ≤ </label>
+                                <div class="col-md-4">
                                     <input type="email" class="form-control" id="tension">
                                 </div>
                                 <label for="tension" class="col-sm-2 col-form-label">   Ibs</label>
@@ -268,7 +268,8 @@
                 form_data.append('grip_size', $('#grip_size option:selected').val());
                 form_data.append('balance', $('#balance option:selected').val());
                 form_data.append('tension', $('#tension').val());
-                form_data.append('weight', $('#weight option:selected').val());
+                form_data.append('weight_min', $('#weight_min').val());
+                form_data.append('weight_max', $('#weight_max').val());
                 form_data.append('level', $('#level option:selected').val());
                 form_data.append('flex', $('#flex option:selected').val());
             }
