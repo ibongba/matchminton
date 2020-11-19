@@ -73,7 +73,7 @@
         <div class="row my-3">
             <div class="col">
                 <!-- <div style="width: auto; height: 300px; background-color: #888888;"></div> -->
-                <p class="mb-0 mt-2">ประเภทสินค้า</p>
+                <!-- <p class="mb-0 mt-2">ประเภทสินค้า</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="new" id="new_tools">
                     <label class="form-check-label" for="new_tools">
@@ -85,7 +85,7 @@
                     <label class="form-check-label" for="old_tools">
                         มือสอง
                     </label>
-                </div>
+                </div> -->
                 <p class="mb-0 mt-2">หมวดหมู่</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="racket" id="racket">
@@ -171,10 +171,10 @@
                         </div>
                     </div>
                     <div class="col-md-4 text-center float-left">
-                        <a href="admin/sale.html"><button type="button" class="btn btn-warning  mt-4 "> ลงขาย</button></a>
+                        <!-- <a href="admin/sale.html"><button type="button" class="btn btn-warning  mt-4 "> ลงขาย</button></a> -->
                     </div>
                     <div class="col-md-4 float-right">
-                        <form class="p-0">
+                        <form class="p-0 mr-0 text-right">
                             <label for="Arrange">เรียงตาม:</label>
                             <select class="btn btn-info" name="Arrange" id="Arrange">
                                 <option value="Popular">ความนิยม</option>
@@ -344,8 +344,8 @@
         })
 
         Card = (item, image) => {
-            console.log(item)
-            var img = image.path ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            console.log(item,image)
+            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
             return `
 			             <div class="card col-md-4">
 			               <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">

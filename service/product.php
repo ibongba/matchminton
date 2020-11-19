@@ -149,7 +149,7 @@
         }
 
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card'){
-        $sql_pro = "SELECT * FROM `product` JOIN product_image ON `product_id` = product_image.fk_product_id JOIN racket_detail ON `product_id` = racket_detail.fk_product_id ORDER BY `product_id` DESC";
+        $sql_pro = "SELECT * FROM `product` JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` ORDER BY `product_id` DESC";
         $rs = getpdo($conn,$sql_pro);
 
         if(gettype($rs) == 'array'){
