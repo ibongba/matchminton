@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,37 +76,7 @@
             <div class="col-9">
                 <div class="row">
                     <div class="col-8 border p-3">
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <img src="images/AX99YX-SSHIO-A1.png" class="w-100 col-3 float-left" alt="">
-                            <h6>ASTROX 99</h6>
-                            <p>Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
-                            <p class="float-left" style="color: #FF8000;">฿139.00</p>
-                            <div class="input-group col-4 my-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
-                                </div>
-                                <input type="text" class="form-control text-center" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <img src="images/AX99YX-SSHIO-I.png" class="w-100 col-3 float-left" alt="">
-                            <h6>ASTROX 99</h6>
-                            <p>Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
-                            <p class="float-left" style="color: #FF8000;">฿139.00</p>
-                            <div class="input-group col-4 my-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
-                                </div>
-                                <input type="text" class="form-control text-center" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
-                                </div>
-                            </div>
+                        <div class="row" id="result">
                         </div>
                     </div>
                     <div class="col-4 border p-3 ">
@@ -115,19 +86,19 @@
                             <tbody>
                                 <tr>
                                     <th>ยอดรวมจำนวน 2 ชิ้น</th>
-                                    <td>฿0.00</td>
+                                    <td id="product_price"></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th>ค่าจัดส่ง</th>
                                     <td>฿0.00</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <th>ค่าธรรมเนียม</th>
                                     <td>฿15.00</td>
                                 </tr>
                                 <tr>
                                     <th>ยอดรวมทั้งสิ้น</th>
-                                    <td>฿15.00</td>
+                                    <td id="sum_price"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -210,6 +181,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
+        let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] ;
+        var products = [];
         console.log(user)
         if (user != null) {
             $('#not-login').addClass('d-none')
@@ -224,6 +197,97 @@
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
         }
+        const calSum = (carts) => {
+            var sum = carts.reduce((total, val) => {
+                var c = products.find(item => item.cart_id == val.cart_id) || {price : 0}
+                return parseFloat(c.price * c.amount) + total
+            }, 0);
+            return (sum);
+        }
+
+      
+
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "service/cart.php",
+                data: {
+                    action: 'show_order',
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    products = res.product;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+                        
+                    };
+                    if(cart_data) {
+                        var total_product = calSum(cart_data);
+                        var sum = total_product - 15;
+                        $('#product_price').text('฿'+total_product.toFixed(2));
+                        $('#sum_price').text('฿'+sum.toFixed(2));
+                    }
+                }
+            });
+        })
+
+        Card = (item, image) => {
+            // console.log(cart_data.find(val => val.cart_id == item.cart_id))
+            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            return `
+                <div class="col-12">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" value="${item.cart_id}" ${cart_data.find(val => val.cart_id == item.cart_id) ? 'checked' : ''} id="exampleCheck1" onchange="selected(this)">
+                        <img src="${img}" class="w-100 col-3 float-left" alt="">
+                        <h6>${item.product_name}</h6>
+                        <p>${item.description}</p>
+                        <p class="float-left" style="color: #FF8000;">฿${item.price}</p>
+                        <div class="input-group col-4 my-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
+                            </div>
+                            <input type="text" class="form-control text-center" value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        selected = (data) => {
+            let cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] ;
+            let tmp = [...cart]
+            console.log(products)
+            if(data.checked){
+                tmp.push({cart_id: data.value})
+            }else{
+                let in1 = tmp.filter((val) => val.cart_id == data.value);
+                let in2 = tmp.indexOf(in1[0])
+                tmp.splice(in2, 1);
+            }
+            calSum(tmp);
+            if(tmp) {
+                var total_product = calSum(tmp);
+                var sum = total_product - 15;
+                $('#product_price').text('฿'+total_product.toFixed(2));
+                $('#sum_price').text('฿'+sum.toFixed(2));
+            }
+            localStorage.setItem('cart', JSON.stringify(tmp));
+        }
+
+        
+       
+
+        
+
+
     </script>
 </body>
 
