@@ -161,6 +161,19 @@
         	echo json_encode($res);
             return ;
         }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'get_product_detail'){
+        $sql_pro = "SELECT * FROM `product` JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` WHERE `product_id`= '".$_POST['product_id']."' ORDER BY `product_id` DESC";
+        $rs = getpdo($conn,$sql_pro);
+
+        if(gettype($rs) == 'array'){
+
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`) AND `fk_product_id` = '".$_POST['product_id']."'";
+            $rs2 = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => array("product" => $rs[0],"product_images" => $rs2));
+        	echo json_encode($res);
+            return ;
+        }
     }
 
     $result = array("message" => "Error someting");

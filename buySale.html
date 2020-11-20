@@ -184,6 +184,7 @@
                     </div>
                 </div>
                 <div class="row" id="result">
+
                     <!-- <div class="col-md-4">
                         <div class="card">
                             <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
@@ -344,18 +345,20 @@
         })
 
         Card = (item, image) => {
-            console.log(item,image)
+            console.log(item, image)
             var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
             return `
-			             <div class="card col-md-4">
-			               <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
-			               <div class="card-body">
-			                 <h5 class="card-title">${item.product_name}</h5>
-			                 <span>${item.price}</span>
-			                 <p class="card-text">${item.description}</p>
-			                 <a href="#" class="btn btn-primary">ไปรถเข็น</a>
-			               </div>
-			             </div>
+            <a href="productdetail.html?id=${item.product_id}">
+                <div class="card col-md-4">
+                    <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.product_name}</h5>
+                        <span>${item.price}</span>
+                        <p class="card-text">${item.description}</p>
+                        <a href="#" class="btn btn-primary">ไปรถเข็น</a>
+                    </div>
+                </div>
+            </a>
 			         `;
         };
     </script>
