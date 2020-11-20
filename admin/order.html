@@ -112,32 +112,12 @@
                                                 <td>Time</td>
                                                 <td>Total Price</td>
                                                 <td>Payment</td>
-                                                <td>Mobile No</td>
                                                 <td></td>
                                                 <td></td>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">000004</td>
-                                                <td><img src="../images/LOGO_MATCHMINTON.png" alt="" width="100">Grant Marshall</td>
-                                                <td>31/10/2020 10:17</td>
-                                                <td class="text-center">4,850</td>
-                                                <td class="text-center">ยัง</td>
-                                                <td class="text-center">01718332233</td>
-                                                <td><button type="button" class="btn btn-primary">Order Details</button></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">000004</td>
-                                                <td><img src="../images/LOGO_MATCHMINTON.png" alt="" width="100">Grant Marshall</td>
-                                                <td>31/10/2020 10:17</td>
-                                                <td class="text-center">4,850</td>
-                                                <td class="text-center">ชำระเงินแล้ว</td>
-                                                <td class="text-center">01718332233</td>
-                                                <td><button type="button" class="btn btn-primary">Order Details</button></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
+                                        <tbody id="result">
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -171,6 +151,43 @@
                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
             </tr>`
         }
+
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'show_admin_order',
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+                    };
+                }
+            });
+        })
+
+        Card = (item, image) => {
+            console.log(item, image)
+            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            return `
+                <tr>
+                    <td class="text-center">${item.order_id}</td>
+                    <td><img src="${img}" alt="" width="100">${item.product_name}</td>
+                    <td>${item.created_at}</td>
+                    <td class="text-center">4${item.price}</td>
+                    <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
+                    <td><button type="button" class="btn btn-primary">Order Details</button></td>
+                    <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                </tr>
+            `;
+        };
     </script>
 </body>
 
