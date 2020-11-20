@@ -56,25 +56,36 @@
         $price = $_POST['price'];
 
 
-        $sql_base = "SELECT * FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WhERE ";
+
+
+        $sql_base = "SELECT *,((`weight_min` + `weight_max`) / 2) as `weight_avg` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WhERE "; //query product , racket and calculated weight average for check matching
         $sql = "";
+
+        //exp = experience 1 low - 2 high
+        //sex = 1 male 2 female
+        //f = frequency
+        //bmi = body mass index
+        //style = technical play for speed play (smash ball) 1 low - 3 high
+        //s = technical play for defence play (clear ball) 1 low - 3 high 
+        //weight = 5u (75-79g) / 4u (80-84g) / 3u (85-89g) 
+        //flex = flexible of racket
         
         if(($exp == 1 || $exp == 2) && $f == 1){
             if($sex == 1){
                 if($bmi == 0){
-                    $sql .= " (`weight` = '2' or `weight` = '3') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) or (((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80)) ";
                 }else if($bmi < 19){
-                    $sql .= " (`weight` = '3' or `weight` = '4') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80) or (((`weight_min` + `weight_max`) / 2) >= 70 and ((`weight_min` + `weight_max`) / 2) < 75)) ";
                 }else if($bmi >= 19){
-                    $sql .= " (`weight` = '2') ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) ";
                 }
             }else{
                 if($bmi == 0){
-                    $sql .= " (`weight` = '2' or `weight` = '3') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) or (((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80)) ";
                 }else if($bmi < 18){
-                    $sql .= " (`weight` = '3' or `weight` = '4') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80) or (((`weight_min` + `weight_max`) / 2) >= 70 and ((`weight_min` + `weight_max`) / 2) < 75)) ";
                 }else if($bmi >= 18){
-                    $sql .= " (`weight` = '2') ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) ";
                 }
             }
 
@@ -87,19 +98,19 @@
         }else{
             if($sex == 1){
                 if($bmi == 0){
-                    $sql .= " (`weight` = '2') ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) ";
                 }else if($bmi < 19){
-                    $sql .= " (`weight` = '3' or `weight` = '4') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80) or (((`weight_min` + `weight_max`) / 2) >= 70 and ((`weight_min` + `weight_max`) / 2) < 75)) ";
                 }else if($bmi >= 19){
-                    $sql .= " (`weight` = '2') ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) ";
                 }
             }else{
                 if($bmi == 0){
-                    $sql .= " (`weight` = '2' ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85) ";
                 }else if($bmi < 18){
-                    $sql .= " (`weight` = '3') ";
+                    $sql .= " (((`weight_min` + `weight_max`) / 2) >= 75 and ((`weight_min` + `weight_max`) / 2) < 80) ";
                 }else if($bmi >= 18){
-                    $sql .= " (`weight` = '1' or `weight` = '2') ";
+                    $sql .= " ((((`weight_min` + `weight_max`) / 2) >= 86 and ((`weight_min` + `weight_max`) / 2) < 90) or (((`weight_min` + `weight_max`) / 2) >= 80 and ((`weight_min` + `weight_max`) / 2) < 85)) ";
                 }
             }
 
@@ -121,25 +132,25 @@
             $sql .= " and (`balance` = '2') ";
         }
 
-        if($brand == 1){
-            $sql .= " and (`brand_id` = '1') ";
-        }else if($brand == 2 ){
-            $sql .= " and (`brand_id` = '3') ";
-        }else{
-            $sql .= " and (`brand_id` = '2') ";
-        }
-
         if($price == 1){
-            $sql .= " and (`price` <= '2000') ";
+            $sql .= " ORDER BY (`price` <= '2000') DESC ";
         }else if($price == 2 ){
-            $sql .= " and (`price` >= '2000'  and `price` <= 3500) ";
+            $sql .= " ORDER BY (`price` >= '2000'  and `price` <= 3500) DESC ";
         }else{
-            $sql .= " and (`price` > '3500') ";
+            $sql .= " ORDER BY (`price` > '3500') DESC ";
         }
 
-        $rs = getpdo($conn,$sql_base.$sql);
-        if(gettype($rs) == 'array'){
+        if($brand == 1){
+            $sql .= " , (`brand_id` = '1') DESC";
+        }else if($brand == 2 ){
+            $sql .= " , (`brand_id` = '3') DESC";
+        }else{
+            $sql .= " , (`brand_id` = '2') DESC";
+        }
 
+        $rs = getpdo($conn,$sql_base.$sql." LIMIT 10");
+        echo $sql_base.$sql." LIMIT 10";
+        if(gettype($rs) == 'array'){
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WHERE ".$sql." )";
             $rs2 = getpdo($conn,$sql);
 
