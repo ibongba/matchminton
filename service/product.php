@@ -149,7 +149,7 @@
         }
 
         $rs = getpdo($conn,$sql_base.$sql." LIMIT 10");
-        echo $sql_base.$sql." LIMIT 10";
+        // echo $sql_base.$sql." LIMIT 10";
         if(gettype($rs) == 'array'){
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WHERE ".$sql." )";
             $rs2 = getpdo($conn,$sql);
@@ -160,7 +160,7 @@
         }
 
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card'){
-        $sql_pro = "SELECT * FROM `product` JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` ORDER BY `product_id` DESC";
+        $sql_pro = "SELECT * FROM `product` left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` ORDER BY `product_id` DESC";
         $rs = getpdo($conn,$sql_pro);
 
         if(gettype($rs) == 'array'){
@@ -173,7 +173,7 @@
             return ;
         }
     }else if (isset($_POST['action']) && $_POST['action'] == 'get_product_detail'){
-        $sql_pro = "SELECT * FROM `product` JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` WHERE `product_id`= '".$_POST['product_id']."' ORDER BY `product_id` DESC";
+        $sql_pro = "SELECT * FROM `product` left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` WHERE `product_id`= '".$_POST['product_id']."' ORDER BY `product_id` DESC";
         $rs = getpdo($conn,$sql_pro);
 
         if(gettype($rs) == 'array'){
