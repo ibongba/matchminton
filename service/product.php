@@ -90,9 +90,9 @@
             }
 
             if(($style == 1 && ($s == 1 || $s ==2)) || ($style == 2 && $s == 1)){
-                $sql .= " and (`flex` = '4') ";
-            }else{
                 $sql .= " and (`flex` = '3') ";
+            }else{
+                $sql .= " and (`flex` = '2') ";
             }
 
         }else{
@@ -115,11 +115,11 @@
             }
 
             if(($style == 1 && ($s == 1 || $s ==2)) || ($style == 2 && ($s == 1 || $s ==2)) || ($style == 3 && $s == 3)){
-                $sql .= " and (`flex` = '3') ";
-            }else if($style == 1 && $s == 3){
-                $sql .= " and (`flex` = '4') ";
-            }else{
                 $sql .= " and (`flex` = '2') ";
+            }else if($style == 1 && $s == 3){
+                $sql .= " and (`flex` = '3') ";
+            }else{
+                $sql .= " and (`flex` = '1') ";
             }
 
         }
@@ -165,7 +165,7 @@
 
         if(gettype($rs) == 'array'){
 
-            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`)";
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product`)";
             $rs2 = getpdo($conn,$sql);
 
             $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
@@ -178,7 +178,7 @@
 
         if(gettype($rs) == 'array'){
 
-            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`) AND `fk_product_id` = '".$_POST['product_id']."'";
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product`) AND `fk_product_id` = '".$_POST['product_id']."'";
             $rs2 = getpdo($conn,$sql);
 
             $res = array("code" => 200, "result" => array("product" => $rs[0],"product_images" => $rs2));

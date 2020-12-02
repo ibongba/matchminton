@@ -40,6 +40,6 @@
     }
 
     $result = array("message" => "Error someting");
-    $res = array("code" => 401, "result" => $result);
+    $res = array("code" => 401, "result" => $result,"sql"=>$sql);
     echo json_encode($res);
 ?>
