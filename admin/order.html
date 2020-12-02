@@ -158,7 +158,183 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                            .....
+                            <div class="card mb-3">
+                                <div class="card-header" style="background-color: #fff;">
+                                    <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <td>Name</td>
+                                                <td>Position</td>
+                                                <td>Department</td>
+                                                <td>Mobile NO.</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Grant Marshall</td>
+                                                <td>Junior Software Engineer</td>
+                                                <td>IT</td>
+                                                <td>01718332233</td>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
+                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grant Marshall</td>
+                                                <td>Junior Software Engineer</td>
+                                                <td>IT</td>
+                                                <td>01718332233</td>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
+                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grant Marshall</td>
+                                                <td>Junior Software Engineer</td>
+                                                <td>IT</td>
+                                                <td>01718332233</td>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
+                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="orderList" tabindex="-1" aria-labelledby="orderListLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="text-center">Order List</h4>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <p class=" m-0">Order ID</p>
+                                                            <p class=" m-0">ID</p>
+                                                            <p class=" m-0">Name</p>
+                                                            <p class=" m-0">Mobile</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class=" m-0">000001</p>
+                                                            <p class=" m-0">000001</p>
+                                                            <p class=" m-0">Grant Marshall</p>
+                                                            <p class=" m-0">01718332233</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <table class="table mt-2">
+                                                        <thead>
+                                                            <tr class="text-center">
+                                                                <td class="text-left">Item Name</td>
+                                                                <td>Quantity</td>
+                                                                <td>Price</td>
+                                                                <td>Stock Availability</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Astrox 99</td>
+                                                                <td class="text-center">1</td>
+                                                                <td class="text-center">2000</td>
+                                                                <td class="text-center">9</td>
+                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Astrox 99</td>
+                                                                <td class="text-center">1</td>
+                                                                <td class="text-center">2000</td>
+                                                                <td class="text-center">9</td>
+                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Astrox 99</td>
+                                                                <td class="text-center">1</td>
+                                                                <td class="text-center">2000</td>
+                                                                <td class="text-center">9</td>
+                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-right">รวม</td>
+                                                                <td class="text-center">3</td>
+                                                                <td class="text-center">8000</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group ">
+                                                                <label for="sender"><br> </label>
+                                                                <select class="form-control" id="sender">
+                                                                  <option>J&T</option>
+                                                                  <option>2</option>
+                                                                  <option>3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group ">
+                                                                <label for="NumSendProduct">เลขพัสดุ</label>
+                                                                <input type="text" class="form-control" id="NumSendProduct">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="note">หมายเหตุ</label>
+                                                                <input type="text" class="form-control" id="note">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success">อัพเดต</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-header" style="background-color: #fff;">
+                                            <h4 class="float-left mr-1">Stock</h4><button type="button" class="btn btn-outline-primary float-right">See All</button>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="form-group row">
+                                                    <label for="formControlRange">Example Range input</label>
+                                                    <input type="range" class="form-control-range col-md-6" id="formControlRange" style="background-color: red;">
+                                                </div>
+                                            </form>
+                                            <div class="chart-container" style="position: relative; ">
+                                                <canvas id="chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-header" style="background-color: #fff;">
+                                            <h4 class="float-left mr-1">Usage</h4>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-container" style="position: relative; ">
+                                                <canvas id="chart2"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
                             <ul class="nav nav-tabs" role="tablist">
@@ -432,7 +608,6 @@
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                             <table class="table">
                                 <thead>
