@@ -104,6 +104,64 @@
             </div>
         </div>
     </div>
+    <div class="container text-center">
+        <h2 class=" mt-4">คุณมีไม้แบดมินตันที่เหมาะสมกับคุณหรือยัง??</h2>
+        <div class="row example-box">
+            <div class="col-sm-12" style="margin-bottom: 25px;">
+                <!-- Default checked -->
+                <div class="row">
+                    <div class="custom-control custom-radio col-md-6">
+                        <input type="radio" class="custom-control-input" id="showChecked" name="showHideTextbox" value="show" checked>
+                        <label class="custom-control-label" for="showChecked" style="font-size: x-large;">มีไม่แบดมินตันที่เหมาะสมแล้ว</label>
+                    </div>
+                    <div class="custom-control custom-radio col">
+                        <input type="radio" class="custom-control-input" id="hideChecked" name="showHideTextbox" value="hide">
+                        <label class="custom-control-label" for="hideChecked" style="font-size: x-large;">ยังไม่มีไม้แบดมินตันที่เหมาะสม</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <!-- <div class="form-group">
+                        <input type="text" id="input1" class="textbox form-control" placeholder="Textbox ตัวอย่าง">
+                    </div> -->
+                <div class="row" id="showDetailForYou">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="flex" class=" col-form-label">Flex</label>
+                            <select class="custom-select" id="flex">
+                                    <option selected>เลือกความอ่อนของก้าน</option>
+                                    <option value="1">Stiff</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">Flexible</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="balance" class=" col-form-label">Balance</label>
+                            <select class="custom-select" id="balance">
+                                <option selected>เลือกความสมดุลของไม้</option>
+                                <option value="1">Head Heavy</option>
+                                <option value="2">Even Balance</option>
+                                <option value="3">Head Light</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="weight" class="col-form-label">Weight</label>
+                            <select class="custom-select" id="weight">
+                                    <option selected>เลือกน้ำหนักของไม้</option>
+                                    <option value="1">5U หรือ 6U เป็นไม้ที่มีน้ำหนักค่อนข้างเบา</option>
+                                    <option value="2">4U เป็นไม้ที่มีน้ำหนักมาตราฐาน</option>
+                                    <option value="3">3U เป็นไม้ที่มีน้ำหนักค่อนข้างหนัก</option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="my-5">
             <h2>MATCH SCHEDULE</h2>
@@ -409,10 +467,6 @@
             <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js "></script>
@@ -433,6 +487,16 @@
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
         }
+
+        $(document).ready(function() {
+            $('input[name="showHideTextbox"]').on('click', function() {
+                if ($(this).val() === 'show') {
+                    $('#showDetailForYou').show();
+                } else {
+                    $('#showDetailForYou').val('').hide();
+                }
+            });
+        });
     </script>
 </body>
 
