@@ -104,64 +104,6 @@
             </div>
         </div>
     </div>
-    <div class="container text-center">
-        <h2 class=" mt-4">คุณมีไม้แบดมินตันที่เหมาะสมกับคุณหรือยัง??</h2>
-        <div class="row example-box">
-            <div class="col-sm-12" style="margin-bottom: 25px;">
-                <!-- Default checked -->
-                <div class="row">
-                    <div class="custom-control custom-radio col-md-6">
-                        <input type="radio" class="custom-control-input" id="showChecked" name="showHideTextbox" value="show" checked>
-                        <label class="custom-control-label" for="showChecked" style="font-size: x-large;">มีไม่แบดมินตันที่เหมาะสมแล้ว</label>
-                    </div>
-                    <div class="custom-control custom-radio col">
-                        <input type="radio" class="custom-control-input" id="hideChecked" name="showHideTextbox" value="hide">
-                        <label class="custom-control-label" for="hideChecked" style="font-size: x-large;">ยังไม่มีไม้แบดมินตันที่เหมาะสม</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <!-- <div class="form-group">
-                        <input type="text" id="input1" class="textbox form-control" placeholder="Textbox ตัวอย่าง">
-                    </div> -->
-                <div class="row" id="showDetailForYou">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label for="flex" class=" col-form-label">Flex</label>
-                            <select class="custom-select" id="flex">
-                                    <option selected>เลือกความอ่อนของก้าน</option>
-                                    <option value="1">Stiff</option>
-                                    <option value="2">Medium</option>
-                                    <option value="3">Flexible</option>
-                                </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label for="balance" class=" col-form-label">Balance</label>
-                            <select class="custom-select" id="balance">
-                                <option selected>เลือกความสมดุลของไม้</option>
-                                <option value="1">Head Heavy</option>
-                                <option value="2">Even Balance</option>
-                                <option value="3">Head Light</option>
-                                </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label for="weight" class="col-form-label">Weight</label>
-                            <select class="custom-select" id="weight">
-                                    <option selected>เลือกน้ำหนักของไม้</option>
-                                    <option value="1">5U หรือ 6U เป็นไม้ที่มีน้ำหนักค่อนข้างเบา</option>
-                                    <option value="2">4U เป็นไม้ที่มีน้ำหนักมาตราฐาน</option>
-                                    <option value="3">3U เป็นไม้ที่มีน้ำหนักค่อนข้างหนัก</option>
-                                </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="my-5">
             <h2>MATCH SCHEDULE</h2>
@@ -242,53 +184,62 @@
             </div>
         </div>
     </div>
-
-    <div class="container-fluid p-0">
-        <div class="bg-video p-5" style="background-image: url(images/bg-video.png);">
-            <div class="text ">
-                <h2>
-                    <font style="color: #0AB2AC;">FEATURED VIDEOS</font>
-                </h2>
-                <h5>
-                    <font style="color: #0AB2AC;">วิดิโอการแข่งขัน</font>
-                </h5>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4 float-left text-light">
-                    <div class="card  my-0">
-                        <div class="card-body p-0">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <!-- form ในการโชว์วีดีโอ ใช้ iframe -->
-                                <iframe width="857" height="482" src="https://www.youtube.com/embed/mH0o5xkCG_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+    <div style="background-color: #000;" class="text-white p-4 is-login d-none" >       
+        <div class="container text-center" >
+            <h3 class=" mt-4">คุณมีไม้ที่ถนัดหรือยัง ลองปรึกษากับเราดูไหม ?</h3>
+            <div class="row example-box">
+                <div class="col-sm-12 pt-4 pb-2" style="margin-bottom: 25px;">
+                    <!-- Default checked -->
+                    <div class="row justify-content-center">
+                        <div class="custom-control custom-radio col-md-3">
+                            <input type="radio" class="custom-control-input" id="showChecked" name="showHideTextbox" value="show">
+                            <label class="custom-control-label" for="showChecked">สนใจ</label>
+                        </div>
+                        <div class="custom-control custom-radio col-md-3">
+                            <input type="radio" class="custom-control-input" id="hideChecked" name="showHideTextbox" value="hide">
+                            <label class="custom-control-label" for="hideChecked">ไม่สนใจ</label>
                         </div>
                     </div>
-                    <h5 class="mt-3">MATCH HIGHLIGHTS :</h5>
-                    <p>CELCOM AXIATA Malaysia Open 2019</p>
-                    <p><i class="far fa-play-circle"></i> 3.23 min</p>
                 </div>
-                <div class="col-md-4 float-left text-light">
-                    <div class="card  my-0">
-                        <div class="card-body p-0">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe width="857" height="482" src="https://www.youtube.com/embed/OUD70rQf44M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-sm-12">
+                    <div class="row justify-content-between" id="showDetailForYou">
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label for="flex" class=" col-form-label">เลือกความอ่อนของก้าน</label>
+                                <select class="custom-select" id="flex">
+                                        <option value="1">Stiff</option>
+                                        <option value="2">Medium</option>
+                                        <option value="3">Flexible</option>
+                                    </select>
                             </div>
                         </div>
-                    </div>
-                    <h5 class="mt-3">MATCH HIGHLIGHTS :</h5>
-                    <p>CELCOM AXIATA Malaysia Open 2019</p>
-                    <p><i class="far fa-play-circle"></i> 3.23 min</p>
-                </div>
-
-                <div class="col-md-4 video-card">
-                    <div class="d-flex p-3 h-100 video-body">
-                        <h3>YONEX Freach Open 2020 Lee Chong Wei into Quarterfinals</h3>
-                        <a href="" class="text-danger font-weight-bold">
-                           FULL VIDEO
-                        </a>
-                        <div class="d-flex h-100">
-                            <h4 class="d-flex h-100 float-left"><i class="far fa-play-circle"></i>&nbsp; 50.45 min</h4>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label for="balance" class=" col-form-label">เลือกความสมดุลของไม้</label>
+                                <select class="custom-select" id="balance">
+                                    <option value="1">Head Heavy</option>
+                                    <option value="2">Even Balance</option>
+                                    <option value="3">Head Light</option>
+                                    </select>
+                            </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label for="weight" class="col-form-label">เลือกน้ำหนักของไม้</label>
+                                <select class="custom-select" id="weight">
+                                        <option value="72.5">6U เป็นไม้ที่มีน้ำหนักเบา</option>
+                                        <option value="77.5">5U เป็นไม้ที่มีน้ำหนักค่อนข้างเบา</option>
+                                        <option value="82.5">4U เป็นไม้ที่มีน้ำหนักมาตราฐาน</option>
+                                        <option value="87.5">3U เป็นไม้ที่มีน้ำหนักค่อนข้างหนัก</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-outline-danger" onclick="save()">บันทึก</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" id="showlink">
+                        <a class="btn btn-outline-danger" href="match.html">ทดสอบความเหมาะสมกับเรา</a>
                     </div>
                 </div>
             </div>
@@ -444,6 +395,58 @@
         </div>
     </div>
 
+    <div class="container-fluid p-0">
+        <div class="bg-video p-5" style="background-image: url(images/bg-video.png);">
+            <div class="text ">
+                <h2>
+                    <font style="color: #0AB2AC;">FEATURED VIDEOS</font>
+                </h2>
+                <h5>
+                    <font style="color: #0AB2AC;">วิดิโอการแข่งขัน</font>
+                </h5>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4 float-left text-light">
+                    <div class="card  my-0">
+                        <div class="card-body p-0">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <!-- form ในการโชว์วีดีโอ ใช้ iframe -->
+                                <iframe width="857" height="482" src="https://www.youtube.com/embed/mH0o5xkCG_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mt-3">MATCH HIGHLIGHTS :</h5>
+                    <p>CELCOM AXIATA Malaysia Open 2019</p>
+                    <p><i class="far fa-play-circle"></i> 3.23 min</p>
+                </div>
+                <div class="col-md-4 float-left text-light">
+                    <div class="card  my-0">
+                        <div class="card-body p-0">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe width="857" height="482" src="https://www.youtube.com/embed/OUD70rQf44M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mt-3">MATCH HIGHLIGHTS :</h5>
+                    <p>CELCOM AXIATA Malaysia Open 2019</p>
+                    <p><i class="far fa-play-circle"></i> 3.23 min</p>
+                </div>
+
+                <div class="col-md-4 video-card">
+                    <div class="d-flex p-3 h-100 video-body">
+                        <h3>YONEX Freach Open 2020 Lee Chong Wei into Quarterfinals</h3>
+                        <a href="" class="text-danger font-weight-bold">
+                           FULL VIDEO
+                        </a>
+                        <div class="d-flex h-100">
+                            <h4 class="d-flex h-100 float-left"><i class="far fa-play-circle"></i>&nbsp; 50.45 min</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class=" container ">
             <div class="row">
@@ -473,30 +476,57 @@
 
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
-        console.log(user)
         if (user != null) {
             $('#not-login').addClass('d-none')
             $('#is-login').removeClass('d-none')
+            $('.is-login').removeClass('d-none')
         } else {
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
+            $('.is-login').addClass('d-none')
         }
 
         logout = () => {
             localStorage.removeItem('user')
             $('#not-login').removeClass('d-none')
             $('#is-login').addClass('d-none')
+            $('.is-login').addClass('d-none')
         }
 
         $(document).ready(function() {
+            $('#showDetailForYou').hide();
+            $('#showlink').hide();
+
             $('input[name="showHideTextbox"]').on('click', function() {
                 if ($(this).val() === 'show') {
                     $('#showDetailForYou').show();
+                    $('#showlink').hide();
                 } else {
-                    $('#showDetailForYou').val('').hide();
+                    $('#showDetailForYou').hide();
+                    $('#showlink').show();
                 }
             });
         });
+
+        save = () => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/member.php',
+                data: {
+                    action: 'update_style',
+                    flex:$('#flex option:selected').val(),
+                    balance:$('#balance option:selected').val(),
+                    weight:$('#weight option:selected').val(),
+                    user_id:user.user_id
+                },
+            }).done(function(msg) {
+
+                msg = JSON.parse(msg);
+                if (msg.code === 200) {
+                    alert('บันทึกเรียบร้อย')
+                }
+            })
+        }
     </script>
 </body>
 

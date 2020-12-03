@@ -37,6 +37,26 @@
             return ;
             
         }
+    }else if(isset($_POST['action']) && $_POST['action'] == 'update_style'){
+        $sql = "SELECT `user_id`, `flex`, `balance`, `weight` FROM `user_style` WHERE `user_id` = '".$_POST['user_id']."'";
+        $rs = getpdo($conn,$sql);
+
+        if(isset($rs) && count($rs) > 0){
+            
+            $sql = "UPDATE `user_style` SET `flex` = '".$_POST['flex']."' , `balance` = '".$_POST['balance']."' ,`weight` = '".$_POST['weight']."' WHERE `user_id` = '".$_POST['user_id']."'";
+            $rs = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => $rs);
+            echo json_encode($res);
+            return ;
+        }else{
+            $sql = "INSERT INTO `user_style`(`user_id`, `flex`, `balance`, `weight`) values ('".$_POST['user_id']."','".$_POST['flex']."','".$_POST['balance']."','".$_POST['weight']."')";
+            $rs = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => $rs);
+            echo json_encode($res);
+            return ;
+        }
     }
 
     $result = array("message" => "Error someting");
