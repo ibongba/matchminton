@@ -56,7 +56,7 @@
                     <li class="nav-item">
                         <div class="dropdown">
                             <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ยินดีต้อนรับ คุณ
+                                ยินดีต้อนรับ คุณ<span id="user_name"></span>
                             </p>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
@@ -378,6 +378,7 @@
         let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] ;
         var products = [];
         if (user != null) {
+            $('#user_name').text(user.name)
             $('#not-login').addClass('d-none')
             $('#is-login').removeClass('d-none')
             $('#user_id').val(user.user_id);

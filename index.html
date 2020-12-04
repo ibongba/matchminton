@@ -58,11 +58,11 @@
                          <li class="nav-item">
                             &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
                         </li> -->
-                        <!-- navbar ในส่วนที่ login  ยินดีต้อนรับ คุณ  -->
+                        <!-- navbar ในส่วนที่ login  ยินดีต้อนรับ คุณ<span id="user_name"></span>  -->
                         <li class="nav-item" id="is-login">
                             <div class="dropdown">
                                 <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: x-large; padding-top: 8px; font-weight: bold; color: #0AB2AC;">
-                                    ยินดีต้อนรับ คุณ
+                                    ยินดีต้อนรับ คุณ<span id="user_name"></span><span id="user_name"></span>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
@@ -477,6 +477,7 @@
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         if (user != null) {
+            $('#user_name').text(user.name)
             $('#not-login').addClass('d-none')
             $('#is-login').removeClass('d-none')
             $('.is-login').removeClass('d-none')

@@ -60,7 +60,7 @@
                     <li class="nav-item">
                         <div class="dropdown">
                             <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ยินดีต้อนรับ คุณ
+                                ยินดีต้อนรับ คุณ<span id="user_name"></span>
                             </p>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
@@ -140,6 +140,7 @@
         var user = JSON.parse(localStorage.getItem('user'));
         console.log(user)
         if (user != null) {
+            $('#user_name').text(user.name)
             $('#not-login').addClass('d-none')
             $('#is-login').removeClass('d-none')
         } else {
