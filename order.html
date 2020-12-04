@@ -85,7 +85,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th>ยอดรวมจำนวน 2 ชิ้น</th>
+                                    <th>ยอดรวมจำนวน <span id="amount_all_product"></span> ชิ้น</th>
                                     <td id="product_price"></td>
                                 </tr>
                                 <!-- <tr>
@@ -221,16 +221,19 @@
                 if (msg.code === 200) {
                     var res = msg.result;
                     products = res.product;
+                    cart_data = res.product;
                     for (i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
                         
                     };
                     if(cart_data) {
+                        console.log(cart_data)
                         var total_product = calSum(cart_data);
                         var sum = total_product - 15;
                         $('#product_price').text('฿'+total_product.toFixed(2));
                         $('#sum_price').text('฿'+sum.toFixed(2));
+                        $('#amount_all_product').text(cart_data.reduce((total,item)=> total + parseInt(item.amount) ,0));
                     }
                 }
             });
@@ -248,18 +251,18 @@
                         <p>${item.description}</p>
                         <p class="float-left" style="color: #FF8000;">฿${item.price}</p>
                         <div class="input-group col-4 my-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
-                            </div>
-                            <input type="text" class="form-control text-center" value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
-                            </div>
+                            <input type="text" class="form-control text-center" disabled value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                           
                         </div>
                     </div>
                 </div>
             `;
         };
+                            // <div class="input-group-prepend">
+                            //     <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
+                            // </div> <div class="input-group-append">
+                            //     <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
+                            // </div>
 
         selected = (data) => {
             let cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] ;
