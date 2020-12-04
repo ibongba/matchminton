@@ -740,26 +740,8 @@
                 <td class="text-center">ชำระเงินแล้ว</td>
                 <td class="text-center">01718332233</td>
                 <td><button type="button" class="btn btn-primary">Order Details</button></td>
-                <td><button type="button" class="btn btn-danger" onclick=dorder(${item.product_id})>ยกเลิกคำสั่งซื้อ</button></td>
+                <td><button type="button" class="btn btn-danger">ยกเลิกคำสั่งซื้อ</button></td>
             </tr>`
-        }
-        const dorder = (id) => {
-            $.ajax({
-                method: "POST",
-                url: "service/themes.php",
-                data: {
-                    action: 'delete_order',
-                    product_id: id
-                }
-            }).done(function(msg) {
-                console.log(msg)
-                msg = JSON.parse(msg)
-                if (msg.code === 200) {
-                    alert('ยกเลิการสั่งซื้อสำเร็จ');
-
-                    localStorage.setItem('user', JSON.stringify(msg.result));
-                }
-            });
         }
 
         $().ready(() => {

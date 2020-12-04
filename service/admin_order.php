@@ -18,15 +18,6 @@
         	echo json_encode($res);
             return ;
         }
-    }else if (isset($_POST['action']) && $_POST['action'] == 'delete_order'){
-        $sql = "UPDATE `theme` SET `status`= '0' WHERE  `theme_id` = '".$_POST['theme_id']."' ";
-        // echo $sql;
-        $rs = getpdo($conn,$sql);
-        if(isset($rs)){
-        	$res = array("code" => 200, "result" => $rs[0]);
-        	echo json_encode($res);
-            return ;
-        }
     }
 
 
