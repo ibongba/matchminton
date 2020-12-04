@@ -17,7 +17,6 @@
 <body>
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #000;">
         <div class="container-fluid p-0">
-
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
                 <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
@@ -184,8 +183,8 @@
             </div>
         </div>
     </div>
-    <div style="background-color: #000;" class="text-white p-4 is-login d-none" >       
-        <div class="container text-center" >
+    <div style="background-color: #000;" class="text-white p-4 is-login d-none">
+        <div class="container text-center">
             <h3 class=" mt-4">คุณมีไม้ที่ถนัดหรือยัง ลองปรึกษากับเราดูไหม ?</h3>
             <div class="row example-box">
                 <div class="col-sm-12 pt-4 pb-2" style="margin-bottom: 25px;">
@@ -515,10 +514,10 @@
                 url: 'service/member.php',
                 data: {
                     action: 'update_style',
-                    flex:$('#flex option:selected').val(),
-                    balance:$('#balance option:selected').val(),
-                    weight:$('#weight option:selected').val(),
-                    user_id:user.user_id
+                    flex: $('#flex option:selected').val(),
+                    balance: $('#balance option:selected').val(),
+                    weight: $('#weight option:selected').val(),
+                    user_id: user.user_id
                 },
             }).done(function(msg) {
 

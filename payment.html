@@ -9,127 +9,154 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/knowledge.css">
     <title>ORDER</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="top w-100-nav">
-            <div class="row justify-content-center">
-                <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 350px;">
-            </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+                <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">หน้าแรก <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="match.html">ไม้กับผู้เล่น</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="buySale.html">ซื้อขาย</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="webboard.html">ห้องชุมชน</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav" id="not-login">
-                    <li class="nav-item mx-3">
-                        <a href="login.html"><button class="btn btn-primary" style="background-color: #43425D; border-radius: 15px;">เข้าสู่ระบบ</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="register.html"><button class="btn btn-light" style="border-radius: 15px;">สมัครสมาชิก</button></a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav px-0" id="is-login">
-                    <li class="nav-item ">
-                        <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
-                    </li>
-                    <li class="nav-item">
-                        &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ยินดีต้อนรับ คุณ<span id="user_name"></span>
-                            </p>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
-                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                    </button>
+
+                <div class="collapse navbar-collapse nav-fill w-100" id="nav-left">
+                    <ul class="nav navbar-nav nav-fill w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="match.html">MATCHING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="buySale.html">SHOP</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mx-auto headerLogo">
+                    <a href="index.html">
+                        <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse nav-fill w-100" id="nav-right">
+
+                    <ul class="nav navbar-nav nav-fill w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="webboard.html">COMMUNITY</a>
+                        </li>
+                        <!-- navbar ในส่วนที่ยังไม่ได้ login จะแสดง LOGIN  -->
+                        <li class="nav-item" id="not-login">
+                            <a class="nav-link" href="login.html">LOGIN</a>
+                        </li>
+                        <!-- </ul> 
+                         <ul class="navbar-nav px-0"> 
+                         <li class="nav-item">
+                            <a href="createtheme.html"><button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#exampleModal">ตั้งกระทู้</button></a>
+                        </li> 
+                         <li class="nav-item">
+                            &nbsp;<a href="order.html"><i class="fas fa-shopping-cart"></i></a>
+                        </li> -->
+                        <!-- navbar ในส่วนที่ login  ยินดีต้อนรับ คุณ<span id="user_name"></span>  -->
+                        <li class="nav-item" id="is-login">
+                            <div class="dropdown">
+                                <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: x-large; padding-top: 8px; font-weight: bold; color: #0AB2AC;">
+                                    ยินดีต้อนรับ คุณ<span id="user_name"></span><span id="user_name"></span>
+                                </p>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
+                                    <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                                    <a class="dropdown-item" href="createtheme.html"><i class="fas fa-scroll"></i> ตั้งกระทู้</a>
+                                    <a class="dropdown-item" href="order.html"><i class="fas fa-shopping-cart"></i> ตะกร้าสินค้า</a>
+                                </div>
                             </div>
-                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+            <div class="collapse ml-3" id="navbarMobile">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="match.html">MATCHING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buySale.html">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webboard.html">COMMUNITY</a>
+                    </li>
+                    <li class="nav-item" id="not-login">
+                        <a class="nav-link" href="login.html">LOGIN</a>
                     </li>
                 </ul>
             </div>
         </nav>
+    </div>
+    <div class="container">
         <form action="service/insert_order.php" onsubmit="onSubmit()" method="POST" class="p-0 m-0">
             <input type="hidden" name="user_id" id="user_id" />
             <input type="hidden" name="total_price" id="total_price" />
             <input type="hidden" name="cart" id="cart" />
             <div>
-            <div class="card my-0">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="address_payment">
+                <div class="card my-0">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="address_payment">
                             <h5 style="color: #0CB3AC;"><i class="fas fa-map-marker-alt"></i> ที่อยู่ในการจัดส่ง</h5>
                         </label>
-                        <input type="text" name="address" class="form-control" id="address_payment" required placeholder="กรุณากรอกที่อยู่">
+                            <input type="text" name="address" class="form-control" id="address_payment" required placeholder="กรุณากรอกที่อยู่">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <table class="table table-borderless">
-                        <thead>
-                            <tr>
-                                <th>สั่งซื้อสินค้าแล้ว</th>
-                                <th class="text-center">ราคาต่อหน่วย</th>
-                                <th class="text-center">จำนวน</th>
-                                <th class="text-right">รายการย่อย</th>
-                            </tr>
-                            <tr>
-                                <td>จำหน่ายโดย <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100px;"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody id="result">
-                            
-                            
-                            
-                        </tbody>
-                    </table>
-                    <hr>
-                    <div class="row pt-3">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputsend" class="col-sm-3 col-form-label pr-0">หมายเหตุ: </label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="remark" class="form-control" id="inputsend" placeholder="ไม่บังคับ (ฝากถึงผู้จัดส่ง)">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>สั่งซื้อสินค้าแล้ว</th>
+                                    <th class="text-center">ราคาต่อหน่วย</th>
+                                    <th class="text-center">จำนวน</th>
+                                    <th class="text-right">รายการย่อย</th>
+                                </tr>
+                                <tr>
+                                    <td>จำหน่ายโดย <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100px;"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody id="result">
+
+
+
+                            </tbody>
+                        </table>
+                        <hr>
+                        <div class="row pt-3">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label for="inputsend" class="col-sm-3 col-form-label pr-0">หมายเหตุ: </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="remark" class="form-control" id="inputsend" placeholder="ไม่บังคับ (ฝากถึงผู้จัดส่ง)">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="col-md-3 text-center">
+                            <!-- <div class="col-md-3 text-center">
                             <h5 style="color: #0CB3AC;">Shipping Opion</h5>
                         </div> -->
-                        <div class="col-md-6">
-                            <div class="text-right">
-                                <h5 class="font-weight-bold">จัดส่งแบบปกติ J&T</h5>
-                                <p class="m-0 text-muted">จะได้รับสินค้าไม่เกิน 3 - 7 วัน</p>
+                            <div class="col-md-6">
+                                <div class="text-right">
+                                    <h5 class="font-weight-bold">จัดส่งแบบปกติ J&T</h5>
+                                    <p class="m-0 text-muted">จะได้รับสินค้าไม่เกิน 3 - 7 วัน</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div class="col text-right">
+                            <!-- <div class="col text-right">
                             <h5>฿22</h5>
                         </div> -->
-                    </div>
-                    <hr>
-                    <!-- <div class="text-right">
+                        </div>
+                        <hr>
+                        <!-- <div class="text-right">
                         <p>ค่าธรรมเนียม:
                             <font style="color: #0CB3AC;">฿15</font>
                         </p>
@@ -137,12 +164,12 @@
                             <font style="color: #0CB3AC;" id="total_summary"></font>
                         </h5>
                     </div> -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <!-- <h5>วิธีการชำระเงิน</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <h5>วิธีการชำระเงิน</h5>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-info mr-2">
                         <input type="radio" name="pay" id="pay1" > บัตรเครดิต/บัตรเดบิต
@@ -158,42 +185,42 @@
                         </label>
                     </div>
                     <hr> -->
-                    <h5>เลือกบัญชีการชำระเงิน</h5>
-                    <div class="form-check pb-2">
-                        <input class="form-check-input pt-2" type="radio" name="credit_card" id="account1" value="555" checked onclick="closeCard()">
-                        <label class="form-check-label" for="account1">
+                        <h5>เลือกบัญชีการชำระเงิน</h5>
+                        <div class="form-check pb-2">
+                            <input class="form-check-input pt-2" type="radio" name="credit_card" id="account1" value="555" checked onclick="closeCard()">
+                            <label class="form-check-label" for="account1">
                         <img src="images/visa-light-large.png" alt="" width="40"> ธนาคารกรุงไทย **** 9999
                         </label>
-                    </div>
-                    <div class="form-check pb-2">
-                        <input class="form-check-input pt-2" type="radio" name="credit_card" id="other" value="other" onclick="openCard()">
-                        <label class="form-check-label" for="other">
+                        </div>
+                        <div class="form-check pb-2">
+                            <input class="form-check-input pt-2" type="radio" name="credit_card" id="other" value="other" onclick="openCard()">
+                            <label class="form-check-label" for="other">
                         อื่นๆ
                         </label>
-                    </div>
-                    <!-- <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choose_acc"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button> -->
-                    <!-- <button type="button" class="btn btn-outline-secondary" id="btn-add" onclick="openCard()"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button>
+                        </div>
+                        <!-- <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choose_acc"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button> -->
+                        <!-- <button type="button" class="btn btn-outline-secondary" id="btn-add" onclick="openCard()"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button>
                     <button type="button" class="btn btn-outline-secondary d-none" id="btn-close" onclick="closeCard()"><i class="fas fa-minus"></i> ยกเลิก</button> -->
-                    <div class="d-none" id="credir-card">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-row">
-                                    <div class="col-md-12 mb-3">
-                                        <h5 class="modal-title" id="choose_accLabel">เพิ่มบัตรเครดิต/บัตรเดบิต</h5>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
-                                        <input type="text" class="form-control" name="card_name" value="test" placeholder="Card Name" required>
-                                    </div>
-                                    <div class="col-md-7 mb-3">
-                                        <input type="text" class="form-control" name="card_no" value="1234567890" placeholder="Card NO" required  >
-                                    </div>
-                                    <i class="fab fa-cc-visa mr-2" style="font-size: 40px; color:navy;"></i>
-                                    <i class="fab fa-cc-jcb mr-2" style="font-size: 40px; color:#f24b;"></i>
-                                    <i class="fab fa-cc-mastercard" style="font-size: 40px; color:red;"></i>
+                        <div class="d-none" id="credir-card">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-3">
+                                            <h5 class="modal-title" id="choose_accLabel">เพิ่มบัตรเครดิต/บัตรเดบิต</h5>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <input type="text" class="form-control" name="card_name" value="test" placeholder="Card Name" required>
+                                        </div>
+                                        <div class="col-md-7 mb-3">
+                                            <input type="text" class="form-control" name="card_no" value="1234567890" placeholder="Card NO" required>
+                                        </div>
+                                        <i class="fab fa-cc-visa mr-2" style="font-size: 40px; color:navy;"></i>
+                                        <i class="fab fa-cc-jcb mr-2" style="font-size: 40px; color:#f24b;"></i>
+                                        <i class="fab fa-cc-mastercard" style="font-size: 40px; color:red;"></i>
 
-                                    <div class="form-group col-md-4">
-                                        <label for="inputDate">วันที่หมดอายุ</label>
-                                        <select id="inputDate" class="form-control" name="expire_month">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputDate">วันที่หมดอายุ</label>
+                                            <select id="inputDate" class="form-control" name="expire_month">
                                         <option selected>เดือน</option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
@@ -207,10 +234,10 @@
                                         <option value="11">11</option>
                                         <option value="12">12</option>
                                     </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <!-- <label for="inputYear"> </label> -->
-                                        <select id="inputYear" class="form-control" name="expire_year" style="margin-top: 2rem;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <!-- <label for="inputYear"> </label> -->
+                                            <select id="inputYear" class="form-control" name="expire_year" style="margin-top: 2rem;">
                                         <option selected>ปี</option>
                                         <option value="2020">2020</option>
                                         <option value="2021">2021</option>
@@ -224,28 +251,28 @@
                                         <option value="2029">2029</option>
                                         <option value="2030">2030</option>
                                     </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCvc">CVC</label>
-                                        <input type="text" class="form-control" name="cvc_no" value="123" id="inputCvc" required>
-                                    </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputCvc">CVC</label>
+                                            <input type="text" class="form-control" name="cvc_no" value="123" id="inputCvc" required>
+                                        </div>
 
-                                    <div class="col-md-12 mb-3">
-                                        <input type="text" class="form-control" name="address" placeholder="ที่อยู่">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" name="post" placeholder="เลขไปรษณีย์">
+                                        <div class="col-md-12 mb-3">
+                                            <input type="text" class="form-control" name="address" placeholder="ที่อยู่">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="post" placeholder="เลขไปรษณีย์">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- <div class="col-md-12 my-4">
+                                <!-- <div class="col-md-12 my-4">
                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ยกเลิก</button>
                                 <button type="button" class="btn btn-outline-danger">ยืนยัน</button>
                             </div> -->
+                            </div>
                         </div>
-                    </div>
-                    <!-- Modal -->
-                    <!-- <div class="modal fade" id="choose_acc" tabindex="-1" aria-labelledby="choose_accLabel" aria-hidden="true">
+                        <!-- Modal -->
+                        <!-- <div class="modal fade" id="choose_acc" tabindex="-1" aria-labelledby="choose_accLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -319,27 +346,27 @@
                             </div>
                         </div>
                     </div> -->
-                    <hr>
-                    <div class="row text-right">
-                        <div class="col-md-10">
-                            <h5>ยอดรวมสินค้า</h5>
-                            <h5>ค่าธรรมเนียม</h5>
-                            <h5>การชำรเงินทั้งหมด</h5>
+                        <hr>
+                        <div class="row text-right">
+                            <div class="col-md-10">
+                                <h5>ยอดรวมสินค้า</h5>
+                                <h5>ค่าธรรมเนียม</h5>
+                                <h5>การชำรเงินทั้งหมด</h5>
+                            </div>
+                            <div class="col">
+                                <h5 id="product_price"></h5>
+                                <h5>฿ 15</h5>
+                                <h5>
+                                    <font style="color: #0CB3AC;" id="total_summary"></font>
+                                </h5>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h5 id="product_price"></h5>
-                            <h5>฿ 15</h5>
-                            <h5>
-                                <font style="color: #0CB3AC;" id="total_summary"></font>
-                            </h5>
-                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-info float-right">สั่งซื้อสินค้า</button>
                     </div>
-                    <hr>
-                    <button type="submit" class="btn btn-info float-right">สั่งซื้อสินค้า</button>
-                </div>
-            </form>
-                
-                <!--<div class="modal fade" id="confirmPayment" tabindex="-1" aria-labelledby="confirmPaymentLabel" aria-hidden="true">
+        </form>
+
+        <!--<div class="modal fade" id="confirmPayment" tabindex="-1" aria-labelledby="confirmPaymentLabel" aria-hidden="true">
                      <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -367,79 +394,81 @@
             </div> -->
         </div>
 
-    </div>
-    <!-- container -->
+        </div>
+        <!-- container -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        var user = JSON.parse(localStorage.getItem('user'));
-        let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] ;
-        var products = [];
-        if (user != null) {
-            $('#user_name').text(user.name)
-            $('#not-login').addClass('d-none')
-            $('#is-login').removeClass('d-none')
-            $('#user_id').val(user.user_id);
-        } else {
-            $('#not-login').removeClass('d-none')
-            $('#is-login').addClass('d-none')
-        }
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+            var products = [];
+            if (user != null) {
+                $('#user_name').text(user.name)
+                $('#not-login').addClass('d-none')
+                $('#is-login').removeClass('d-none')
+                $('#user_id').val(user.user_id);
+            } else {
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
 
-        logout = () => {
-            localStorage.removeItem('user')
-            $('#not-login').removeClass('d-none')
-            $('#is-login').addClass('d-none')
-        }
+            logout = () => {
+                localStorage.removeItem('user')
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
 
-        const calSum = (carts) => {
-            var sum = carts.reduce((total, val) => {
-                var c = products.find(item => item.cart_id == val.cart_id) || {price : 0}
-                return parseFloat(c.price * c.amount) + total
-            }, 0);
-            return (sum);
-        }
-
-        const onSubmit = () => {
-            localStorage.removeItem('cart')
-        }
-
-        $().ready(() => {
-            $.ajax({
-                method: "POST",
-                url: "service/cart.php",
-                data: {
-                    action: 'show_order',
-                },
-            }).done(function(msg) {
-                console.log(msg)
-                msg = JSON.parse(msg)
-                if (msg.code === 200) {
-                    var res = msg.result;
-                    console.log('res.product', res.product);
-                    products = res.product;
-                    let data = res.product.filter(item => cart_data.find(val => val.cart_id == item.cart_id));
-                    console.log('products', data);
-                    for (i = 0; i < data.length; i++) {
-                        let image = res.product_images.find((item) => data[i].product_id == item.fk_product_id);
-                        $('#result').append(Card(data[i], image));
-                    };
-                    if(cart_data) {
-                        var total_product = calSum(cart_data);
-                        var sum = total_product - 15;
-                        $('#product_price').text('฿'+total_product.toFixed(2));
-                        $('#total_summary').text('฿'+sum.toFixed(2));
-                        $('#total_price').val(sum);
-                        $('#cart').val(JSON.stringify(cart_data));
+            const calSum = (carts) => {
+                var sum = carts.reduce((total, val) => {
+                    var c = products.find(item => item.cart_id == val.cart_id) || {
+                        price: 0
                     }
-                }
-            });
-        })
+                    return parseFloat(c.price * c.amount) + total
+                }, 0);
+                return (sum);
+            }
 
-        Card = (item, image) => {
-            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
-            return `
+            const onSubmit = () => {
+                localStorage.removeItem('cart')
+            }
+
+            $().ready(() => {
+                $.ajax({
+                    method: "POST",
+                    url: "service/cart.php",
+                    data: {
+                        action: 'show_order',
+                    },
+                }).done(function(msg) {
+                    console.log(msg)
+                    msg = JSON.parse(msg)
+                    if (msg.code === 200) {
+                        var res = msg.result;
+                        console.log('res.product', res.product);
+                        products = res.product;
+                        let data = res.product.filter(item => cart_data.find(val => val.cart_id == item.cart_id));
+                        console.log('products', data);
+                        for (i = 0; i < data.length; i++) {
+                            let image = res.product_images.find((item) => data[i].product_id == item.fk_product_id);
+                            $('#result').append(Card(data[i], image));
+                        };
+                        if (cart_data) {
+                            var total_product = calSum(cart_data);
+                            var sum = total_product - 15;
+                            $('#product_price').text('฿' + total_product.toFixed(2));
+                            $('#total_summary').text('฿' + sum.toFixed(2));
+                            $('#total_price').val(sum);
+                            $('#cart').val(JSON.stringify(cart_data));
+                        }
+                    }
+                });
+            })
+
+            Card = (item, image) => {
+                var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+                return `
                 <tr>
                     <td>
                         <div class="media">
@@ -454,19 +483,19 @@
                     <td class="text-right">฿${item.price * item.amount}</td>
                 </tr>
             `;
-        };
+            };
 
-        const openCard = () => {
-            $('#btn-add').addClass('d-none')
-            $('#btn-close').removeClass('d-none')
-            $('#credir-card').removeClass('d-none')
-        }
-        const closeCard = () => {
-            $('#btn-add').removeClass('d-none')
-            $('#btn-close').addClass('d-none')
-            $('#credir-card').addClass('d-none')
-        }
-    </script>
+            const openCard = () => {
+                $('#btn-add').addClass('d-none')
+                $('#btn-close').removeClass('d-none')
+                $('#credir-card').removeClass('d-none')
+            }
+            const closeCard = () => {
+                $('#btn-add').removeClass('d-none')
+                $('#btn-close').addClass('d-none')
+                $('#credir-card').addClass('d-none')
+            }
+        </script>
 </body>
 
 </html>
