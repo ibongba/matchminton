@@ -42,7 +42,7 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         <a class="nav-link active" id="dashboard-tab" data-toggle="pill" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true"><i class="fas fa-chart-line"></i> Dashboard</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-file-signature"></i> Requisitions</a>
+                        <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-file-signature"></i> Requisitions</a> -->
                         <a class="nav-link" id="v-pills-stock-tab" data-toggle="pill" href="#v-pills-stock" role="tab" aria-controls="v-pills-stock" aria-selected="false"><i class="fas fa-store-alt"></i> Stock</a>
                         <a class="nav-link" id="v-pills-member-tab" data-toggle="pill" href="#v-pills-member" role="tab" aria-controls="v-pills-member" aria-selected="false"><i class="fas fa-users"></i> Member</a>
                         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-file-invoice"></i> Report</a>
@@ -112,7 +112,6 @@
                                                 <td>Time</td>
                                                 <td>Total Price</td>
                                                 <td>Payment</td>
-                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         </thead>
@@ -730,20 +729,6 @@
             },
         });
 
-        const tbody = () => {
-            return `
-            <tr>
-                <td class="text-center">000004</td>
-                <td><img src="../images/LOGO_MATCHMINTON.png" alt="" width="100">Grant Marshall</td>
-                <td>31/10/2020 10:17</td>
-                <td class="text-center">4,850</td>
-                <td class="text-center">ชำระเงินแล้ว</td>
-                <td class="text-center">01718332233</td>
-                <td><button type="button" class="btn btn-primary">Order Details</button></td>
-                <td><button type="button" class="btn btn-danger">ยกเลิกคำสั่งซื้อ</button></td>
-            </tr>`
-        }
-
         $().ready(() => {
             $.ajax({
                 method: "POST",
@@ -774,8 +759,10 @@
                     <td>${item.created_at}</td>
                     <td class="text-center">4${item.price}</td>
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
-                    <td><button type="button" class="btn btn-primary">Order Details</button></td>
-                    <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Order Details</button>
+                        <button type="button" class="btn btn-danger">ยกเลิก</button>
+                    </td>
                 </tr>
             `;
         };
