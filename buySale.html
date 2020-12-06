@@ -374,13 +374,16 @@
             console.log(item, image)
             var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
             return `
+
                 <div class="card col-md-4">
+                ${(item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
                 <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
                 <div class="card-body">
-                    <h5 class="card-title">${item.product_name}</h5>
+                    <h5 class="card-title">${item.product_name} </h5>
                     <span>${item.price}</span>
                     <p class="card-text">${item.description}</p>
                     <a href="service/insert_cart.php?user_id=${user.user_id}&product_id=${item.product_id}" class="btn btn-primary">สั่งซื้อ</a>
+                    <a href="productdetail.html?id=${item.product_id}" class="btn btn-outline-primary">ดูรายลเอียด</a>
                 </div>
                 </div>
             `;

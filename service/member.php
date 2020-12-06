@@ -2,7 +2,7 @@
     require_once 'config.php';
 
     if(isset($_POST['action']) && $_POST['action'] == 'login'){
-        $sql = "SELECT `user_id`, `name`, `surname` ,`email` ,`phone` FROM `users` WHERE `username` = '".$_POST['username']."' and `password` = '".md5($_POST['password'])."' and status=1";
+        $sql = "SELECT `user_style`.*, `name`, `surname` ,`email` ,`phone` FROM `users` left join `user_style` on `users`.`user_id` = `user_style`.`user_id` WHERE `username` = '".$_POST['username']."' and `password` = '".md5($_POST['password'])."' and status=1";
         $rs = getpdo($conn,$sql);
         if(isset($rs) && count($rs) > 0){
         	$res = array("code" => 200, "result" => $rs[0]);
