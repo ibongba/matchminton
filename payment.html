@@ -60,7 +60,7 @@
                         <li class="nav-item" id="is-login">
                             <div class="dropdown">
                                 <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: x-large; padding-top: 8px; font-weight: bold; color: #0AB2AC;">
-                                    ยินดีต้อนรับ คุณ<span id="user_name"></span><span id="user_name"></span>
+                                    ยินดีต้อนรับ คุณ<span id="user_name"></span>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
@@ -350,12 +350,12 @@
                         <div class="row text-right">
                             <div class="col-md-10">
                                 <h5>ยอดรวมสินค้า</h5>
-                                <h5>ค่าธรรมเนียม</h5>
+                                <h5>ค่าจัดส่ง</h5>
                                 <h5>การชำรเงินทั้งหมด</h5>
                             </div>
                             <div class="col">
                                 <h5 id="product_price"></h5>
-                                <h5>฿ 15</h5>
+                                <h5 id="sum_shipping"></h5>
                                 <h5>
                                     <font style="color: #0CB3AC;" id="total_summary"></font>
                                 </h5>
@@ -442,7 +442,6 @@
                         action: 'show_order',
                     },
                 }).done(function(msg) {
-                    console.log(msg)
                     msg = JSON.parse(msg)
                     if (msg.code === 200) {
                         var res = msg.result;
@@ -456,15 +455,27 @@
                         };
                         if (cart_data) {
                             var total_product = calSum(cart_data);
-                            var sum = total_product - 15;
-                            $('#product_price').text('฿' + total_product.toFixed(2));
-                            $('#total_summary').text('฿' + sum.toFixed(2));
+                            var sum = total_product + Math.round(calShippng(cart_data)/2) * 20;
+                            $('#product_price').text('฿ ' + total_product.toFixed(2));
+                            $('#total_summary').text('฿ ' + sum.toFixed(2));
                             $('#total_price').val(sum);
+                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data)/2) * 20)
                             $('#cart').val(JSON.stringify(cart_data));
                         }
                     }
                 });
             })
+
+            calShippng = (carts) => {
+                var sum = carts.reduce((total, val) => {
+                    var c = products.find(item => item.cart_id == val.cart_id) || {
+                        price: 0
+                    }
+                    return parseInt(c.amount) + total
+                }, 0);
+                return (sum);
+            }
+
 
             Card = (item, image) => {
                 var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';

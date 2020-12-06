@@ -60,7 +60,7 @@
                         <li class="nav-item" id="is-login">
                             <div class="dropdown">
                                 <p class="dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: x-large; padding-top: 8px; font-weight: bold; color: #0AB2AC;">
-                                    ยินดีต้อนรับ คุณ<span id="user_name"></span><span id="user_name"></span>
+                                    ยินดีต้อนรับ คุณ<span id="user_name"></span>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="Editprofile.html"><i class="fas fa-cog"></i> แก้ไขโปรไฟล์</a>
@@ -119,8 +119,8 @@
                                     <td>฿0.00</td>
                                 </tr> -->
                                 <tr>
-                                    <th>ค่าธรรมเนียม</th>
-                                    <td>฿15.00</td>
+                                    <th>ค่าจัดส่ง</th>
+                                    <td id="sum_shipping"></td>
                                 </tr>
                                 <tr>
                                     <th>ยอดรวมทั้งสิ้น</th>
@@ -234,6 +234,15 @@
             return (sum);
         }
 
+        const calShippng = (carts) => {
+            var sum = carts.reduce((total, val) => {
+                var c = products.find(item => item.cart_id == val.cart_id) || {
+                    price: 0
+                }
+                return parseInt(c.amount) + total
+            }, 0);
+            return (sum);
+        }
 
 
 
@@ -258,10 +267,18 @@
                     };
                     if (cart_data) {
                         console.log(cart_data)
+                        var tmp = [];
+                        tmp = cart_data.map((item)=>{
+                            return {
+                                cart_id: item.product_id
+                            }
+                        })
+                        localStorage.setItem('cart', JSON.stringify(tmp));
                         var total_product = calSum(cart_data);
-                        var sum = total_product - 15;
+                        var sum = total_product + (Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0)/2) * 20);
                         $('#product_price').text('฿' + total_product.toFixed(2));
                         $('#sum_price').text('฿' + sum.toFixed(2));
+                        $('#sum_shipping').text(Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0)/2) * 20);
                         $('#amount_all_product').text(cart_data.reduce((total, item) => total + parseInt(item.amount), 0));
                     }
                 }
@@ -296,7 +313,6 @@
         selected = (data) => {
             let cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
             let tmp = [...cart]
-            console.log(products)
             if (data.checked) {
                 tmp.push({
                     cart_id: data.value
@@ -306,12 +322,13 @@
                 let in2 = tmp.indexOf(in1[0])
                 tmp.splice(in2, 1);
             }
-            calSum(tmp);
             if (tmp) {
                 var total_product = calSum(tmp);
-                var sum = total_product - 15;
+                var sum = total_product + Math.round(calShippng(tmp)/2) * 20;
                 $('#product_price').text('฿' + total_product.toFixed(2));
                 $('#sum_price').text('฿' + sum.toFixed(2));
+                $('#sum_shipping').text(Math.round(calShippng(tmp)/2) * 20);
+                $('#amount_all_product').text(calShippng(tmp));
             }
             localStorage.setItem('cart', JSON.stringify(tmp));
         }
