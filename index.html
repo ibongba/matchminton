@@ -509,6 +509,11 @@
         });
 
         save = () => {
+            if(!user) {
+                alert('โปรดเข้าสู่ระบบ');
+                return;
+            }
+
             $.ajax({
                 method: 'POST',
                 url: 'service/member.php',
@@ -520,10 +525,19 @@
                     user_id: user.user_id
                 },
             }).done(function(msg) {
-
                 msg = JSON.parse(msg);
                 if (msg.code === 200) {
                     alert('บันทึกเรียบร้อย')
+                    .done(function(){
+                        var tmp = {
+                            flex: flex,
+                            balance: balance,
+                            weight: weight
+                        }
+
+                        user = {...user,...tmp}
+                        localStorage.setItem('user', JSON.stringify(user));
+                    })
                 }
             })
         }
