@@ -773,16 +773,28 @@
 
 
                     if(user){
+                        flex = racket == 0 ? 2 : racket == 1 ? 3 : 1,
+                        balance = balance == 0 ? 3 : balance == 2 ? 1 : 1,
+                        weight = weight == 0 ? 77.5 : weight == 1 ? 82.5 : 87.5,
                         $.ajax({
                             method: 'POST',
                             url: 'service/member.php',
                             data: {
                                 action: 'update_style',
-                                flex: racket == 0 ? 2 : racket == 1 ? 3 : 1,
-                                balance: balance == 0 ? 3 : balance == 2 ? 1 : 1,
-                                weight: weight == 0 ? 77.5 : weight == 1 ? 82.5 : 87.5,
+                                flex: flex,
+                                balance: balance,
+                                weight: weight,
                                 user_id: user.user_id
                             },
+                        }).done(function(){
+                            var tmp = {
+                                flex: flex,
+                                balance: balance,
+                                weight: weight
+                            }
+
+                            user = {...user,...tmp}
+                            localStorage.setItem('user', JSON.stringify(user));
                         })
                     }
                 } else {
