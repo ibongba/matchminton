@@ -13,8 +13,8 @@
     <title>Match</title>
 </head>
 
-<body>
-    <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
+<body style="background-image: url(images/kl2.png);position: relative; background-size: cover; height: fit-content;">
+    <div class="jumbotron jumbotron-fluid mb-3" style="background-color: #000;">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
                 <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
@@ -94,7 +94,7 @@
         </nav>
     </div>
     <div class="container">
-        <div class="header">
+        <div class="header" style="backdrop-filter: blur(7px); color: #fff;">
             <h3>เป็นระบบวิเคราะห์และเลือกไม้แบดมินตันที่เหมาะกับผู้เล่น</h3>
             <p>กรุณาให้ข้อมูลจริงเพื่อให้ระบบทำงานได้อย่างสมบูรณ์</p>
         </div>
@@ -291,26 +291,210 @@
         </form>
 
         <div id="summary" class="d-none">
-            <div class="row">
-                <div class="col-12">
-                    <table>
-                        <tbody id="cal"></tbody>
-                    </table>
-                </div>
-                <div class="col-12 pt-3">
-                    <h4 style="line-height: 0.8; margin-bottom: 0">ไม้แบดมินตันที่เหมาะกับคุณ</h4>
-                    <p class="line"><span>MATCHMINTON</span></p>
-                </div>
-                <div class="col-12">
-                    <div class="row justify-content-center">
-                        <div class="col-10">
-                            <div class="row mt-3" id="result"></div>
+            <!-- <div class="row">
+                <div class="col-12"> -->
+            <!-- <div class="card" style="background-color: #000; color: #fff;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h3 class="card-title">MATCHING<br>SUCCESS!</h3>
+                        </div>
+                        <div class="col">
+                            <h5 class="card-text">ผลการวิเคราะห์ข้อมูล
+                                <font style="color: #0AB2AC; font-size: x-large;">xscfawfsw</font>
+                            </h5>
+                            <p>hjdvbkjdbvk</p>
                         </div>
                     </div>
+                </div>
+            </div> -->
+            <div id="cal"></div>
+            <!-- <table>
+                <tbody id="cal"></tbody>
+            </table> -->
+
+            <h4 style="line-height: 0.8; margin-bottom: 0">ไม้แบดมินตันที่เหมาะกับคุณ</h4>
+            <p class="line"><span>MATCHMINTON</span></p>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="row mt-3" id="result"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center mb-4">
+            <h3>สาระความรู้เกี่ยวกับไม้แบดมินตัน</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Shaft">ระดับความแข็งของก้านไม้ <br>
+                        (Stiffness of Shaft)</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Balance">จุดศูนย์ถ่วง <br> (Balance Point)</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Weight">น้ำหนักของไม้ <br> (Racket Weight)</button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Modal Shaft-->
+    <div class="modal fade" id="Shaft" tabindex="-1" aria-labelledby="ShaftLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="background-color: black;">
+
+                <div class="modal-body">
+                    <h4 class="text-center text-light">ระดับความแข็งของก้านไม้ <br> (Stiffness of Shaft)</h4>
+                    <hr class="border-light">
+                    <h6 class="text-light text-center">*ที่ก้านไม้แบดมินตันมักจะมีข้อความระบุไว้ <br> โดยทั่วไปมี 3 ระดับ</h6>
+                    <div class="row text-light">
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ระดับ Soft</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Flexible)</h6>
+                                    <p class="card-text">ระดับก้านแข็งน้อย หรือก้านอ่อน เหมาะที่จะเป็นไม้รับ หรือวางลูกก้านไม้ยืดหยุ่นได้ดี มีแรงดีดลูกจากหน้าไม้ได้ไวแรง และยังช่วยเสริมให้ดีดลูกส่งไปท้ายคอร์ด การรับลูกตบ เหมาะเป็นลูกโต้ตอบได้ฉับไว โดยเฉพาะลูกดาด
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ระดับ Mediem</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Regular)</h6>
+                                    <p class="card-text">ระดับก้านแข็งปานกลาง เหมาะที่จะเป็นได้ทั้งไม้รุกและไม้รับในตัว ช่วยเสริมให้การดึงลูกจากหน้าไม้ได้ดี การวาดหน้าไม้ทำไเ้คล่องทั้งแบบรุกและรับ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ระดับ Stiff</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Extra Stiff)</h6>
+                                    <p class="card-text">ระดับก้านแข็ง เหมาะที่จะเป็นไม้รุก ช่วยให้การส่งถ่ายพลังแรงจากข้อมือไปผลักกระทบกับลูกแบดได้อย่างมีประสิทธิภาพที่สมบูรณ์ทั้งน้ำหนักและทิศทาง เช่นลูกตบ ลูกหยอดหน้าตาข่าย ลุกครึ่งตบครึ่งตัด(Topspin) เหมาะสำหรับเกมส์รุกเป็นสำคัญอย่างยิ่ง
+                                        ส่วนเกมส์แบบรับก็ทำได้ในระดับที่ดีพอสมควร
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color: #0AB2AC; min-width: 120px;">ปิด</button>
+                        <button type="button" class="btn btn-success" style="background-color: #0AB2AC; min-width: 120px;">ดูเพิ่มเติม</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Balance-->
+    <div class="modal fade" id="Balance" tabindex="-1" aria-labelledby="BalanceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="background-color: black;">
+                <div class="modal-body">
+                    <h4 class="text-center text-light">จุดศูนย์ถ่วง <br> (Balance Point)</h4>
+                    <hr class="border-light">
+                    <div class="row text-light">
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ไม้หัวเบา</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Head Light)</h6>
+                                    <p class="card-text">ไม้หัวเบา น้ำหนักไม้ตกไปอยู่ที่ด้าม โมเมนตัวที่จุดกระทบมีน้อย การควบคุมหน้าไม้มีความคล่องตัวสูง การเปลี่ยนหน้าไม้ทำได้ดี</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ไม้หัวบาลานส์</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Head Balance)</h6>
+                                    <p class="card-text">ไม้บาลานส์ หัวไม้และด้ามไม้เท่ากัน น้ำหนักไม้ตกที่ศูนย์กลางพอดี อยู่กลางๆ ได้ทั้งแรงและการควบคุมทิศทาง</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">ไม้หัวหนัก</h5>
+                                    <h6 class="card-subtitle mb-2 text-center">(Head Heavy)</h6>
+                                    <p class="card-text">ไม้หัวหนัก น้ำหนักไม้ตกเลยศูนย์กลางไปที่หัวไม้ ไม้จะมีโมเมนตัมสูง เพิ่มแรงตีได้ดี แต่ก็ต้องมีแรงในการควบคุมไม้พอสมควรจากหัวไม้ที่หนักทำให้การเปลี่ยนหน้าไม้ไม่คล่องตัวนัก</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color: #0AB2AC; min-width: 120px;">ปิด</button>
+                        <button type="button" class="btn btn-success" style="background-color: #0AB2AC; min-width: 120px;">ดูเพิ่มเติม</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Weight-->
+    <div class="modal fade" id="Weight" tabindex="-1" aria-labelledby="WeightLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="background-color: black;">
+                <div class="modal-body">
+                    <h4 class="text-center text-light">น้ำหนักของไม้ <br> (Racket Weight)</h4>
+                    <hr class="border-light">
+                    <div class="row text-light">
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">5U หรือ 6U</h5>
+                                    <p class="card-text">เป็นไม้ที่มีน้ำหนักค่อนข้างเบา แต่ยังให้ประสิทธิภาพในการเล่นได้ดี เหมาะสำหรับคนที่มีสัดส่วนร่างกายที่ผ่อม ทำให้เล่นได้ง่ายและไม่เกิดอาการเมื่อล้าจะไม้ที่หนักเกินกว่าร่างกาย</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">4U</h5>
+                                    <p class="card-text">เป็นไม้ที่มีน้ำหนักมาตราฐาน ไม่หนักเกินไปและไม่เบาเกินไป เหมาะกับผู้เล่นที่มีสัดส่วนร่างกายที่สมส่วนถึงค่อนข้างอ้วนขึ้นไป จะทำให้สามารถพัฒนาฝีมือได้เร็วยิ่งขึ้น</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="background-color: #0AB2AC;">
+                                <div class="card-body" style="height: 300px;">
+                                    <h5 class="card-title text-center">3U</h5>
+                                    <p class="card-text">เป็นไม้ที่มีน้ำหนักค่อนข้างหนัก เหมาะสำหรับผู้เล่นที่มีประสบการณ์ในการเล่นที่นานพอสมควรและเหมาะกับผู้เล่นที่มีสัดส่วนร่างกายตั้งแต่สมส่วนถึงอ้วน จะให้ประสิทธิภาพในการเล่นที่ดีและทำให้ผู้เล่นพัฒนาฝีมือได้ดียิ่งขึ้น</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color: #0AB2AC; min-width: 120px;">ปิด</button>
+                        <button type="button" class="btn btn-success" style="background-color: #0AB2AC; min-width: 120px;">ดูเพิ่มเติม</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -601,15 +785,22 @@
 
         verifyCol = (title, detail, name = '') => {
             return `
-			             <tr>
-			                 <td style="max-width: 150px;"><b>${title}</b></td>
-			                 <td>${name}</td>
-			             </tr>
-			             <tr col="2">
-			                 <td>
-			                     <p class="pl-2">${detail}</p>
-			                 </td>
-			             </tr>
+            <div class="card" style="background-color: #000; color: #fff;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h3 class="card-title">MATCHING<br>SUCCESS!</h3>
+                        </div>
+                        <div class="col">
+                            <h5 class="card-text">ผลการวิเคราะห์ข้อมูล
+                                <font style="color: #0AB2AC; font-size: x-large;">${title}</font>
+                            </h5>
+                            <p>${detail}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 			         `;
         };
 

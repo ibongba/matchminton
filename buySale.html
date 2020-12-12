@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #000;">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
                 <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
@@ -92,12 +92,18 @@
                 </ul>
             </div>
         </nav>
+        <div class="banner-img pt-2" style=" background-image: url(images/banner.PNG);">
+            <div class="text-light text-right mx-5">
+                <h2>MATCH FOR YOUR NOW!!</h2>
+                <button type="button" class="btn btn-danger">PLAY NOW &nbsp;<i class="fas fa-caret-right"></i></button>
+            </div>
+        </div>
     </div>
     <div class="container">
-        <div class="row my-3">
-            <div class="col">
-                <!-- <div style="width: auto; height: 300px; background-color: #888888;"></div> -->
-                <!-- <p class="mb-0 mt-2">ประเภทสินค้า</p>
+        <!-- <div class="row my-3"> -->
+        <!--<div class="col">
+                 <div style="width: auto; height: 300px; background-color: #888888;"></div> -->
+        <!-- <p class="mb-0 mt-2">ประเภทสินค้า</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="new" id="new_tools">
                     <label class="form-check-label" for="new_tools">
@@ -109,7 +115,7 @@
                     <label class="form-check-label" for="old_tools">
                         มือสอง
                     </label>
-                </div> -->
+                </div> 
                 <p class="mb-0 mt-2">หมวดหมู่</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="racket" id="racket">
@@ -186,30 +192,52 @@
                     </label>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="row mb-2">
-                    <div class="input-group col-md-4 mb-3 mt-4 float-left">
-                        <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append d-inline">
-                            <button class="btn btn-outline-secondary " type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-                        </div>
+            <div class="col-9">-->
+        <div class="row my-4">
+            <div class="col-md-4">
+                <select class="form-select btn-dark form-control" aria-label="Default select example">
+                        <option selected>หมวดสินค้า</option>
+                        <option value="1">ไม้แบดมินตัน</option>
+                        <option value="2">รองเท้า</option>
+                        <option value="3">เสื้อกีฬา</option>
+                        <option value="4">กางเกง</option>
+                        <option value="5">เอ็น</option>
+                        <option value="6">กร๊ิปพันด้าม</option>
+                    </select>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-dark form-control">Search <i class="fas fa-search"></i></button>
+            </div>
+            <div class="col">
+                <select class="form-select btn-dark form-control" aria-label="Default select example">
+                        <option selected>เรียงตาม</option>
+                        <option value="1">ความนิยม</option>
+                        <option value="2">ราคาสูง</option>
+                        <option value="3">ราคาต่ำ</option>
+                      </select>
+            </div>
+            <!-- <div class="input-group col-md-4 mb-3 mt-4 float-left">
+                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append d-inline">
+                        <button class="btn btn-outline-secondary " type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                     </div>
-                    <div class="col-md-4 text-center float-left">
-                        <!-- <a href="admin/sale.html"><button type="button" class="btn btn-warning  mt-4 "> ลงขาย</button></a> -->
-                    </div>
-                    <div class="col-md-4 float-right">
-                        <form class="p-0 mr-0 text-right">
-                            <label for="Arrange">เรียงตาม:</label>
-                            <select class="btn btn-info" name="Arrange" id="Arrange">
+                </div>
+                <div class="col-md-4 text-center float-left">
+                    <a href="admin/sale.html"><button type="button" class="btn btn-warning  mt-4 "> ลงขาย</button></a>
+                </div>
+                <div class="col-md-4 float-right">
+                    <form class="p-0 mr-0 text-right">
+                        <label for="Arrange">เรียงตาม:</label>
+                        <select class="btn btn-info" name="Arrange" id="Arrange">
                                 <option value="Popular">ความนิยม</option>
                                 <option value="hardy">ความทนทาน</option>
                             </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="row" id="result">
+                    </form>
+                </div> -->
+        </div>
+        <div class="row" id="result">
 
-                    <!-- <div class="col-md-4">
+            <!-- <div class="col-md-4">
                         <div class="card">
                             <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
                             <div class="card-body">
@@ -319,12 +347,12 @@
                             </div>
                         </div>
                     </div> -->
-                </div>
-            </div>
-            <div class="col">
-                <!-- <div style="width: auto; height: 300px; background-color: #888888;"></div> -->
-            </div>
         </div>
+    </div>
+    <!-- <div class="col">
+        <div style="width: auto; height: 300px; background-color: #888888;"></div>
+    </div>
+    </div> -->
 
     </div>
     <!-- container -->
@@ -371,9 +399,9 @@
         })
 
         Card = (item, image) => {
-            console.log(item, image)
-            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
-            return `
+                console.log(item, image)
+                var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+                return `
 
                 <div class="card col-md-4">
                 ${(item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
