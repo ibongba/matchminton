@@ -102,12 +102,26 @@ form {
 }
 
 #regForm {
-    margin: 100px auto;
-    box-shadow: 5px 5px 5px 5px #888888;
+    color: #fff; 
+    z-index: 1;
+    position: relative;
+    background:rgba(255,255,255,0.3);
+    margin: 5rem auto;
     font-family: 'Prompt', sans-serif;
     padding: 40px;
     width: 70%;
     min-width: 300px;
+}
+
+#regForm:after {
+    z-index: -1;
+    border: 1px solid #fff;
+    content: '';
+    position: absolute;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    top: -8px;
+    left: -8px;
 }
 
 h1 {
@@ -185,7 +199,24 @@ p.line span {
 
 /* Make circles that indicate the steps of the form: */
 
+.list-step{
+  counter-reset: number;
+}
+
 .step {
+    counter-increment: number;
+    position: relative;
+}
+
+.step::before {
+    content: "STEP "counter(number)" ";
+    color: #fff;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.step::after {
+    content: "";
     height: 15px;
     width: 15px;
     margin: 0 2px;
@@ -194,7 +225,13 @@ p.line span {
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-100%);
+
 }
+
 
 .step.active {
     opacity: 1;
@@ -202,8 +239,13 @@ p.line span {
 
 
 /* Mark the steps that are finished and valid: */
+.step.active::after {
+    opacity: 1;
+}
 
-.step.finish {
+
+.step.finish::after {
+    opacity: 1;
     background-color: #4CAF50;
 }
 

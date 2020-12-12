@@ -13,8 +13,12 @@
     <title>Match</title>
 </head>
 
-<body style="background-image: url(images/kl2.png);position: relative; background-size: cover; height: fit-content;">
-    <div class="jumbotron jumbotron-fluid mb-3" style="background-color: #000;">
+<body>
+    <div style="background-image: url(images/kl2.png); height: 100vh; width: 100vw; position: fixed; background-position: top; background-size: cover;">
+        <div style="background: rgba(0,0,0,.6); height: 100vh; width: 100vw; position: fixed;">
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid mb-3" style="background-color: #000;" >
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
                 <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
@@ -94,11 +98,11 @@
         </nav>
     </div>
     <div class="container">
-        <div class="header" style="backdrop-filter: blur(7px); color: #fff;">
+        <div class="header" style="color: #fff; z-index: 1;position: relative;">
             <h3>เป็นระบบวิเคราะห์และเลือกไม้แบดมินตันที่เหมาะกับผู้เล่น</h3>
             <p>กรุณาให้ข้อมูลจริงเพื่อให้ระบบทำงานได้อย่างสมบูรณ์</p>
         </div>
-        <form id="regForm" action="#">
+        <form id="regForm" action="#"  >
             <div class="tab">
                 <h3>ระยะเวลาในการเล่นกีฬาแบดมินตัน</h3>
                 <div class="form-check">
@@ -274,21 +278,22 @@
                     <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">ถัดไป</button>
                 </div>
             </div>
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align: center; margin-top: 40px">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step" id="condition"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-            </div>
         </form>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div class="list-step" style="text-align: center; margin-top: 40px">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step" id="condition"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
 
         <div id="summary" class="d-none">
             <!-- <div class="row">
@@ -564,6 +569,7 @@
                 calculate();
 
                 $('#regForm').addClass('d-none');
+                $('#list-step').addClass('d-none');
                 $('#summary').removeClass('d-none');
                 return false;
             }
