@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/other.css">
     <title>BUY SALE</title>
 </head>
 
@@ -194,8 +195,8 @@
             </div>
             <div class="col-9">-->
         <div class="row my-4">
-            <div class="col-md-4">
-                <select class="form-select btn-dark form-control" aria-label="Default select example">
+            <div class="col-md-4 mb-1">
+                <select class="form-select btn-dark form-control w-100" aria-label="Default select example">
                         <option selected>หมวดสินค้า</option>
                         <option value="1">ไม้แบดมินตัน</option>
                         <option value="2">รองเท้า</option>
@@ -205,11 +206,11 @@
                         <option value="6">กร๊ิปพันด้าม</option>
                     </select>
             </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-dark form-control">Search <i class="fas fa-search"></i></button>
+            <div class="col-md-4 mb-1">
+                <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button>
             </div>
-            <div class="col">
-                <select class="form-select btn-dark form-control" aria-label="Default select example">
+            <div class="col mb-1">
+                <select class="form-select btn-dark form-control w-100" aria-label="Default select example">
                         <option selected>เรียงตาม</option>
                         <option value="1">ความนิยม</option>
                         <option value="2">ราคาสูง</option>
@@ -402,23 +403,25 @@
                 console.log(item, image)
                 var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
                 return `
-
-                <div class="card col-md-4">
-                ${(item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
-                <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
-                <div class="card-body">
-                    <h5 class="card-title">${item.product_name} </h5>
-                    <span>${item.price}</span>
-                    <p class="card-text">${item.description}</p>
-                    <a href="service/insert_cart.php?user_id=${user.user_id}&product_id=${item.product_id}" class="btn btn-primary">สั่งซื้อ</a>
-                    <a href="productdetail.html?id=${item.product_id}" class="btn btn-outline-primary">ดูรายลเอียด</a>
-                    <div class="overlay">
-                                    <div class="text">
-                                        <h3><a href="productdetail.html?id=${item.product_id}" class="btn btn-outline-primary">ดูรายลเอียด</a></h3>
-                                    </div>
-                                </div>
-                </div>
-                </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    ${(user && item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
+                    <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.product_name} </h5>
+                        <span>${item.price}</span>
+                        <p class="card-text">${item.description}</p>
+                    <div class="d-flex" style="justify-content: flex-end;">
+                        <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                        <div class="overlay">
+                            <div class="text ">
+                                <h3 class="p-4"><a href="productdetail.html?id=${item.product_id}" class="text-decoration-none m-4 text-light" >ดูรายลเอียดเพิ่มเติม</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
             `;
         };
     </script>

@@ -387,15 +387,15 @@
                 </div> -->
             </div>
             <div style="overflow: auto">
-                <div style="float: right">
-                    <button type="button" class="btn btn-info" id="prevBtn" onclick="nextPrev(-1)">กลับ</button>
-                    <button type="button" class="btn btn-dark" id="nextBtn" onclick="nextPrev(1)">ถัดไป</button>
+                <div class="text-center mt-3">
+                    <button type="button" class="btn btn-info mx-2" id="prevBtn" onclick="nextPrev(-1)"><i class="fas fa-angle-left"></i> Back</button>
+                    <button type="button" class="btn btn-dark mx-2" id="nextBtn" onclick="nextPrev(1)">ถัดไป <i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
         </form>
 
         <!-- Circles which indicates the steps of the form: -->
-        <div class="list-step" style="text-align: center; margin-top: 40px">
+        <div class="list-step d-none d-lg-block" style="text-align: center; margin-top: 40px">
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
@@ -424,15 +424,15 @@
         <div class="text-center mb-4">
             <h3>สาระความรู้เกี่ยวกับไม้แบดมินตัน</h3>
             <div class="row">
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Shaft">ระดับความแข็งของก้านไม้ <br>
+                <div class="col-md-4 mb-2">
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Shaft">ระดับความแข็งของก้านไม้ <br>
                         (Stiffness of Shaft)</button>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Balance">จุดศูนย์ถ่วง <br> (Balance Point)</button>
+                <div class="col-md-4 mb-2">
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Balance">จุดศูนย์ถ่วง <br> (Balance Point)</button>
                 </div>
-                <div class="col">
-                    <button type="button" class="btn btn-dark" style="width: 300px;" data-toggle="modal" data-target="#Weight">น้ำหนักของไม้ <br> (Racket Weight)</button>
+                <div class="col mb-2">
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Weight">น้ำหนักของไม้ <br> (Racket Weight)</button>
                 </div>
             </div>
         </div>
