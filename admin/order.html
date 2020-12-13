@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Dashboard</title>
+    <title>ADMIN</title>
 </head>
 <style>
     .sidebar {
@@ -741,7 +741,8 @@
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     var res = msg.result;
-                    for (i = 0; i < res.product.length; i++) {
+                    console.log(res);
+                    for (var i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
                     };
@@ -751,21 +752,39 @@
 
         Card = (item, image) => {
             console.log(item, image)
-            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
             return `
                 <tr>
                     <td class="text-center">${item.order_id}</td>
-                    <td><img src="${img}" alt="" width="100">${item.product_name}</td>
+                    <td>${item.name} ${item.surname}</td>
                     <td>${item.created_at}</td>
-                    <td class="text-center">4${item.price}</td>
+                    <td class="text-center">${item.total_price}</td>
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
                     <td>
                         <button type="button" class="btn btn-primary">Order Details</button>
-                        <button type="button" class="btn btn-danger">ยกเลิก</button>
+                        <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})>ยกเลิก</button>
                     </td>
                 </tr>
             `;
         };
+        const dorder = (id) => {
+            $.ajax({
+                method: "POST",
+                url: "../service/cart.php",
+                data: {
+                    action: 'delete_order',
+                    order_id: id
+                }
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    alert('ลบข้อมูลสำเร็จ');
+
+                    localStorage.setItem('user', JSON.stringify(msg.result));
+                }
+            });
+        }
     </script>
     <script>
         var drop = $("input");

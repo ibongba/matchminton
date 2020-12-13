@@ -122,7 +122,7 @@
                 $sql .= " and (`flex` = '1') ";
             }
 
-        }
+        } 
 
         if(($position_d == 2 || $position_d == 3 ) && $position == 3){
             $sql .= " and (`balance` = '1') ";

@@ -405,10 +405,12 @@
             let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
             var products = [];
             if (user != null) {
+                // alert(user.user_id);
                 $('#user_name').text(user.name)
                 $('#not-login').addClass('d-none')
                 $('#is-login').removeClass('d-none')
                 $('#user_id').val(user.user_id);
+
             } else {
                 $('#not-login').removeClass('d-none')
                 $('#is-login').addClass('d-none')
@@ -425,6 +427,7 @@
                     var c = products.find(item => item.cart_id == val.cart_id) || {
                         price: 0
                     }
+                    alert(val.cart_id);
                     return parseFloat(c.price * c.amount) + total
                 }, 0);
                 return (sum);
@@ -455,11 +458,12 @@
                         };
                         if (cart_data) {
                             var total_product = calSum(cart_data);
-                            var sum = total_product + Math.round(calShippng(cart_data)/2) * 20;
+                            var sum = total_product + Math.round(calShippng(cart_data) / 2) * 20;
+                            // alert(calShippng(cart_data));
                             $('#product_price').text('฿ ' + total_product.toFixed(2));
                             $('#total_summary').text('฿ ' + sum.toFixed(2));
                             $('#total_price').val(sum);
-                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data)/2) * 20)
+                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data) / 2) * 20)
                             $('#cart').val(JSON.stringify(cart_data));
                         }
                     }

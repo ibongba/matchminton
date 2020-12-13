@@ -2,13 +2,9 @@
     require_once 'config.php';
     
     if (isset($_POST['action']) && $_POST['action'] == 'show_admin_order'){
-        $sql_pro = "SELECT * FROM `orders`
-        JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id`
-        JOIN `product` ON `order_details`.`product_id` = `product`.`product_id`
-        JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
-        ORDER BY `orders`.`order_id` DESC";
+        $sql_pro = "SELECT * FROM `orders` JOIN `users` ON `orders`.`user_id` = `users`.`user_id` WHERE `stataus` = '1' ORDER BY `orders`.`order_id` DESC";
         $rs = getpdo($conn,$sql_pro);
-
+// echo $sql_pro;
         if(gettype($rs) == 'array'){
 
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`)";

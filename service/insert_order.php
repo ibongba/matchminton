@@ -22,6 +22,7 @@
       $sql2 = "INSERT INTO `orders`(`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
       VALUES ('".$_POST['user_id']."','".$card_id."','".$_POST['address']."','1','".$_POST['total_price']."','".$_POST['remark']."',
       '".$date_now."', '".$date_now."')";
+      echo $sql2;
       $rs2 = getpdo($conn,$sql2);
 
       

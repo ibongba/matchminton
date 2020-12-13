@@ -145,10 +145,10 @@
                 if (msg.code === 200) {
                     var res = msg.result;
 
-                    var order_list = res.product.map((item)=>item.order_id);
+                    var order_list = res.product.map((item) => item.order_id);
 
                     for (var i = order_list.length - 1; i >= 0; i--) {
-                        var list_product = res.product.filter((item)=>item.order_id == order_list[i]);
+                        var list_product = res.product.filter((item) => item.order_id == order_list[i]);
                         var sum = list_product.reduce((total, val) => (val.price * val.amount) + total, 0);
 
                         var data = `<div class="card">
@@ -179,7 +179,7 @@
             });
         })
 
-        Product = (res,list_product) => {
+        Product = (res, list_product) => {
             var text = '';
             for (i = 0; i < list_product.length; i++) {
                 let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
