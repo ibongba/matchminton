@@ -737,7 +737,7 @@
                     action: 'show_admin_order',
                 },
             }).done(function(msg) {
-                // console.log(msg)
+                console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     var res = msg.result;
@@ -761,7 +761,7 @@
                     <td class="text-center">${item.total_price}</td>
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
                     <td>
-                        <button type="button" class="btn btn-primary">Order Details</button>
+                        <a href="pro_detail_admin.html?id=${item.order_id}" class="btn btn-primary">Order Details</a>
                         <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})>ยกเลิก</button>
                     </td>
                 </tr>
@@ -779,7 +779,7 @@
                 console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
-                    alert('ลบข้อมูลสำเร็จ');
+                    alert('ยกเลิกการสั่งซื้อสำเร็จ');
 
                     localStorage.setItem('user', JSON.stringify(msg.result));
                 }
