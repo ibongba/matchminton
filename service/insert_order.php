@@ -69,11 +69,11 @@
         VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."')";
         $rs3 = getpdo($conn,$sql3);
 
+        $strSQL = "DELETE FROM cart WHERE cart_id = '".$value['cart_id']."'";
+        $result = getpdo($conn,$strSQL);
         
       }
     }
-    $strSQL = "DELETE FROM cart WHERE cart_id = '".$value['cart_id']."'";
-    $result = getpdo($conn,$strSQL);
   }
 
   Header("Location: ../orderdetail.html");
