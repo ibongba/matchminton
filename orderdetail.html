@@ -149,9 +149,7 @@
                     order_list = new Set(order_list);
                     order_list = [...order_list];
 
-                    console.log(order_list)
-
-                    for (var i = order_list.length - 1; i >= 0; i--) {
+                    for (var i = 0; i < order_list.length; i++) {
                         var list_product = res.product.filter((item) => item.order_id == order_list[i]);
                         var sum = list_product.reduce((total, val) => (val.price * val.amount) + total, 0);
 
