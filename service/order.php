@@ -32,17 +32,12 @@
         	echo json_encode($res);
             return ;
         }
-    }
-    else if (isset($_POST['action']) && $_POST['action'] == 'tacking'){
-        $sql = "SELECT `order_id`, `user_id`, `card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`, `tacking`, `stataus` FROM `orders` WHERE `order_id` = '".$_POST['order_id']."'";
+    }else if (isset($_POST['action']) && $_POST['action'] == 'tracking'){
+        $sql = "UPDATE `orders` SET `tracking`= '".$_POST['tracking']."'  WHERE `order_id`='".$_POST['order_id']."'";
         // echo $sql;
         $rs = getpdo($conn,$sql);
-        if(gettype($rs) == 'array'){
-
-            $sql = "INSERT INTO `orders`(`tacking`) VALUES ('".$_POST['tacking']."')";
-            $rs2 = getpdo($conn,$sql);
-            echo $sql;
-            $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
+        if(isset($rs)){
+        	$res = array("code" => 200, "result" => $rs[0]);
         	echo json_encode($res);
             return ;
         }
