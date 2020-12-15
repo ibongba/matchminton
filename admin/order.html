@@ -155,6 +155,31 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="tacking_num" tabindex="-1" aria-labelledby="tacking_numLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="tacking_numLabel">เลขพัสดุ</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>TACKING</label>
+                                                    <input type="text" class="form-control" id="tacking">
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-success" onclick="sorder(this)">บันทึก</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                             <div class="card mb-3">
@@ -741,7 +766,7 @@
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     var res = msg.result;
-                    console.log(res);
+                    // console.log(res);
                     for (var i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
@@ -754,7 +779,7 @@
             console.log(item, image)
             var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
             return `
-                <tr>
+                <tr id="orderremove${item.order_id}">
                     <td class="text-center">${item.order_id}</td>
                     <td>${item.name} ${item.surname}</td>
                     <td>${item.created_at}</td>
@@ -762,11 +787,14 @@
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
                     <td>
                         <a href="pro_detail_admin.html?id=${item.order_id}" class="btn btn-primary">Order Details</a>
-                        <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})>ยกเลิก</button>
+                        <button type="button" class="btn btn-success text-center" data-toggle="modal" data-target="#tacking_num" onclick=tacking(${item.order_id})>ส่ง</button>
+                        <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})><i class="fas fa-times"></i></button>
+                        
                     </td>
                 </tr>
             `;
         };
+
         const dorder = (id) => {
             $.ajax({
                 method: "POST",
@@ -780,8 +808,26 @@
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     alert('ยกเลิกการสั่งซื้อสำเร็จ');
-
+                    $("#orderremove" + id).remove();
                     localStorage.setItem('user', JSON.stringify(msg.result));
+                }
+            });
+        }
+        const sorder = (e) => {
+            $.ajax({
+                method: "POST",
+                url: "service/order.php",
+                data: {
+                    action: 'tacking',
+                    order_id: order_id,
+                    tacking: $('#tacking').val(),
+                }
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    alert('bshabjhsab' + id);
+                    // window.location.href = "login.html";
                 }
             });
         }
