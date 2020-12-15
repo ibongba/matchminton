@@ -207,7 +207,10 @@
                     </select>
             </div>
             <div class="col-md-4 mb-1">
-                <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control btn-dark w-100" placeholder="SEARCH PRODUCT" id="searchproduct" onkeyup="search(this)">
+                </div>
+                <!-- <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button> -->
             </div>
             <div class="col mb-1">
                 <select class="form-select btn-dark form-control w-100" aria-label="Default select example">
@@ -378,13 +381,13 @@
             $('#is-login').addClass('d-none')
         }
 
-
         $().ready(() => {
             $.ajax({
                 method: "POST",
                 url: "service/product.php",
                 data: {
                     action: 'show_product_card',
+                    search: $('#searchproduct').val(),
                 },
             }).done(function(msg) {
                 // console.log(msg)
@@ -398,6 +401,34 @@
                 }
             });
         })
+
+        function search(e) {
+            $.ajax({
+                method: "POST",
+                url: "service/product.php",
+                data: {
+                    action: 'show_product_card',
+                    search: $('#searchproduct').val(),
+                }
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+                        // $("#searchproduct").empty();
+                    };
+                }
+            });
+        }
+
+
+
+
+
+
 
         Card = (item, image) => {
                 console.log(item, image)

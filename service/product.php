@@ -160,7 +160,7 @@
         }
 
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card'){
-        $sql_pro = "SELECT * FROM `product` left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` ORDER BY `product_id` DESC";
+        $sql_pro = "SELECT * FROM `product` left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` WHERE `product_name` LIKE '%".$_POST['search']."%' OR `price` LIKE '%".$_POST['search']."%' ORDER BY `product_id` DESC";
         $rs = getpdo($conn,$sql_pro);
 
         if(gettype($rs) == 'array'){
@@ -185,7 +185,7 @@
         	echo json_encode($res);
             return ;
         }
-    }
+    } 
 
     $result = array("message" => "Error someting");
     $res = array("code" => 401, "result" => $result);

@@ -71,6 +71,10 @@
 
         $strSQL = "DELETE FROM cart WHERE cart_id = '".$value['cart_id']."'";
         $result = getpdo($conn,$strSQL);
+
+        $sql_quantity = "UPDATE `product` SET `quantity`= -'".$rs[0]['quantity']."' WHERE `product_id`= '".$rs[0]['product_id']."'";
+        // echo $sql_quantity;
+        $rs4 = getpdo($conn,$sql_quantity);
         
       }
     }
