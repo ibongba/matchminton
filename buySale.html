@@ -18,11 +18,16 @@
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #000;">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-                <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+                <button class="navbar-toggler btn-left bg-light float-left" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
                     </button>
-
-                <div class="collapse navbar-collapse nav-fill w-100" id="nav-left">
+                <div class="collapse navbar-collapse nav-fill w-100 ml-3" id="navbarMobile">
+                    <div class="mx-auto headerLogo d-lg-none">
+                        <a href="index.html" class="float-right w-100x  ">
+                            <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
+                        </a>
+                    </div>
+                    <!-- <div class="collapse "> -->
                     <ul class="nav navbar-nav nav-fill w-100">
                         <li class="nav-item">
                             <a class="nav-link" href="match.html">MATCHING</a>
@@ -31,15 +36,15 @@
                             <a class="nav-link" href="buySale.html">SHOP</a>
                         </li>
                     </ul>
-                </div>
+                    <!-- </div> -->
 
-                <div class="mx-auto headerLogo">
-                    <a href="index.html">
-                        <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
-                    </a>
-                </div>
+                    <div class="mx-auto headerLogo d-none d-lg-block">
+                        <a href="index.html" class="float-right w-100x  ">
+                            <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
+                        </a>
+                    </div>
 
-                <div class="collapse navbar-collapse nav-fill w-100" id="nav-right">
+                    <!-- <div class="collapse navbar-collapse nav-fill w-100"> -->
 
                     <ul class="nav navbar-nav nav-fill w-100">
                         <li class="nav-item">
@@ -75,24 +80,7 @@
                 </div>
             </nav>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-            <div class="collapse ml-3" id="navbarMobile">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="match.html">MATCHING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="buySale.html">SHOP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="webboard.html">COMMUNITY</a>
-                    </li>
-                    <li class="nav-item" id="not-login">
-                        <a class="nav-link" href="login.html">LOGIN</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+
         <div class="banner-img pt-2" style=" background-image: url(images/banner.PNG);">
             <div class="text-light text-right mx-5">
                 <h2>MATCH FOR YOUR NOW!!</h2>
@@ -207,7 +195,7 @@
                     </select>
             </div>
             <div class="col-md-4 mb-1">
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <input type="text" class="form-control btn-dark w-100" placeholder="SEARCH PRODUCT" id="searchproduct" onkeyup="search(this)">
                 </div>
                 <!-- <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button> -->

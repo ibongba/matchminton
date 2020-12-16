@@ -17,11 +17,16 @@
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-                <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+                <button class="navbar-toggler btn-left bg-light float-left" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
                     </button>
-
-                <div class="collapse navbar-collapse nav-fill w-100" id="nav-left">
+                <div class="collapse navbar-collapse nav-fill w-100 ml-3" id="navbarMobile">
+                    <div class="mx-auto headerLogo d-lg-none">
+                        <a href="index.html" class="float-right w-100x  ">
+                            <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
+                        </a>
+                    </div>
+                    <!-- <div class="collapse "> -->
                     <ul class="nav navbar-nav nav-fill w-100">
                         <li class="nav-item">
                             <a class="nav-link" href="match.html">MATCHING</a>
@@ -30,15 +35,15 @@
                             <a class="nav-link" href="buySale.html">SHOP</a>
                         </li>
                     </ul>
-                </div>
+                    <!-- </div> -->
 
-                <div class="mx-auto headerLogo">
-                    <a href="index.html">
-                        <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
-                    </a>
-                </div>
+                    <div class="mx-auto headerLogo d-none d-lg-block">
+                        <a href="index.html" class="float-right w-100x  ">
+                            <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
+                        </a>
+                    </div>
 
-                <div class="collapse navbar-collapse nav-fill w-100" id="nav-right">
+                    <!-- <div class="collapse navbar-collapse nav-fill w-100"> -->
 
                     <ul class="nav navbar-nav nav-fill w-100">
                         <li class="nav-item">
@@ -74,128 +79,101 @@
                 </div>
             </nav>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-            <div class="collapse ml-3" id="navbarMobile">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="match.html">MATCHING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="buySale.html">SHOP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="webboard.html">COMMUNITY</a>
-                    </li>
-                    <li class="nav-item" id="not-login">
-                        <a class="nav-link" href="login.html">LOGIN</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
     </div>
     <div class="container">
-        <div class="row my-3">
-            <div class="col">
-                <div style="width: auto; height: 300px; background-color: #888888;"></div>
-
+        <div class="row">
+            <div class="col-md-8 border p-3">
+                <div class="row" id="result">
+                </div>
             </div>
-            <div class="col-9">
-                <div class="row">
-                    <div class="col-8 border p-3">
-                        <div class="row" id="result">
-                        </div>
-                    </div>
-                    <div class="col-4 border p-3 ">
-                        <p><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร 31/4 </p>
-                        <p>สรุปรายการสั่งซื้อ</p>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th>ยอดรวมจำนวน <span id="amount_all_product"></span> ชิ้น</th>
-                                    <td id="product_price"></td>
-                                </tr>
-                                <!-- <tr>
+            <div class="col-md-4 border p-3 ">
+                <p><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร 31/4 </p>
+                <p>สรุปรายการสั่งซื้อ</p>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>ยอดรวมจำนวน <span id="amount_all_product"></span> ชิ้น</th>
+                            <td id="product_price"></td>
+                        </tr>
+                        <!-- <tr>
                                     <th>ค่าจัดส่ง</th>
                                     <td>฿0.00</td>
                                 </tr> -->
-                                <tr>
-                                    <th>ค่าจัดส่ง</th>
-                                    <td id="sum_shipping"></td>
-                                </tr>
-                                <tr>
-                                    <th>ยอดรวมทั้งสิ้น</th>
-                                    <td id="sum_price"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <a href="payment.html" class="btn btn-warning w-100" style="background-color: #FF8000;">ดำเนินการชำระเงิน</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div style="width: auto; height: 300px; background-color: #888888;"></div>
+                        <tr>
+                            <th>ค่าจัดส่ง</th>
+                            <td id="sum_shipping"></td>
+                        </tr>
+                        <tr>
+                            <th>ยอดรวมทั้งสิ้น</th>
+                            <td id="sum_price"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="payment.html" class="btn btn-warning w-100" style="background-color: #FF8000;">ดำเนินการชำระเงิน</a>
             </div>
         </div>
-        <div class="col-12 pt-5">
-            <h2 style="line-height: 0.8;margin-bottom: 0;">สินค้าแนะนำ</h2>
-            <p class="line"><span>MATCHMINTON</span></p>
-        </div>
-        <div class="row mb-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
-                    <div class="card-body">
-                        <h5 class="card-title">ASTROX 99
-                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
-                        </h5>
-                        <p>฿7,790.00</p>
-                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ใส่ในรถเข็น</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
-                    <div class="card-body">
-                        <h5 class="card-title">ASTROX 99
-                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
-                        </h5>
-                        <p>฿7,790.00</p>
-                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
-                    <div class="card-body">
-                        <h5 class="card-title">ASTROX 99
-                            <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
-                        </h5>
-                        <p>฿7,790.00</p>
-                        <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
-                    </div>
+    </div>
+
+    <div class="col-12 pt-5">
+        <h2 style="line-height: 0.8;margin-bottom: 0;">สินค้าแนะนำ</h2>
+        <p class="line"><span>MATCHMINTON</span></p>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="card">
+                <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">ASTROX 99
+                        <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                    </h5>
+                    <p>฿7,790.00</p>
+                    <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ใส่ในรถเข็น</button>
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card">
+                <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">ASTROX 99
+                        <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                    </h5>
+                    <p>฿7,790.00</p>
+                    <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <a href="productdetail.html"><img src="images/image.png" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">ASTROX 99
+                        <p class="float-right" style="color: #FF6565;">฿5,295.00</p>
+                    </h5>
+                    <p>฿7,790.00</p>
+                    <p class="card-text">Flex: Stiff Weight / Grip Size: 4U (Ave.83g) G5 / 3U (Ave.88g) G5 Stringing Advice: 3U 21-29lbs / 4U 20-28lbs B.Pt: Head Heavy Balance</p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> ใส่ในรถเข็น</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!-- container -->
 
