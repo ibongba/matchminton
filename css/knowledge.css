@@ -3,8 +3,8 @@
     }
     
     .headerLogo {
-        width: 1000px;
-        height: 100px;
+        width: auto;
+        /* height: 100px; */
     }
     
     .navbar-light .navbar-nav .nav-link {
@@ -14,7 +14,7 @@
     }
     
     .banner-img {
-        height: 350px;
+        height: 220px;
         background-position: center;
         background-size: cover;
         position: relative;
@@ -139,6 +139,9 @@
     }
     
     @media screen and (min-width: 768px) {
+        .banner-img {
+            height: 265px;
+        }
         .img-kl1 {
             margin-left: 0px;
             margin-right: 0px;
@@ -162,6 +165,16 @@
     }
     
     @media screen and (min-width: 992px) {
+        .text-banner-top {
+            font-size: 2rem;
+        }
+        .text-banner-small {
+            font-size: 1.75rem;
+        }
+        .headerLogo {
+            width: 1000px;
+            /* height: 100px; */
+        }
         .btn-dark {
             width: 300px;
         }

@@ -447,7 +447,7 @@
                     <hr class="border-light">
                     <h6 class="text-light text-center">*ที่ก้านไม้แบดมินตันมักจะมีข้อความระบุไว้ <br> โดยทั่วไปมี 3 ระดับ</h6>
                     <div class="row text-light">
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ระดับ Soft</h5>
@@ -457,7 +457,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ระดับ Mediem</h5>
@@ -466,7 +466,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ระดับ Stiff</h5>
@@ -494,7 +494,7 @@
                     <h4 class="text-center text-light">จุดศูนย์ถ่วง <br> (Balance Point)</h4>
                     <hr class="border-light">
                     <div class="row text-light">
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ไม้หัวเบา</h5>
@@ -503,7 +503,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ไม้หัวบาลานส์</h5>
@@ -512,7 +512,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">ไม้หัวหนัก</h5>
@@ -538,7 +538,7 @@
                     <h4 class="text-center text-light">น้ำหนักของไม้ <br> (Racket Weight)</h4>
                     <hr class="border-light">
                     <div class="row text-light">
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">5U หรือ 6U</h5>
@@ -546,7 +546,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">4U</h5>
@@ -554,7 +554,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card" style="background-color: #0AB2AC;">
                                 <div class="card-body" style="height: 300px;">
                                     <h5 class="card-title text-center">3U</h5>
@@ -929,7 +929,7 @@
 			                 <h5 class="card-title">${item.product_name}</h5>
 			                 <span>${item.price}</span>
 			                 <p class="card-text">${item.description}</p>
-			                 <a href="#" class="btn btn-primary">ไปรถเข็น</a>
+			                 <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-primary">ไปรถเข็น</a>
 			               </div>
 			             </div>
 			         `;

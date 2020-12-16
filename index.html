@@ -18,7 +18,7 @@
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #000;">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-                <button class="navbar-toggler btn-left bg-light" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+                <button class="navbar-toggler btn-left bg-light float-left" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
               <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="mx-auto headerLogo">
-                    <a href="index.html">
+                    <a href="index.html" class="float-right w-100x  ">
                         <img src="images/LOGO_MATCHMINTON.png" alt="" class="w-100">
                     </a>
                 </div>
@@ -94,11 +94,11 @@
             </div>
         </nav>
         <div class="banner-img pt-2" style=" background-image: url(images/banner.PNG);">
-            <div class="text-light text-right m-5">
-                <h2>MATCH LIVE. PLAY CATCH-UP. RELIVE THE DRAMA.</h2>
-                <h3>
+            <div class="text-light text-right p-4">
+                <h4 class="text-banner-top">MATCH LIVE. PLAY CATCH-UP. RELIVE THE DRAMA.</h4>
+                <h5 class="text-banner-small">
                     <font style="color: #0AB2AC;">THE OFFICIAL LIVE BADMINTON CHANNEL</font>
-                </h3>
+                </h5>
                 <button type="button" class="btn btn-danger">VIEW NOW &nbsp;<i class="fas fa-caret-right"></i></button>
             </div>
         </div>
@@ -509,7 +509,7 @@
         });
 
         save = () => {
-            if(!user) {
+            if (!user) {
                 alert('โปรดเข้าสู่ระบบ');
                 return;
             }
@@ -528,16 +528,18 @@
                 msg = JSON.parse(msg);
                 if (msg.code === 200) {
                     alert('บันทึกเรียบร้อย')
-                    .done(function(){
-                        var tmp = {
-                            flex: flex,
-                            balance: balance,
-                            weight: weight
-                        }
+                        .done(function() {
+                            var tmp = {
+                                flex: flex,
+                                balance: balance,
+                                weight: weight
+                            }
 
-                        user = {...user,...tmp}
-                        localStorage.setItem('user', JSON.stringify(user));
-                    })
+                            user = {...user,
+                                ...tmp
+                            }
+                            localStorage.setItem('user', JSON.stringify(user));
+                        })
                 }
             })
         }
