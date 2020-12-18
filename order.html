@@ -222,6 +222,10 @@
             return (sum);
         }
 
+        function currencyFormat(num) {
+            return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+
 
 
         $().ready(() => {
@@ -254,10 +258,10 @@
                         localStorage.setItem('cart', JSON.stringify(tmp));
                         console.log(tmp)
                         var total_product = calSum(cart_data);
-                        var sum = total_product + (Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0) / 2) * 20);
-                        $('#product_price').text('฿' + total_product.toFixed(2));
-                        $('#sum_price').text('฿' + sum.toFixed(2));
-                        $('#sum_shipping').text(Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0) / 2) * 20);
+                        var sum = total_product + (Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0) / 2) * 60);
+                        $('#product_price').text(currencyFormat(total_product));
+                        $('#sum_price').text(currencyFormat(sum));
+                        $('#sum_shipping').text(Math.round(cart_data.reduce((total, item) => total + parseInt(item.amount), 0) / 2) * 60);
                         $('#amount_all_product').text(cart_data.reduce((total, item) => total + parseInt(item.amount), 0));
                     }
                 }
@@ -274,7 +278,7 @@
                         <img src="${img}" class="w-100 col-3 float-left" alt="">
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
-                        <p class="float-left" style="color: #FF8000;">฿${item.price}</p>
+                        <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
                         <div class="input-group col-4 my-3">
                             <input type="text" class="form-control text-center" disabled value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         </div>
@@ -302,10 +306,10 @@
             }
             if (tmp) {
                 var total_product = calSum(tmp);
-                var sum = total_product + Math.round(calShippng(tmp) / 2) * 20;
-                $('#product_price').text('฿' + total_product.toFixed(2));
-                $('#sum_price').text('฿' + sum.toFixed(2));
-                $('#sum_shipping').text(Math.round(calShippng(tmp) / 2) * 20);
+                var sum = total_product + Math.round(calShippng(tmp) / 2) * 60;
+                $('#product_price').text(currencyFormat(total_product));
+                $('#sum_price').text(currencyFormat(sum));
+                $('#sum_shipping').text(Math.round(calShippng(tmp) / 2) * 60);
                 $('#amount_all_product').text(calShippng(tmp));
             }
             localStorage.setItem('cart', JSON.stringify(tmp));

@@ -42,10 +42,12 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         <a class="nav-link active" id="dashboard-tab" data-toggle="pill" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true"><i class="fas fa-chart-line"></i> Dashboard</a>
+                        <a class="nav-link" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab" aria-controls="v-pills-order" aria-selected="false"><i class="fas fa-file-invoice"></i> Order</a>
                         <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-file-signature"></i> Requisitions</a> -->
                         <a class="nav-link" id="v-pills-stock-tab" data-toggle="pill" href="#v-pills-stock" role="tab" aria-controls="v-pills-stock" aria-selected="false"><i class="fas fa-store-alt"></i> Stock</a>
                         <a class="nav-link" id="v-pills-member-tab" data-toggle="pill" href="#v-pills-member" role="tab" aria-controls="v-pills-member" aria-selected="false"><i class="fas fa-users"></i> Member</a>
                         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-file-invoice"></i> Report</a>
+
                     </div>
                 </div>
                 <div class="col">
@@ -112,6 +114,7 @@
                                                 <td>Time</td>
                                                 <td>Total Price</td>
                                                 <td>Payment</td>
+                                                <td>Quantity</td>
                                                 <td></td>
                                             </tr>
                                         </thead>
@@ -155,7 +158,31 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background-color: #fff;">
+                                    <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <td>Order ID</td>
+                                                <td>Name</td>
+                                                <td>Time</td>
+                                                <td>Total Price</td>
+                                                <td>Payment</td>
+                                                <td>Quantity</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rsorder">
 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>-
 
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -464,6 +491,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
+                                                    <label for="cost" class="col-md-6 col-form-label">ราคาต้นทุน</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" id="cost" placeholder="ราคา เช่น 9999">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
                                                     <label for="quantity" class="col-md-6 col-form-label">จำนวนสินค้าที่มี</label>
                                                     <div class="col-md-6">
                                                         <input type="number" class="form-control" id="quantity" placeholder="จำนวน เช่น 10,100">
@@ -731,6 +764,30 @@
             },
         });
 
+        function currencyFormat(num) {
+            return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'total_admin_order',
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    // console.log(res);
+                    for (var i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#rsorder').append(Card(res.product[i], image));
+                    };
+                }
+            });
+        })
         $().ready(() => {
             $.ajax({
                 method: "POST",
@@ -760,8 +817,9 @@
                     <td class="text-center">${item.order_id}</td>
                     <td>${item.name} ${item.surname}</td>
                     <td>${item.created_at}</td>
-                    <td class="text-center">${item.total_price}</td>
+                    <td class="text-center">${currencyFormat(item.total_price*1)}</td>
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
+                    <td class="text-center">${item.qauntity_product}</td>
                     <td>
                         <a href="pro_detail_admin.html?id=${item.order_id}" class="btn btn-primary">Order Details</a>
                         <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})><i class="fas fa-times"></i></button>
@@ -864,6 +922,7 @@
             form_data.append('product_name', $('#product_name').val());
             form_data.append('type', $('#type option:selected').val());
             form_data.append('price', $('#price').val());
+            form_data.append('cost', $('#cost').val());
             form_data.append('description', $('#detail').val());
             form_data.append('quantity', $('#quantity').val());
             form_data.append('brand_id', $('#brand_id option:selected').val());

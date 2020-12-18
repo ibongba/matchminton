@@ -424,6 +424,11 @@
                 localStorage.removeItem('cart')
             }
 
+            function currencyFormat(num) {
+                return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            }
+
+
             $().ready(() => {
                 $.ajax({
                     method: "POST",
@@ -445,12 +450,12 @@
                         };
                         if (cart_data) {
                             var total_product = calSum(cart_data);
-                            var sum = total_product + Math.round(calShippng(cart_data) / 2) * 20;
+                            var sum = total_product + Math.round(calShippng(cart_data) / 2) * 60;
                             // alert(calShippng(cart_data));
-                            $('#product_price').text('฿ ' + total_product.toFixed(2));
-                            $('#total_summary').text('฿ ' + sum.toFixed(2));
+                            $('#product_price').text(currencyFormat(total_product));
+                            $('#total_summary').text(currencyFormat(sum));
                             $('#total_price').val(sum);
-                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data) / 2) * 20)
+                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data) / 2) * 60)
                             $('#cart').val(JSON.stringify(cart_data));
                         }
                     }
@@ -480,9 +485,9 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center">฿${item.price}</td>
+                    <td class="text-center">${currencyFormat(item.price*1)}</td>
                     <td class="text-center">${item.amount}</td>
-                    <td class="text-right">฿${item.price * item.amount}</td>
+                    <td class="text-right">${currencyFormat(item.price * item.amount)}</td>
                 </tr>
             `;
             };

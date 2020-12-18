@@ -369,6 +369,7 @@
             $('#is-login').addClass('d-none')
         }
 
+
         $().ready(() => {
             $.ajax({
                 method: "POST",
@@ -412,10 +413,9 @@
             });
         }
 
-
-
-
-
+        function currencyFormat(num) {
+            return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
 
 
         Card = (item, image) => {
@@ -428,7 +428,7 @@
                     <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
                     <div class="card-body">
                         <h5 class="card-title">${item.product_name} </h5>
-                        <span>${item.price}</span>
+                        <span>${currencyFormat(item.price*1)}</span>
                         <p class="card-text">${item.description}</p>
                     <div class="d-flex" style="justify-content: flex-end;">
                         <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
