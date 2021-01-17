@@ -43,7 +43,6 @@
 
                         <a class="nav-link active" id="dashboard-tab" data-toggle="pill" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true"><i class="fas fa-chart-line"></i> Dashboard</a>
                         <a class="nav-link" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab" aria-controls="v-pills-order" aria-selected="false"><i class="fas fa-file-invoice"></i> Order</a>
-                        <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-file-signature"></i> Requisitions</a> -->
                         <a class="nav-link" id="v-pills-stock-tab" data-toggle="pill" href="#v-pills-stock" role="tab" aria-controls="v-pills-stock" aria-selected="false"><i class="fas fa-store-alt"></i> Stock</a>
                         <a class="nav-link" id="v-pills-member-tab" data-toggle="pill" href="#v-pills-member" role="tab" aria-controls="v-pills-member" aria-selected="false"><i class="fas fa-users"></i> Member</a>
                         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-file-invoice"></i> Report</a>
@@ -152,7 +151,7 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="chart-container" style="position: relative; ">
-                                                <canvas id="chart2"></canvas>
+                                                <canvas id="chart-line"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -184,185 +183,6 @@
                                 </div>
                             </div>-
 
-                        </div>
-                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                            <div class="card mb-3">
-                                <div class="card-header" style="background-color: #fff;">
-                                    <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td>Name</td>
-                                                <td>Position</td>
-                                                <td>Department</td>
-                                                <td>Mobile NO.</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Grant Marshall</td>
-                                                <td>Junior Software Engineer</td>
-                                                <td>IT</td>
-                                                <td>01718332233</td>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grant Marshall</td>
-                                                <td>Junior Software Engineer</td>
-                                                <td>IT</td>
-                                                <td>01718332233</td>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grant Marshall</td>
-                                                <td>Junior Software Engineer</td>
-                                                <td>IT</td>
-                                                <td>01718332233</td>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderList">Order Details</button></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="orderList" tabindex="-1" aria-labelledby="orderListLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4 class="text-center">Order List</h4>
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <p class=" m-0">Order ID</p>
-                                                            <p class=" m-0">ID</p>
-                                                            <p class=" m-0">Name</p>
-                                                            <p class=" m-0">Mobile</p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <p class=" m-0">000001</p>
-                                                            <p class=" m-0">000001</p>
-                                                            <p class=" m-0">Grant Marshall</p>
-                                                            <p class=" m-0">01718332233</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <table class="table mt-2">
-                                                        <thead>
-                                                            <tr class="text-center">
-                                                                <td class="text-left">Item Name</td>
-                                                                <td>Quantity</td>
-                                                                <td>Price</td>
-                                                                <td>Stock Availability</td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Astrox 99</td>
-                                                                <td class="text-center">1</td>
-                                                                <td class="text-center">2000</td>
-                                                                <td class="text-center">9</td>
-                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Astrox 99</td>
-                                                                <td class="text-center">1</td>
-                                                                <td class="text-center">2000</td>
-                                                                <td class="text-center">9</td>
-                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Astrox 99</td>
-                                                                <td class="text-center">1</td>
-                                                                <td class="text-center">2000</td>
-                                                                <td class="text-center">9</td>
-                                                                <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right">รวม</td>
-                                                                <td class="text-center">3</td>
-                                                                <td class="text-center">8000</td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group ">
-                                                                <label for="sender"><br> </label>
-                                                                <select class="form-control" id="sender">
-                                                                  <option>J&T</option>
-                                                                  <option>2</option>
-                                                                  <option>3</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group ">
-                                                                <label for="NumSendProduct">เลขพัสดุ</label>
-                                                                <input type="text" class="form-control" id="NumSendProduct">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="note">หมายเหตุ</label>
-                                                                <input type="text" class="form-control" id="note">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success">อัพเดต</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-header" style="background-color: #fff;">
-                                            <h4 class="float-left mr-1">Stock</h4><button type="button" class="btn btn-outline-primary float-right">See All</button>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-group row">
-                                                    <label for="formControlRange">Example Range input</label>
-                                                    <input type="range" class="form-control-range col-md-6" id="formControlRange" style="background-color: red;">
-                                                </div>
-                                            </form>
-                                            <div class="chart-container" style="position: relative; ">
-                                                <canvas id="chart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-header" style="background-color: #fff;">
-                                            <h4 class="float-left mr-1">Usage</h4>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="chart-container" style="position: relative; ">
-                                                <canvas id="chart2"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
                             <ul class="nav nav-tabs" role="tablist">
@@ -750,18 +570,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
-        var ctx = $('#chart2');
-        new Chart(ctx, {
-            type: 'bar',
-            responsive: true,
-            data: {
-                labels: [1, 2, 3, 4, 5, 6, 7],
-                datasets: [{
-                    fill: false,
-                    label: '',
-                    data: [80, 40, 43, 45, 44, 39, 45]
-                }]
-            },
+        var user = JSON.parse(localStorage.getItem('user'));
+        const accumulate = arr => arr.map((sum => value => sum += value)(0));
+
+        const cumulativeSum = (sum => value => sum += parseInt(value))(0);
+
+        function currencyFormat(num) {
+            return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+        $().ready(() => {
+            var options = {
+                animation: false,
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItems, data) {
+                            return currencyFormat(parseInt(tooltipItems.yLabel.toString()))
+                        }
+                    }
+                }
+            };
+            // console.log(user)
+            $.ajax({
+                method: 'POST',
+                url: '../service/order.php',
+                data: {
+                    action: 'get_money',
+                    // id: user.id,
+                },
+                dataType: 'json',
+            }).done(function(msg) {
+                // console.log(accumulate([...msg.result.map((item) => item.total_price)]))
+                // console.log([...msg.result.map((item) => item.total_price)]);
+                console.log(msg)
+                if (msg.code === 200) {
+                    var ctx = $('#chart-line');
+                    new Chart(ctx, {
+                        type: 'line',
+                        responsive: true,
+                        label: 'รายโดยรวม',
+                        data: {
+                            labels: [...msg.result.map((item) => item.created_at), 'test'],
+                            datasets: [{
+                                fill: false,
+                                label: 'รายได้ต่อวัน (บาท)',
+                                data: [...msg.result.map((item) => item.total_price), 1000],
+                                borderColor: '#4CAF50', // Add custom color border (Line)
+                                backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
+                            }, {
+                                fill: false,
+                                label: 'รายได้สะสม (บาท)',
+                                data: [...msg.result.map((item) => item.total_price).map(cumulativeSum), 1000],
+                                borderColor: '#2196f3', // Add custom color border (Line)
+                                backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
+                            }],
+
+                        },
+                        options
+                    });
+                }
+            });
         });
 
         function currencyFormat(num) {

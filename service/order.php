@@ -41,6 +41,24 @@
         	echo json_encode($res);
             return ;
         }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'get_money') {
+            $mydate = getdate(date("U"));
+            $early_month = $mydate["year"] . "-" . $mydate["mon"] . "-01";
+    
+            $sql = "SELECT *, SUM(`total_price`) AS total_price  FROM `orders`
+            WHERE  `created_at` between  '" . $early_month . "' AND last_day('" . $early_month . "')  GROUP BY `created_at`  ORDER BY `created_at`  ";
+            // echo $sql;
+    
+            $rs = getpdo($conn, $sql);
+    
+            if ($rs) {
+    
+                $res = array("code" => 200, "result" => $rs);
+                echo json_encode($res);
+                return;
+    
+            }
+        // }
     }
 
     $result = array("message" => "Error someting");
