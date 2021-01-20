@@ -37,7 +37,7 @@
     <div class="container-fluid">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2">
+                <div class="col-lg-2">
                     <img src="../images/LOGO_MATCHMINTON.png" alt="" class="w-100">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
@@ -105,26 +105,28 @@
                                     <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-borderless">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td>Order ID</td>
-                                                <td>Name</td>
-                                                <td>Time</td>
-                                                <td>Total Price</td>
-                                                <td>Payment</td>
-                                                <td>Quantity</td>
-                                                <td></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="result">
+                                    <div style="width: 100%;overflow-x: scroll;">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <td>Order ID</td>
+                                                    <td>Name</td>
+                                                    <td>Time</td>
+                                                    <td>Total Price</td>
+                                                    <td>Payment</td>
+                                                    <td>Quantity</td>
+                                                    <td></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="result">
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>-
                             <div class="row">
-                                <div class="col-sm-6">
+                                <!-- <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header" style="background-color: #fff;">
                                             <h4 class="float-left mr-1">Stock</h4><button type="button" class="btn btn-outline-primary float-right">See All</button>
@@ -142,11 +144,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
+                                </div> -->
+                                <div class="col">
                                     <div class="card">
                                         <div class="card-header" style="background-color: #fff;">
-                                            <h4 class="float-left mr-1">Usage</h4>
+                                            <h4 class="float-left mr-1">รายได้</h4>
 
                                         </div>
                                         <div class="card-body">
@@ -164,24 +166,26 @@
                                     <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-borderless">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td>Order ID</td>
-                                                <td>Name</td>
-                                                <td>Time</td>
-                                                <td>Total Price</td>
-                                                <td>Payment</td>
-                                                <td>Quantity</td>
-                                                <td></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="rsorder">
+                                    <div style="width: 100%;overflow-x: scroll;">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <td>Order ID</td>
+                                                    <td>Name</td>
+                                                    <td>Time</td>
+                                                    <td>Total Price</td>
+                                                    <td>Payment</td>
+                                                    <td>Quantity</td>
+                                                    <td></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="rsorder">
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>-
+                            </div>
 
                         </div>
                         <div class="tab-pane fade" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
@@ -196,48 +200,46 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                    <table class="table text-center">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>รูป</th>
-                                                <th>ชื่อสินค้า</th>
-                                                <th>จำนวน</th>
-                                                <th>ขายแล้ว</th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td scope="row">001</td>
-                                                <td><img src="../images/kl1.png" alt="" style="width: 100px; height: 50px;"></td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>Mark</td>
-                                                <td><a href="editProduct.html" class="btn btn-success">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">002</td>
-                                                <td><img src="../images/kl2.png" alt="" style="width: 100px; height: 50px;"></td>
-                                                <td>tdornton</td>
-                                                <td>@fat</td>
-                                                <td>Mark</td>
-                                                <td><a href="editProduct.html" class="btn btn-success">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">003</td>
-                                                <td><img src="../images/kl3.png" alt="" style="width: 100px; height: 50px;"></td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                                <td>Mark</td>
-                                                <td><a href="editProduct.html" class="btn btn-success">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div style="width: 100%;overflow-x: scroll;">
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product ID</th>
+                                                    <th>ชื่อสินค้า</th>
+                                                    <th>ประเภทสินค้า</th>
+                                                    <th>ราคาสินค้า</th>
+                                                    <th>จำนวนสินค้า</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="rs_stock">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal fade" id="stock2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <form class="modal-content" onsubmit="createStock()">
+                                                <div class="modal-header" style="text-align: center;">
+                                                    <h2>MANAGE STOCK</h2>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="text-left">
+                                                    <fieldset class="material mb-3">
+                                                        <input type="text" placeholder="" id="stock" autocomplete="off" required>
+                                                        <hr>
+                                                        <label>Qauntity Product</label>
+                                                    </fieldset>
+
+                                                    <div class="btn-update" style="text-align: center;">
+                                                        <button type="submit" class="btn btn-success my-3">Update</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-2" role="tabpanel">
                                     <div class="container">
@@ -697,6 +699,72 @@
                 </tr>
             `;
         };
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'show_stock_admin_order',
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    // console.log(res);
+                    for (var i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#rs_stock').append(Stock(res.product[i], image));
+                    };
+                }
+            });
+        })
+
+        Stock = (item, image) => {
+            console.log(item, image)
+            var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
+            return `
+                <tr id="orderremove${item.product_id}">
+                    <td class="text-center">${item.product_id}</td>
+                    <td>${item.product_name}</td>
+                    <td>${item.type}</td>
+                    <td>${item.price}</td>
+                    <td>${item.qauntity_product}</td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#stock2" data-whatever="@getbootstrap" onclick="setId('${item.product_id}')" class="btn btn-primary" style="min-width: auto;">Manage Stock</button>
+                       
+                    </td>
+                </tr>
+            `;
+        };
+        var _id = '';
+
+        const setId = (id) => {
+            _id = id;
+        }
+
+
+        const createStock = () => {
+            $.ajax({
+                method: 'POST',
+                url: '../service/admin_order.php',
+                data: {
+                    action: 'create_stock',
+                    qauntity: $('#stock').val(),
+                    product_id: _id,
+                },
+                dataType: 'json',
+                // contentType: false,
+                // processData: false,
+            }).done(function(msg) {
+                // msg = JSON.parse(msg);
+                console.log(msg)
+                if (msg.code === 200) {
+                    window.location.reload();
+                }
+            });
+        }
 
         const dorder = (id) => {
             $.ajax({
