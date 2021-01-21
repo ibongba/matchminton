@@ -267,7 +267,31 @@
                 }
             });
         })
+        $().ready(() => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/order.php',
+                data: {
+                    action: 'get_filter',
+                    // id: user.id,
+                },
+                dataType: 'json',
+            }).done(function(msg) {
+                if (msg.code === 200) {
+                    $('#filter').empty();
+                    msg.result.map((item) => {
+                        $('#inputState').append(inputState(item));
+                        return;
+                    });
+                }
+            });
+        });
 
+        inputState = (item) => {
+            return `
+            <option value="${item.product_id}">${item.product_name}</option>
+        	             `;
+        };
         Card = (item, image) => {
             // console.log(cart_data.find(val => val.cart_id == item.cart_id))
             var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
@@ -278,6 +302,8 @@
                         <img src="${img}" class="w-100 col-3 float-left" alt="">
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
+                        ${(item.type == 1) ? '<select id="inputState" class="form-control w-50" onchange="onchangefilter()"><option value="">เอ็น</option></select>' : '' }
+                        
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
                         <div class="input-group col-4 my-3">
                             <input type="text" class="form-control text-center" disabled value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
@@ -286,11 +312,32 @@
                 </div>
             `;
         };
-        // <div class="input-group-prepend">
-        //     <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
-        // </div> <div class="input-group-append">
-        //     <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
-        // </div>
+
+        const onchangefilter = () => {
+                $.ajax({
+                    method: 'GET',
+                    url: 'service/insert_cart.php',
+                    data: {
+                        // action: 'insert_cart',
+                        // service_date: date,
+                        product_id: $('#inputState option:selected').val(),
+                        user_id: user.user_id,
+                    },
+                    dataType: 'json',
+                    // contentType: false,
+                    // processData: false,
+                }).done(function(msg) {
+                    console.log(msg)
+                    if (msg.code === 200) {
+                        window.location.reload();
+                    }
+                });
+            }
+            // <div class="input-group-prepend">
+            //     <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
+            // </div> <div class="input-group-append">
+            //     <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
+            // </div>
 
         selected = (data) => {
             let cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];

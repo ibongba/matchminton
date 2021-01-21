@@ -147,11 +147,12 @@
         }else{
             $sql .= " , (`brand_id` = '2') DESC";
         }
-
+// echo $sql_base.$sql;
         $rs = getpdo($conn,$sql_base.$sql." LIMIT 10");
         // echo $sql_base.$sql." LIMIT 10";
         if(gettype($rs) == 'array'){
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WHERE ".$sql." )";
+            // echo $sql;
             $rs2 = getpdo($conn,$sql);
 
             $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));

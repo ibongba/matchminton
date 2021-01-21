@@ -723,6 +723,22 @@
 
         Stock = (item, image) => {
             console.log(item, image)
+
+            if (item.type == '1') {
+                item.type = "ไม้แบดมินตัน";
+            } else if (item.type == '2') {
+                item.type = "รองเท้า";
+            } else if (item.type == '3') {
+                item.type = "เสิ้อกีฬา";
+            } else if (item.type == '4') {
+                item.type = "กางเกงกีฬา";
+            } else if (item.type == '5') {
+                item.type = "กระเป๋า";
+            } else if (item.type == '6') {
+                item.type = "เอ็นแบดมินตัน";
+            } else {
+                item.type = "กริ๊ปพันด้าม";
+            }
             var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
             return `
                 <tr id="orderremove${item.product_id}">

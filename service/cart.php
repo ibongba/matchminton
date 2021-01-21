@@ -4,7 +4,8 @@
     if (isset($_POST['action']) && $_POST['action'] == 'show_order'){
         $sql_pro = "SELECT * FROM `cart`
         JOIN `product` ON `cart`.`product_id` = `product`.`product_id`
-        JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` ORDER BY `cart`.`cart_id` ASC";
+        -- JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
+        ORDER BY `cart`.`cart_id` ASC";
         $rs = getpdo($conn,$sql_pro);
 // echo $sql_pro;
         if(gettype($rs) == 'array'){

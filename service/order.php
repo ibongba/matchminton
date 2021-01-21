@@ -5,7 +5,7 @@
         $sql_pro = "SELECT * FROM `orders`
         JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id`
         JOIN `product` ON `order_details`.`product_id` = `product`.`product_id`
-        JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
+        -- JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
         WHERE `orders`.`user_id` = '".$_POST['user_id']."' ORDER BY `orders`.`order_id` DESC";
         // echo $sql_pro;
         $rs = getpdo($conn,$sql_pro);
@@ -20,7 +20,11 @@
             return ;
         }
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_order_detail'){
-        $sql = "SELECT * FROM `orders` JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id` JOIN `product` ON `order_details`.`product_id` = `product`.`product_id` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` WHERE `orders`.`order_id` = '".$_POST['order_id']."'";
+        $sql = "SELECT * FROM `orders` 
+        JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id` 
+        JOIN `product` ON `order_details`.`product_id` = `product`.`product_id` 
+        -- JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
+        WHERE `orders`.`order_id` = '".$_POST['order_id']."'";
         // echo $sql;
         $rs = getpdo($conn,$sql);
         if(gettype($rs) == 'array'){
@@ -58,8 +62,13 @@
                 return;
     
             }
-        // }
-    }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'get_filter') {
+        $sql = "SELECT * FROM `product` WHERE `type` = '6' AND `brand_id` = '1'";
+        $rs = getpdo($conn, $sql);
+        $res = array("code" => 200, "result" => $rs);
+        echo json_encode($res);
+        return;
+    } 
 
     $result = array("message" => "Error someting");
     $res = array("code" => 401, "result" => $result);

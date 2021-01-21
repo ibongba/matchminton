@@ -382,7 +382,7 @@
         </form>
 
         <!-- Circles which indicates the steps of the form: -->
-        <div class="list-step d-none d-lg-block" style="text-align: center; margin-top: 40px">
+        <div class="list-step d-none " style="text-align: center; margin-top: 40px">
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
@@ -397,15 +397,14 @@
         </div>
 
         <div id="summary" class="d-none">
-            <div id="cal"></div>
-            <h4 style="line-height: 0.8; margin-bottom: 0">ไม้แบดมินตันที่เหมาะกับคุณ</h4>
-            <p class="line"><span>MATCHMINTON</span></p>
-
             <div class="row justify-content-center">
                 <div class="col-10">
+                    <h4 class="text-light" style="line-height: 0.8; margin-bottom: 0">ไม้แบดมินตันที่เหมาะกับคุณ</h4>
                     <div class="row mt-3" id="result"></div>
                 </div>
             </div>
+            <div id="cal"></div>
+
         </div>
         <hr>
         <div class="text-center mb-4">
@@ -769,6 +768,7 @@
                 },
             }).done(function(msg) {
                 msg = JSON.parse(msg);
+                console.log(msg)
                 if (msg.code === 200) {
                     // window.location.href = "login.html";
 
@@ -850,6 +850,7 @@
                     for (i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image))
+
                     };
 
 
@@ -908,7 +909,7 @@
         };
 
         Card = (item, image) => {
-            var img = image.path ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            var img = image && image.path ? 'service/' + image.path : 'https://via.placeholder.com/150';
             return `
 			             <div class="card col-4">
 			               <img class="card-img-top" src="${img}" alt="Card image cap">
