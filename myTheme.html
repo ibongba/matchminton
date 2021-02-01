@@ -17,6 +17,12 @@
 
     <title>MyTheme</title>
 </head>
+<style>
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #000;
+    }
+</style>
 
 <body>
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
@@ -138,56 +144,79 @@
 
             </div>
         </div>
-        <!-- container -->
+    </div>
+    <!-- container -->
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            console.log(user)
-            if (user != null) {
-                $('#user_name').text(user.name)
-                $('#not-login').addClass('d-none')
-                $('#is-login').removeClass('d-none')
-            } else {
-                $('#not-login').removeClass('d-none')
-                $('#is-login').addClass('d-none')
-            }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
+        if (user != null) {
+            $('#user_name').text(user.name)
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
 
-            logout = () => {
-                localStorage.removeItem('user')
-                $('#not-login').removeClass('d-none')
-                $('#is-login').addClass('d-none')
-            }
-            $().ready(() => {
-                $.ajax({
-                    method: "POST",
-                    url: "service/themes.php",
-                    data: {
-                        action: 'get_theme_with_id',
-                        user_id: user.user_id,
-                    },
-                }).done(function(msg) {
-                    console.log(msg)
-                    msg = JSON.parse(msg)
-                    if (msg.code === 200) {
-                        msg.result.map((item) => {
-                            $("#card").append(card(item));
-                            return;
-                        })
-                    }
-                });
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "service/themes.php",
+                data: {
+                    action: 'get_theme_with_id',
+                    user_id: user.user_id,
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#card").append(card(item));
+                        return;
+                    })
+                }
+            });
+        })
+        card = (item) => {
+            const date = new Date(item.create_at)
+            const result = date.toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
             })
-            card = (item) => {
-                const date = new Date(item.create_at)
-                const result = date.toLocaleDateString('th-TH', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                })
-                return `
+            return `
                 <div class="card my-0">
                     <div class="card-body">
                         <span class="float-left"><h5 class="card-title">${item.title}</h5></span>
@@ -197,28 +226,28 @@
                         <span class="float-right"><p class="float-right text-muted"><i class="fas fa-comment-alt"></i> 0</p></span>
                     </div> 
                 </div>`
-            }
-        </script>
-        <script>
-            const dtheme = (id) => {
-                $.ajax({
-                    method: "POST",
-                    url: "service/themes.php",
-                    data: {
-                        action: 'delete_theme',
-                        theme_id: id
-                    }
-                }).done(function(msg) {
-                    console.log(msg)
-                    msg = JSON.parse(msg)
-                    if (msg.code === 200) {
-                        alert('ลบข้อมูลสำเร็จ');
+        }
+    </script>
+    <script>
+        const dtheme = (id) => {
+            $.ajax({
+                method: "POST",
+                url: "service/themes.php",
+                data: {
+                    action: 'delete_theme',
+                    theme_id: id
+                }
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    alert('ลบข้อมูลสำเร็จ');
 
-                        localStorage.setItem('user', JSON.stringify(msg.result));
-                    }
-                });
-            }
-        </script>
+                    localStorage.setItem('user', JSON.stringify(msg.result));
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -196,7 +196,7 @@
             </div>
             <div class="col-md-4 mb-1">
                 <div class="input-group">
-                    <input type="text" class="form-control btn-dark w-100" placeholder="SEARCH PRODUCT" id="searchproduct" onkeyup="search(this)">
+                    <input type="search" class="form-control btn-dark w-100" placeholder="SEARCH PRODUCT" id="searchproduct" onsearch="search(this)">
                 </div>
                 <!-- <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button> -->
             </div>
@@ -344,10 +344,33 @@
     <!-- <div class="col">
         <div style="width: auto; height: 300px; background-color: #888888;"></div>
     </div>
-    </div> -->
-
     </div>
+
+    </div> -->
     <!-- container -->
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -370,26 +393,26 @@
         }
 
 
-        $().ready(() => {
-            $.ajax({
-                method: "POST",
-                url: "service/product.php",
-                data: {
-                    action: 'show_product_card',
-                    search: $('#searchproduct').val(),
-                },
-            }).done(function(msg) {
-                // console.log(msg)
-                msg = JSON.parse(msg)
-                if (msg.code === 200) {
-                    var res = msg.result;
-                    for (i = 0; i < res.product.length; i++) {
-                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
-                        $('#result').append(Card(res.product[i], image));
-                    };
-                }
-            });
-        })
+        // $().ready((e) => {
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "service/product.php",
+        //         data: {
+        //             action: 'show_product_card',
+        //             search: $('#searchproduct').val(),
+        //         },
+        //     }).done(function(msg) {
+        //         // console.log(msg)
+        //         msg = JSON.parse(msg)
+        //         if (msg.code === 200) {
+        //             var res = msg.result;
+        //             for (i = 0; i < res.product.length; i++) {
+        //                 let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+        //                 $('#result').append(Card(res.product[i], image));
+        //             };
+        //         }
+        //     });
+        // })
 
         function search(e) {
             $.ajax({
@@ -407,11 +430,14 @@
                     for (i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
-                        // $("#searchproduct").empty();
+                        $("#searchproduct").empty().prepend('');
                     };
                 }
             });
         }
+
+
+
 
         function currencyFormat(num) {
             return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -425,7 +451,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card">
                     ${(user && item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
-                    <img class="card-img-top w-75 p-2" src="${img}" alt="Card image cap" style="margin-left: 35px; margin-top: 35px">
+                    <div style="width: 327px; height: 327px;"> 
+                        <img class="card-img-top w-100 h-100 " src="${img}" alt="Card image cap" >
+                    </div>
+                   
                     <div class="card-body">
                         <h5 class="card-title">${item.product_name} </h5>
                         <span>${currencyFormat(item.price*1)}</span>

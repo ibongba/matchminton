@@ -176,7 +176,29 @@
     </div>
     </div>
     <!-- container -->
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
 
 
 
@@ -302,7 +324,7 @@
                         <img src="${img}" class="w-100 col-3 float-left" alt="">
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
-                        ${(item.type == 1) ? '<select id="inputState" class="form-control w-50" onchange="onchangefilter()"><option value="">เอ็น</option></select>' : '' }
+                        ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
                         
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
                         <div class="input-group col-4 my-3">
@@ -313,14 +335,37 @@
             `;
         };
 
-        const onchangefilter = () => {
+        // const onchangefilter = () => {
+        //     $.ajax({
+        //         method: 'GET',
+        //         url: 'service/insert_cart.php',
+        //         data: {
+        //             // action: 'insert_cart',
+        //             // service_date: date,
+        //             product_id: $('#inputState option:selected').val(),
+        //             // remark: $('#num_N').val(),
+        //             user_id: user.user_id,
+        //         },
+        //         dataType: 'json',
+        //         // contentType: false,
+        //         // processData: false,
+        //     }).done(function(msg) {
+        //         console.log(msg)
+        //         if (msg.code === 200) {
+        //             window.location.reload();
+        //         }
+        //     });
+        // }
+
+        const number_n = () => {
                 $.ajax({
                     method: 'GET',
                     url: 'service/insert_cart.php',
                     data: {
-                        // action: 'insert_cart',
-                        // service_date: date,
+                        // action: 'number_N',
                         product_id: $('#inputState option:selected').val(),
+                        remark_n: $('#num_N').val(),
+                        // order_id: user.order_id,
                         user_id: user.user_id,
                     },
                     dataType: 'json',

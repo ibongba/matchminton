@@ -157,7 +157,7 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- <h5>วิธีการชำระเงิน</h5>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-info mr-2">
                         <input type="radio" name="pay" id="pay1" > บัตรเครดิต/บัตรเดบิต
                         </label>
@@ -170,8 +170,8 @@
                         <label class="btn btn-outline-info mr-2">
                             <input type="radio" name="pay" id="pay4"> โอน/ชำระผ่านบัญชีธนาคาร
                         </label>
-                    </div>
-                    <hr> -->
+                        </div>
+                        <hr> -->
                         <h5>เลือกบัญชีการชำระเงิน</h5>
                         <div class="form-check pb-2">
                             <input class="form-check-input pt-2" type="radio" name="credit_card" id="account1" value="555" checked onclick="closeCard()">
@@ -187,7 +187,7 @@
                         </div>
                         <!-- <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choose_acc"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button> -->
                         <!-- <button type="button" class="btn btn-outline-secondary" id="btn-add" onclick="openCard()"><i class="fas fa-plus"></i> ชำระด้วยบัตรใหม่</button>
-                    <button type="button" class="btn btn-outline-secondary d-none" id="btn-close" onclick="closeCard()"><i class="fas fa-minus"></i> ยกเลิก</button> -->
+                        <button type="button" class="btn btn-outline-secondary d-none" id="btn-close" onclick="closeCard()"><i class="fas fa-minus"></i> ยกเลิก</button> -->
                         <div class="d-none" id="credir-card">
                             <div class="row">
                                 <div class="col-6">
@@ -332,7 +332,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div> -->
+                        </div> -->
                         <hr>
                         <div class="row text-right">
                             <div class="col-md-10">
@@ -351,6 +351,8 @@
                         <hr>
                         <button type="submit" class="btn btn-info float-right">สั่งซื้อสินค้า</button>
                     </div>
+                </div>
+            </div>
         </form>
 
         <!--<div class="modal fade" id="confirmPayment" tabindex="-1" aria-labelledby="confirmPaymentLabel" aria-hidden="true">
@@ -378,104 +380,126 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+    </div>
+    </div>-->
+    </div>
+
+    <!-- container -->
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
         </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+        var products = [];
+        if (user != null) {
+            // alert(user.user_id);
+            $('#user_name').text(user.name)
+            $('#not-login').addClass('d-none')
+            $('#is-login').removeClass('d-none')
+            $('#user_id').val(user.user_id);
 
-        </div>
-        <!-- container -->
+        } else {
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            let cart_data = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
-            var products = [];
-            if (user != null) {
-                // alert(user.user_id);
-                $('#user_name').text(user.name)
-                $('#not-login').addClass('d-none')
-                $('#is-login').removeClass('d-none')
-                $('#user_id').val(user.user_id);
+        logout = () => {
+            localStorage.removeItem('user')
+            $('#not-login').removeClass('d-none')
+            $('#is-login').addClass('d-none')
+        }
 
-            } else {
-                $('#not-login').removeClass('d-none')
-                $('#is-login').addClass('d-none')
-            }
-
-            logout = () => {
-                localStorage.removeItem('user')
-                $('#not-login').removeClass('d-none')
-                $('#is-login').addClass('d-none')
-            }
-
-            const calSum = (carts) => {
-                var sum = carts.reduce((total, val) => {
-                    var c = products.find(item => item.cart_id == val.cart_id) || {
+        const calSum = (carts) => {
+            var sum = carts.reduce((total, val) => {
+                var c = products.find(item => item.cart_id == val.cart_id) || {
                         price: 0
                     }
-                    alert(val.cart_id);
-                    return parseFloat(c.price * c.amount) + total
-                }, 0);
-                return (sum);
-            }
+                    // alert(val.cart_id);
+                return parseFloat(c.price * c.amount) + total
+            }, 0);
+            return (sum);
+        }
 
-            const onSubmit = () => {
-                localStorage.removeItem('cart')
-            }
+        const onSubmit = () => {
+            localStorage.removeItem('cart')
+        }
 
-            function currencyFormat(num) {
-                return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-            }
+        function currencyFormat(num) {
+            return '฿' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
 
 
-            $().ready(() => {
-                $.ajax({
-                    method: "POST",
-                    url: "service/cart.php",
-                    data: {
-                        action: 'show_order',
-                    },
-                }).done(function(msg) {
-                    msg = JSON.parse(msg)
-                    if (msg.code === 200) {
-                        var res = msg.result;
-                        console.log('res.product', res.product);
-                        products = res.product;
-                        let data = res.product.filter(item => cart_data.find(val => val.cart_id == item.cart_id));
-                        console.log('products', data);
-                        for (i = 0; i < data.length; i++) {
-                            let image = res.product_images.find((item) => data[i].product_id == item.fk_product_id);
-                            $('#result').append(Card(data[i], image));
-                        };
-                        if (cart_data) {
-                            var total_product = calSum(cart_data);
-                            var sum = total_product + Math.round(calShippng(cart_data) / 2) * 60;
-                            // alert(calShippng(cart_data));
-                            $('#product_price').text(currencyFormat(total_product));
-                            $('#total_summary').text(currencyFormat(sum));
-                            $('#total_price').val(sum);
-                            $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data) / 2) * 60)
-                            $('#cart').val(JSON.stringify(cart_data));
-                        }
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "service/cart.php",
+                data: {
+                    action: 'show_order',
+                },
+            }).done(function(msg) {
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    console.log('res.product', res.product);
+                    products = res.product;
+                    let data = res.product.filter(item => cart_data.find(val => val.cart_id == item.cart_id));
+                    console.log('products', data);
+                    for (i = 0; i < data.length; i++) {
+                        let image = res.product_images.find((item) => data[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(data[i], image));
+                    };
+                    if (cart_data) {
+                        var total_product = calSum(cart_data);
+                        var sum = total_product + Math.round(calShippng(cart_data) / 2) * 60;
+                        // alert(calShippng(cart_data));
+                        $('#product_price').text(currencyFormat(total_product));
+                        $('#total_summary').text(currencyFormat(sum));
+                        $('#total_price').val(sum);
+                        $('#sum_shipping').text('฿ ' + Math.round(calShippng(cart_data) / 2) * 60)
+                        $('#cart').val(JSON.stringify(cart_data));
                     }
-                });
-            })
+                }
+            });
+        })
 
-            calShippng = (carts) => {
-                var sum = carts.reduce((total, val) => {
-                    var c = products.find(item => item.cart_id == val.cart_id) || {
-                        price: 0
-                    }
-                    return parseInt(c.amount) + total
-                }, 0);
-                return (sum);
-            }
+        calShippng = (carts) => {
+            var sum = carts.reduce((total, val) => {
+                var c = products.find(item => item.cart_id == val.cart_id) || {
+                    price: 0
+                }
+                return parseInt(c.amount) + total
+            }, 0);
+            return (sum);
+        }
 
 
-            Card = (item, image) => {
-                var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
-                return `
+        Card = (item, image) => {
+            var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+            return `
                 <tr>
                     <td>
                         <div class="media">
@@ -490,19 +514,19 @@
                     <td class="text-right">${currencyFormat(item.price * item.amount)}</td>
                 </tr>
             `;
-            };
+        };
 
-            const openCard = () => {
-                $('#btn-add').addClass('d-none')
-                $('#btn-close').removeClass('d-none')
-                $('#credir-card').removeClass('d-none')
-            }
-            const closeCard = () => {
-                $('#btn-add').removeClass('d-none')
-                $('#btn-close').addClass('d-none')
-                $('#credir-card').addClass('d-none')
-            }
-        </script>
+        const openCard = () => {
+            $('#btn-add').addClass('d-none')
+            $('#btn-close').removeClass('d-none')
+            $('#credir-card').removeClass('d-none')
+        }
+        const closeCard = () => {
+            $('#btn-add').removeClass('d-none')
+            $('#btn-close').addClass('d-none')
+            $('#credir-card').addClass('d-none')
+        }
+    </script>
 </body>
 
 </html>

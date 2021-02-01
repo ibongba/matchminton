@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="css/knowledge.css">
     <title>PRODUCT DETAIL</title>
 </head>
+<style>
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #000;
+    }
+</style>
 
 <body>
     <div class="jumbotron jumbotron-fluid pt-4 mb-0" style="background-color: #fff;">
@@ -233,7 +239,29 @@
 
     </div>
     <!-- container -->
+    <footer>
+        <div class=" container ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center  p-5">
+                        <p class="text-uppercase">Lorem Ipsum simply dummy the printing typesettin industr Lorem Ipsum simply dummy the printing typesettin industr copy 2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="m-0" style="text-align: center; "><i class="far fa-copyright "></i>2020 MATCHMINTON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -382,14 +410,14 @@
                     </a>
                 </div>
 
-                <div class="row">
-                    <div class="col">
-                        <img src="${img}" alt="">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <img src="${img}" alt="" class="w-100 h-100">
                     </div>
                     <div class="col text-right">
-                        <p class="text-muted">${item.price}</p>
-                        <h5 class="font-weight-bold" style="color: #FF6565;">฿5,295.00</h5>
-                        <p>ประหยัดทันที่ ฿2,495.00 (32%)</p>
+                        
+                        <h5 class="font-weight-bold" style="color: #FF6565;">฿${item.price}</h5>
+                       
                         <div class="text-center">
                             <p>จำนวนที่ต้องการ</p>
                             <button type="button" class="btn btn-outline-primary mb-2">3U (85.0 - 89.9 g)</button>
