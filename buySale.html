@@ -184,14 +184,15 @@
             <div class="col-9">-->
         <div class="row my-4">
             <div class="col-md-4 mb-1">
-                <select class="form-select btn-dark form-control w-100" aria-label="Default select example">
-                        <option selected>หมวดสินค้า</option>
+                <select class="form-select btn-dark form-control w-100" aria-label="Default select example" onchange="onchangetype()" id="changeType">
+                        <option value="">หมวดสินค้า</option>
                         <option value="1">ไม้แบดมินตัน</option>
                         <option value="2">รองเท้า</option>
                         <option value="3">เสื้อกีฬา</option>
-                        <option value="4">กางเกง</option>
-                        <option value="5">เอ็น</option>
-                        <option value="6">กร๊ิปพันด้าม</option>
+                        <option value="4">กางเกงกีฬา</option>
+                        <option value="5">กระเป๋า</option>
+                        <option value="6">เอ็นแบดมินตัน</option>
+                        <option value="7">กริ๊ปพันด้าม</option>
                     </select>
             </div>
             <div class="col-md-4 mb-1">
@@ -201,8 +202,8 @@
                 <!-- <button type="button" class="btn btn-dark form-control w-100">Search <i class="fas fa-search"></i></button> -->
             </div>
             <div class="col mb-1">
-                <select class="form-select btn-dark form-control w-100" aria-label="Default select example">
-                        <option selected>เรียงตาม</option>
+                <select class="form-select btn-dark form-control w-100" aria-label="Default select example" onchange="onchangePrice()" id="changePrice">
+                        <option value="">เรียงตาม</option>
                         <option value="1">ความนิยม</option>
                         <option value="2">ราคาสูง</option>
                         <option value="3">ราคาต่ำ</option>
@@ -374,6 +375,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         // console.log(user)
@@ -393,26 +395,26 @@
         }
 
 
-        // $().ready((e) => {
-        //     $.ajax({
-        //         method: "POST",
-        //         url: "service/product.php",
-        //         data: {
-        //             action: 'show_product_card',
-        //             search: $('#searchproduct').val(),
-        //         },
-        //     }).done(function(msg) {
-        //         // console.log(msg)
-        //         msg = JSON.parse(msg)
-        //         if (msg.code === 200) {
-        //             var res = msg.result;
-        //             for (i = 0; i < res.product.length; i++) {
-        //                 let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
-        //                 $('#result').append(Card(res.product[i], image));
-        //             };
-        //         }
-        //     });
-        // })
+        $().ready((e) => {
+            $.ajax({
+                method: "POST",
+                url: "service/product.php",
+                data: {
+                    action: 'show_product_card',
+                    search: $('#searchproduct').val(),
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    var res = msg.result;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+                    };
+                }
+            });
+        })
 
         function search(e) {
             $.ajax({
@@ -426,16 +428,73 @@
                 console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
+                    $('#result').empty();
                     var res = msg.result;
                     for (i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
-                        $("#searchproduct").empty().prepend('');
+                        $('#searchproduct').html('');
+                        // $("#searchproduct").remove();
                     };
                 }
             });
         }
 
+        const onchangePrice = () => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/product.php',
+                data: {
+                    action: 'show_product_card_price',
+                    price: $('#changePrice option:selected').val(),
+
+                },
+                dataType: 'json',
+                // contentType: false,
+                // processData: false,
+            }).done(function(msg) {
+                console.log(msg)
+                    // msg = JSON.parse(msg);
+                console.log(msg)
+                if (msg.code === 200) {
+                    $('#result').empty();
+                    var res = msg.result;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+
+                    };
+                }
+            });
+        }
+
+        const onchangetype = () => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/product.php',
+                data: {
+                    action: 'show_product_card_type',
+                    type: $('#changeType option:selected').val(),
+
+                },
+                dataType: 'json',
+                // contentType: false,
+                // processData: false,
+            }).done(function(msg) {
+                console.log(msg)
+                    // msg = JSON.parse(msg);
+                console.log(msg)
+                if (msg.code === 200) {
+                    $('#result').empty();
+                    var res = msg.result;
+                    for (i = 0; i < res.product.length; i++) {
+                        let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
+                        $('#result').append(Card(res.product[i], image));
+
+                    };
+                }
+            });
+        }
 
 
 
@@ -458,10 +517,10 @@
                     <div class="card-body">
                         <h5 class="card-title">${item.product_name} </h5>
                         <span>${currencyFormat(item.price*1)}</span>
-                        <p class="card-text">${item.description}</p>
-                    <div class="d-flex" style="justify-content: flex-end;">
-                        <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
-                    </div>
+                        <p class="card-text overflow-hidden" style="height: 50px">${item.description}</p>
+                        <div class="d-flex" style="justify-content: flex-end;">
+                            <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
+                        </div>
                         <div class="overlay">
                             <div class="text ">
                                 <h3 class="p-4"><a href="productdetail.html?id=${item.product_id}" class="text-decoration-none m-4 text-light" >ดูรายละเอียดเพิ่มเติม</a></h3>

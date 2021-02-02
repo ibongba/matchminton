@@ -690,7 +690,7 @@
                     <td>${item.created_at}</td>
                     <td class="text-center">${currencyFormat(item.total_price*1)}</td>
                     <td class="text-center">${item.payment_status == 1 ? 'ชำระเงินแล้ว' : 'ยัง'}</td>
-                    <td class="text-center">${item.qauntity_product}</td>
+                  
                     <td>
                         <a href="pro_detail_admin.html?id=${item.order_id}" class="btn btn-primary">Order Details</a>
                         <button type="button" class="btn btn-danger" onclick=dorder(${item.order_id})><i class="fas fa-times"></i></button>

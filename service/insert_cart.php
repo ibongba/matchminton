@@ -13,7 +13,7 @@
       $sql = "UPDATE `cart` SET `amount`= '".$amount."' WHERE `cart_id` = '".$rs[0]['cart_id']."'";
       $rs = getpdo($conn,$sql);
     }else{
-      $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `amount`,`created_at`,`updated_at`) VALUES ('".$_GET['user_id']."','".$_GET['product_id']."', '1', '".$date_now."', '".$date_now."')";
+      $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `amount`,`created_at`,`updated_at`,`remark`) VALUES ('".$_GET['user_id']."','".$_GET['product_id']."', '1', '".$date_now."', '".$date_now."', '".$_GET['remark']."' )";
       $rs = getpdo($conn,$sql);
     }
    

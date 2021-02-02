@@ -105,6 +105,7 @@
                                     <th class="text-center">ราคาต่อหน่วย</th>
                                     <th class="text-center">จำนวน</th>
                                     <th class="text-right">รายการย่อย</th>
+                                    <th class="text-right">remark</th>
                                 </tr>
                                 <tr>
                                     <td>จำหน่ายโดย <img src="images/LOGO_MATCHMINTON.jpg" alt="" style="width: 100px;"></td>
@@ -512,6 +513,7 @@
                     <td class="text-center">${currencyFormat(item.price*1)}</td>
                     <td class="text-center">${item.amount}</td>
                     <td class="text-right">${currencyFormat(item.price * item.amount)}</td>
+                    <td class="text-right">${item.remark}</td>
                 </tr>
             `;
         };

@@ -2,7 +2,7 @@
     require_once 'config.php';
     
     if (isset($_POST['action']) && $_POST['action'] == 'show_order'){
-        $sql_pro = "SELECT * FROM `orders`
+        $sql_pro = "SELECT *,`product`.`type`AS p_type FROM `orders`
         JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id`
         JOIN `product` ON `order_details`.`product_id` = `product`.`product_id`
         -- JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 
@@ -20,7 +20,7 @@
             return ;
         }
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_order_detail'){
-        $sql = "SELECT * FROM `orders` 
+        $sql = "SELECT *,`product`.`type`AS p_type FROM `orders` 
         JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id` 
         JOIN `product` ON `order_details`.`product_id` = `product`.`product_id` 
         -- JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id` 

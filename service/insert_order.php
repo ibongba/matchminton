@@ -40,8 +40,8 @@
           WHERE `cart`.`cart_id` = '".$value['cart_id']."' ORDER BY `cart`.`cart_id` ASC";
           $rs = getpdo($conn,$sql_pro);
           // echo json_encode($rs);
-          $sql3 = "INSERT INTO `order_details`(`order_id`, `product_id`, `price`,`amount`,`remark_n`) 
-          VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."','".$rs[0]['remark_n']."')";
+          $sql3 = "INSERT INTO `order_details`(`order_id`, `product_id`, `price`,`amount`,`remark`) 
+          VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."','".$rs[0]['remark']."')";
           $rs3 = getpdo($conn,$sql3);
         
         }
@@ -69,8 +69,8 @@
         // echo $sql_pro;
         $rs = getpdo($conn,$sql_pro);
         // echo json_encode($rs);
-        $sql3 = "INSERT INTO `order_details`(`order_id`, `product_id`, `price`,`amount`,`remark_n_bat`) 
-        VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."','".$rs[0]['remark_n']."')";
+        $sql3 = "INSERT INTO `order_details`(`order_id`, `product_id`, `price`,`amount`,`remark`) 
+        VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."','".$rs[0]['remark']."')";
         // echo $sql3;
         $rs3 = getpdo($conn,$sql3);
 

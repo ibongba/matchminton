@@ -324,6 +324,7 @@
                         <img src="${img}" class="w-100 col-3 float-left" alt="">
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
+                        <p>ขนาดเอ็น : ${item.remark}</p>
                         ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
                         
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
@@ -364,7 +365,7 @@
                     data: {
                         // action: 'number_N',
                         product_id: $('#inputState option:selected').val(),
-                        remark_n: $('#num_N').val(),
+                        remark: $('#num_N').val(),
                         // order_id: user.order_id,
                         user_id: user.user_id,
                     },

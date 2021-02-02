@@ -193,7 +193,67 @@
         	echo json_encode($res);
             return ;
         }
-    } 
+    }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card_price'){
+    //  -- left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` 
+        $sql_pro = "SELECT * FROM `product`"; 
+        
+        if (($_POST['price']) == '1') {
+            $sql_pro .= " ORDER BY `product_id` ";
+        }else if (($_POST['price']) == '2') {
+            $sql_pro .= " ORDER BY `price` DESC ";
+        }else if (($_POST['price']) == '3') {
+            $sql_pro .= " ORDER BY `price` ";
+        }else{
+            $sql_pro .= " ORDER BY `product_id` DESC";
+        }
+        // $sql_pro .= " ORDER BY `product_id` DESC";
+        // echo $sql_pro;
+        $rs = getpdo($conn,$sql_pro);
+
+        if(gettype($rs) == 'array'){
+
+            $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product`)";
+            $rs2 = getpdo($conn,$sql);
+
+            $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
+            echo json_encode($res);
+            return ;
+        }
+    }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card_type'){
+        //  -- left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` 
+            $sql_pro = "SELECT * FROM `product`"; 
+            
+            if (($_POST['type']) == '1') {
+                $sql_pro .= " WHERE `type` = '1' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '2') {
+                $sql_pro .= " WHERE `type` = '2' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '3') {
+                $sql_pro .= " WHERE `type` = '3' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '4') {
+                $sql_pro .= " WHERE `type` = '4' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '5') {
+                $sql_pro .= " WHERE `type` = '5' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '6') {
+                $sql_pro .= " WHERE `type` = '6' ORDER BY `product_id`  ASC ";
+            }else if (($_POST['type']) == '7') {
+                $sql_pro .= " WHERE `type` = '7' ORDER BY `product_id`  ASC ";
+            }else{
+                $sql_pro .= " ORDER BY `product_id` DESC";
+            }
+            // $sql_pro .= " ORDER BY `product_id` DESC";
+            // echo $sql_pro;
+            $rs = getpdo($conn,$sql_pro);
+    
+            if(gettype($rs) == 'array'){
+    
+                $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product`)";
+                $rs2 = getpdo($conn,$sql);
+    
+                $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
+                echo json_encode($res);
+                return ;
+            }
+        }
 
     $result = array("message" => "Error someting");
     $res = array("code" => 401, "result" => $result);

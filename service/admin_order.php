@@ -2,7 +2,7 @@
     require_once 'config.php';
     
     if (isset($_POST['action']) && $_POST['action'] == 'show_admin_order'){
-        $sql_pro = "SELECT *, SUM(`product`.`quantity`) AS qauntity_product  
+        $sql_pro = "SELECT *, SUM(`product`.`quantity`)- `product`.`quantity` AS qauntity_product  
         FROM `orders` 
         JOIN `users` ON `orders`.`user_id` = `users`.`user_id` 
         JOIN `order_details` ON `orders`.`order_id` = `order_details`.`order_id` 
