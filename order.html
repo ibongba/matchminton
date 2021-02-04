@@ -317,6 +317,7 @@
         Card = (item, image) => {
             // console.log(cart_data.find(val => val.cart_id == item.cart_id))
             var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+
             return `
                 <div class="col-12">
                     <div class="form-group form-check">
@@ -324,7 +325,7 @@
                         <img src="${img}" class="w-100 col-3 float-left" alt="">
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
-                        <p>ขนาดเอ็น : ${item.remark}</p>
+                        ${item.remark == ''? '': '<p> ขนาดเอ็น '+item.remark+'</p>'}
                         ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
                         
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>

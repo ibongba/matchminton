@@ -13,22 +13,42 @@
       $sql = "UPDATE `cart` SET `amount`= '".$amount."' WHERE `cart_id` = '".$rs[0]['cart_id']."'";
       $rs = getpdo($conn,$sql);
     }else{
-      $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `amount`,`created_at`,`updated_at`,`remark`) VALUES ('".$_GET['user_id']."','".$_GET['product_id']."', '1', '".$date_now."', '".$date_now."', '".$_GET['remark']."' )";
+      $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `amount`,`created_at`,`updated_at`,`remark`) VALUES ('".$_GET['user_id']."','".$_GET['product_id']."',";
+
+      if(isset($_GET['amount']) == ''){
+        $sql .= " '1' ";
+      }else{
+        $sql .= " '".$_GET['amount']."' ";
+      }
+      $sql .= ", '".$date_now."', '".$date_now."', ";
+
+      if (isset($_GET['remark']) == '') {
+        $sql .= " '' ";
+      } else {
+        $sql .= " '".$_GET['remark']."' ";
+      }
+      $sql .= " ) ";
+      // echo $sql;
       $rs = getpdo($conn,$sql);
     }
    
+    if($rs){
+      $res = array("code" => 200, "result" => $rs);
+    echo json_encode($res);
+      return ;
 
-    if(!$rs)
-    {
-      echo "<script>";
-        echo "alert(\" บันทึกไม่สำเร็จ\");"; 
-        echo "window.history.back()";
-      echo "</script>";
-    }else{
-      echo "<script>";
-        echo "alert(\" บันทึกสำเร็จ\");"; 
-        echo "window.history.back()";
-      echo "</script>";
-    }
+  }
+    // if(!$rs)
+    // {
+    //   echo "<script>";
+    //     echo "alert(\" บันทึกไม่สำเร็จ\");"; 
+    //     echo "window.history.back()";
+    //   echo "</script>";
+    // }else{
+    //   echo "<script>";
+    //     echo "swal(\"Hello world!\");"; 
+    //     echo "window.history.back()";
+    //   echo "</script>";
+    // }
   }
 ?>

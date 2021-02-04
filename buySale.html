@@ -375,7 +375,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        // swal("Good job!", "You Can Save!", "success");
+    </script>
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         // console.log(user)
@@ -506,9 +509,14 @@
         Card = (item, image) => {
                 console.log(item, image)
                 var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
+                // if (item.price_show) {
+                //     //  ${item.price_show = "0"? '<span>'+${currencyFormat(item.price_show*1)}+'</span>' : }
+                // } else {
+
+                // }
                 return `
             <div class="col-md-6 col-lg-4">
-                <div class="card">
+                <div class="card" style="height: 550px">
                     ${(user && item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
                     <div style="width: 327px; height: 327px;"> 
                         <img class="card-img-top w-100 h-100 " src="${img}" alt="Card image cap" >
@@ -516,10 +524,12 @@
                    
                     <div class="card-body">
                         <h5 class="card-title">${item.product_name} </h5>
-                        <span>${currencyFormat(item.price*1)}</span>
-                        <p class="card-text overflow-hidden" style="height: 50px">${item.description}</p>
+                       
+                        
+                        ${item.price_show == '0'? '<span>'+item.price*1+'</span>': '<span>'+item.price*1+'</span> <br> <span><del>'+item.price_show*1+'</del></span>'}
+                        <p class="card-text overflow-hidden" >${item.description}</p>
                         <div class="d-flex" style="justify-content: flex-end;">
-                            <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
+                            <a onclick="InsestProduct(${item.product_id})" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
                         </div>
                         <div class="overlay">
                             <div class="text ">
@@ -531,6 +541,39 @@
             </div>
             `;
         };
+
+        function getUrlVars() {
+            var vars = [],
+                hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+       InsestProduct = (e) => {
+            $.ajax({
+                method: "GET",
+                url: "service/insert_cart.php",
+                data: {
+                    user_id: user.user_id,
+                    product_id: e ,
+                },
+            }).done(function(msg) {
+                msg = JSON.parse(msg)
+                console.log(msg)
+                if (msg.code === 200) {
+                    swal("Good job!", "You Can Save!", "success");
+                  
+                }else{
+                    swal("Oops!", "Can not Save!", "error");
+                }
+                // $('#summernote').summernote('code', msg.result.content);
+
+            });
+        }
     </script>
 </body>
 

@@ -312,6 +312,14 @@
                                                         <input type="number" class="form-control" id="price" placeholder="ราคา เช่น 9999">
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group row">
+                                                    <label for="price_show" class="col-md-6 col-form-label">ระบุราคาที่ขาย</label>
+                                                    <!--เป็นราคาที่ต้องการให้โดนขีดทับ  -->
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" id="price_show" placeholder="ราคา เช่น 9999">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                     <label for="cost" class="col-md-6 col-form-label">ราคาต้นทุน</label>
                                                     <div class="col-md-6">
@@ -875,6 +883,7 @@
             form_data.append('product_name', $('#product_name').val());
             form_data.append('type', $('#type option:selected').val());
             form_data.append('price', $('#price').val());
+            form_data.append('price_show', $('#price_show').val());
             form_data.append('cost', $('#cost').val());
             form_data.append('description', $('#detail').val());
             form_data.append('quantity', $('#quantity').val());

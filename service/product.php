@@ -2,7 +2,7 @@
     require_once 'config.php';
     
     if(isset($_POST['action']) && $_POST['action'] == 'create'){
-        $sql = "INSERT INTO `product`(`product_name`, `price`, `cost`, `description`, `quantity`, `brand_id`, `type`) VALUES ('".$_POST['product_name']."','".$_POST['price']."','".$_POST['cost']."','".$_POST['description']."','".$_POST['quantity']."','".$_POST['brand_id']."','".$_POST['type']."')";
+        $sql = "INSERT INTO `product`(`product_name`, `price`, `price_show`, `cost`, `description`, `quantity`, `brand_id`, `type`) VALUES ('".$_POST['product_name']."','".$_POST['price']."','".$_POST['price_show']."','".$_POST['cost']."','".$_POST['description']."','".$_POST['quantity']."','".$_POST['brand_id']."','".$_POST['type']."')";
         echo $sql;
         $rs = getpdo($conn,$sql);
         if($rs){
