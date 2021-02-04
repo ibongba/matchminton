@@ -398,6 +398,14 @@
         }
 
 
+        function getSorted(selector, attrName) {
+            return $($(selector).toArray().sort(function(a, b){
+                var aVal = parseInt(a.getAttribute(attrName)),
+                    bVal = parseInt(b.getAttribute(attrName));
+                return aVal - bVal;
+            }));
+        }
+
         $().ready((e) => {
             $.ajax({
                 method: "POST",
@@ -415,6 +423,8 @@
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
                     };
+                    let test = getSorted('#result .product', 'data-order').clone()
+                    $('#result').html(test);
                 }
             });
         })
@@ -507,7 +517,6 @@
 
 
         Card = (item, image) => {
-                console.log(item, image)
                 var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
                 // if (item.price_show) {
                 //     //  ${item.price_show = "0"? '<span>'+${currencyFormat(item.price_show*1)}+'</span>' : }
@@ -515,13 +524,13 @@
 
                 // }
                 return `
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 product" data-order="${(user && item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight)? 1 : 2}">
                 <div class="card" style="height: 550px">
                     ${(user && item.flex == user.flex && item.balance == user.balance && item.weight_min <= user.weight && item.weight_max >= user.weight) ?`<span class="position-absolute text-center p-1 w-100" style="background-color:red; color:#fff; left:0;">Recommend</span>`:``}
                     <div style="width: 327px; height: 327px;"> 
                         <img class="card-img-top w-100 h-100 " src="${img}" alt="Card image cap" >
                     </div>
-                   
+
                     <div class="card-body">
                         <h5 class="card-title">${item.product_name} </h5>
                        
