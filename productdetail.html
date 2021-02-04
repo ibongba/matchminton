@@ -161,29 +161,6 @@
             }
             return vars;
         }
-        $().ready(() => {
-            $.ajax({
-                method: "POST",
-                url: "service/product.php",
-                data: {
-                    action: 'get_product_detail',
-                    product_id: getUrlVars()["id"],
-                    // amount: $('#amount').val(),
-                },
-            }).done(function(msg) {
-                msg = JSON.parse(msg)
-                console.log(msg)
-                if (msg.code === 200) {
-                    var res = msg.result;
-                    let image = res.product_images.find((item) => res.product.product_id == item.fk_product_id);
-                    $("#product_detail").append(product_detail(msg.result.product, image));
-                    return;
-                }
-
-                // $('#summernote').summernote('code', msg.result.content);
-
-            });
-        })
 
         $().ready(() => {
             $.ajax({
@@ -200,12 +177,14 @@
                 if (msg.code === 200) {
                     var res = msg.result;
                     let image = res.product_images.filter((item) => res.product.product_id == item.fk_product_id);
+                    $("#product_detail").append(product_detail(msg.result.product, image[0]));
+
                     for (i = 0; i < image.length; i++) {
                         var img = image ? 'service/' + image[i].path : 'https://via.placeholder.com/150';
                         var data = `
                             <div class="col-2">
                                 <button  style="background-image: url(${img});  background-size: cover;
-                                background-position: center; width:100px;height:100px" onclick="showPic(${img})"></button>
+                                background-position: center; width:100px;height:100px" onclick="showPic('${img}')"></button>
                             </div>
                             `;
                         $('#show_img').append(data);
@@ -215,13 +194,11 @@
                     return;
                 }
 
-                // $('#summernote').summernote('code', msg.result.content);
-
             });
         })
 
-        showPic = (e) => {
-            $('img#imageBig').attr('src', e);
+        showPic = (img) => {
+            $('img#imageBig').attr('src', img);
         }
 
         product_detail = (item, image) => {
@@ -366,9 +343,10 @@
                
             `
         }
-        const InsestProduct = () => {
+        
+        InsestProduct = () => {
             $.ajax({
-                method: "GET",
+                method: "POST",
                 url: "service/insert_cart.php",
                 data: {
                     user_id: user.user_id,
@@ -384,8 +362,6 @@
                     $("#product_detail").append(product_detail(msg.result.product, image));
                     return;
                 }
-
-                // $('#summernote').summernote('code', msg.result.content);
 
             });
         }
