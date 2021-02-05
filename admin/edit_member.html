@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/knowledge.css">
+    <title>EDIT MEMBER</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-2">
+            <a href="order.html"><img src="../images/LOGO_MATCHMINTON.png" alt="" class="w-100"></a>
+        </div>
+        <div class="col">
+            <nav class="navbar navbar-light bg-light" style="background-color: #fff!important;">
+                <form class="form-inline p-0 m-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <div class="form-inline">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="user" style="width: 500px; ">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>2 นาทีที่แล้ว</p>
+                                </div>
+                                <div class="col">
+                                    <p><i class="fas fa-bell text-warning"></i> รายการสั่งซื้อ ของคุณ อดิศร ปกรณ์พานิช</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>2 ชั่วโมงที่แล้ว</p>
+                                </div>
+                                <div class="col">
+                                    <p><i class="fas fa-bell text-secondary"></i> Your all items has approved, please collect from store</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>18:31</p>
+                                </div>
+                                <div class="col">
+                                    <p><i class="fas fa-bell text-secondary"></i> Your all items has approved, please collect from store</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-user-circle"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user">
+                            <a class="dropdown-item" href="login_admin.html"><i class="fas fa-sign-out-alt"></i> logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-md-5 pt-5 " style="background-color: #fff; border-radius: 16px;">
+                <h2>EDIT MEMBER</h2>
+                <div id="showeditmember">
+
+                </div>
+                <!-- <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" id="surname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger text-center mx-2">Cancle</button>
+                        <button type="submit" class="btn btn-success text-center mx-2" onsubmit="editMember()">Edit</button>
+                    </div>
+                </form> -->
+            </div>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            console.log(user)
+            if (user != null) {
+                $('#user_name').text(user.name)
+                $('#not-login').addClass('d-none')
+                $('#is-login').removeClass('d-none')
+            } else {
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
+
+            logout = () => {
+                localStorage.removeItem('user')
+                $('#not-login').removeClass('d-none')
+                $('#is-login').addClass('d-none')
+            }
+
+            function getUrlVars() {
+                var vars = [],
+                    hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+            $().ready(() => {
+                $.ajax({
+                    method: "POST",
+                    url: "../service/admin_order.php",
+                    data: {
+                        action: 'getmember',
+                        user_id: getUrlVars()["id"]
+                    },
+                }).done(function(msg) {
+                    console.log(msg)
+                    msg = JSON.parse(msg)
+                    if (msg.code === 200) {
+                        $("#showeditmember").append(showeditmember(msg.result));
+                        return;
+                    }
+
+                });
+            })
+            showeditmember = (item) => {
+                    console.log(item);
+                    return `
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" value="${item.username}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" value="${item.name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" id="surname" value="${item.surname}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="text" class="form-control" id="email" value="${item.email}">
+                    </div>
+                    <div class="text-center">
+                       <a href="order.html"  class="btn btn-danger mx-3">Cancle</a>
+                        <button type="button" class="btn btn-success text-center mx-2" onclick="edit_member()">Edit</button>
+                    </div>
+                </form>
+            `
+                }
+                // onclick="edit_member()"
+            edit_member = () => {
+                $.ajax({
+                    method: "POST",
+                    url: "../service/admin_order.php",
+                    data: {
+                        action: 'updatemember',
+                        user_id: getUrlVars()["id"],
+                        username: $("#username").val(),
+                        name: $("#name").val(),
+                        surname: $("#surname").val(),
+                        email: $("#email").val(),
+                    },
+                    // dataType: 'json',
+                }).done(function(msg) {
+                    console.log(msg)
+                    msg = JSON.parse(msg)
+                    if (msg.code === 200) {
+                        alert("บันทึกเรียบร้อย")
+                        window.location.href = "order.html";
+                        // $("#showeditmember").append(showeditmember(msg.result));
+                        return;
+                    }
+
+                });
+            }
+        </script>
+</body>
+
+</html>

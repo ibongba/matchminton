@@ -38,18 +38,6 @@
       return ;
 
     }
-    // if(!$rs)
-    // {
-    //   echo "<script>";
-    //     echo "alert(\" บันทึกไม่สำเร็จ\");"; 
-    //     echo "window.history.back()";
-    //   echo "</script>";
-    // }else{
-    //   echo "<script>";
-    //     echo "swal(\"Hello world!\");"; 
-    //     echo "window.history.back()";
-    //   echo "</script>";
-    // }
     $result = array("message" => "Error someting");
     $res = array("code" => 401, "result" => $result, "sql" => $sql );
     echo json_encode($res);

@@ -72,6 +72,7 @@
                                     <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                                     <a class="dropdown-item" href="createtheme.html"><i class="fas fa-scroll"></i> ตั้งกระทู้</a>
                                     <a class="dropdown-item" href="order.html"><i class="fas fa-shopping-cart"></i> ตะกร้าสินค้า</a>
+                                    <a class="dropdown-item" href="orderdetail.html"><i class="fas fa-file-invoice"></i> ประวัติการสั่งซื้อ</a>
                                 </div>
                             </div>
                         </li>
@@ -326,7 +327,7 @@
                         <h6>${item.product_name}</h6>
                         <p>${item.description}</p>
                         ${item.remark == ''? '': '<p> ขนาดเอ็น '+item.remark+'</p>'}
-                        ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
+                        ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N" placeholder="ขนาดเอ็น"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
                         
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
                         <div class="input-group col-4 my-3">

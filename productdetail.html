@@ -66,6 +66,7 @@
                                     <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
                                     <a class="dropdown-item" href="createtheme.html"><i class="fas fa-scroll"></i> ตั้งกระทู้</a>
                                     <a class="dropdown-item" href="order.html"><i class="fas fa-shopping-cart"></i> ตะกร้าสินค้า</a>
+                                    <a class="dropdown-item" href="orderdetail.html"><i class="fas fa-file-invoice"></i> ประวัติการสั่งซื้อ</a>
                                 </div>
                             </div>
                         </li>
@@ -114,6 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         console.log(user)
@@ -343,7 +345,7 @@
                
             `
         }
-        
+
         InsestProduct = () => {
             $.ajax({
                 method: "POST",
@@ -357,11 +359,17 @@
                 msg = JSON.parse(msg)
                 console.log(msg)
                 if (msg.code === 200) {
-                    var res = msg.result;
-                    let image = res.product_images.find((item) => res.product.product_id == item.fk_product_id);
-                    $("#product_detail").append(product_detail(msg.result.product, image));
-                    return;
+                    swal("Good job!", "You Can Save!", "success");
+
+                } else {
+                    swal("Oops!", "Can not Save!", "error");
                 }
+                // if (msg.code === 200) {
+                //     var res = msg.result;
+                //     let image = res.product_images.find((item) => res.product.product_id == item.fk_product_id);
+                //     $("#product_detail").append(product_detail(msg.result.product, image));
+                //     return;
+                // }
 
             });
         }

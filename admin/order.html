@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
 </head>
 <style>
@@ -45,7 +46,7 @@
                         <a class="nav-link" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab" aria-controls="v-pills-order" aria-selected="false"><i class="fas fa-file-invoice"></i> Order</a>
                         <a class="nav-link" id="v-pills-stock-tab" data-toggle="pill" href="#v-pills-stock" role="tab" aria-controls="v-pills-stock" aria-selected="false"><i class="fas fa-store-alt"></i> Stock</a>
                         <a class="nav-link" id="v-pills-member-tab" data-toggle="pill" href="#v-pills-member" role="tab" aria-controls="v-pills-member" aria-selected="false"><i class="fas fa-users"></i> Member</a>
-                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-file-invoice"></i> Report</a>
+                        <!-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-file-invoice"></i> Report</a> -->
 
                     </div>
                 </div>
@@ -100,6 +101,48 @@
                     <div class="tab-content" id="v-pills-tabContent">
                         <!-- //content dashboard// -->
                         <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                            <div class="row mt-5">
+                                <div class="col-lg-3 col-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-info">
+                                        <div class="inner" id="count_order">
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </div>
+                                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-warning">
+                                        <div class="inner" id="count_member">
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <!-- small box -->
+                                    <h5 class="text-center text-danger">สินค้ายอดนิยม</h5>
+                                    <div class="row text-center" id="pop_product">
+                                        <!-- <div class="col"></div>
+                                        <div class="col"></div>                                    -->
+                                    </div>
+                                    <!-- <div class="small-box bg-warning">
+                                        <div class="inner" id="count_member">
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> 
+                                </div> -->
+                                </div>
+                                <!-- ./col -->
+                            </div>
                             <div class="card mb-3">
                                 <div class="card-header" style="background-color: #fff;">
                                     <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
@@ -122,38 +165,16 @@
 
                                             </tbody>
                                         </table>
-                                    </div>
-                                </div>
-                            </div>-
-                            <div class="row">
-                                <!-- <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-header" style="background-color: #fff;">
-                                            <h4 class="float-left mr-1">Stock</h4><button type="button" class="btn btn-outline-primary float-right">See All</button>
 
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-group row">
-                                                    <label for="formControlRange">Example Range input</label>
-                                                    <input type="range" class="form-control-range col-md-6" id="formControlRange" style="background-color: red;">
-                                                </div>
-                                            </form>
-                                            <div class="chart-container" style="position: relative; ">
-                                                <canvas id="chart"></canvas>
+                                        <div class="card">
+                                            <div class="card-header" style="background-color: #fff;">
+                                                <h4 class="float-left mr-1">Income</h4>
+
                                             </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-header" style="background-color: #fff;">
-                                            <h4 class="float-left mr-1">รายได้</h4>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="chart-container" style="position: relative; ">
-                                                <canvas id="chart-line"></canvas>
+                                            <div class="card-body">
+                                                <div class="chart-container" style="position: relative; ">
+                                                    <canvas id="chart-line"></canvas>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -437,15 +458,15 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Username</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Last Ordered</th>
-                                        <th>Mobile</th>
-                                        <th>Change</th>
+                                        <th>Surname</th>
+                                        <th>Email</th>
+                                        <!-- <th>Change</th> -->
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="rsmember">
+                                    <!-- <tr>
                                         <th scope="row">0001</th>
                                         <td><img src="../images/profile5.png" alt="" class="mr-3" style="width: 50px; height: 50px;">Pena Valdez</td>
                                         <td>11/11 ซ. ยอนดู ....</td>
@@ -468,7 +489,7 @@
                                         <td>07/04/2017</td>
                                         <td>01828112233</td>
                                         <td>***</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
@@ -584,6 +605,7 @@
         const accumulate = arr => arr.map((sum => value => sum += value)(0));
 
         const cumulativeSum = (sum => value => sum += parseInt(value))(0);
+        const cumulativeSum2 = (sum => value => sum += parseInt(value))(0);
 
         function currencyFormat(num) {
             return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -610,8 +632,8 @@
                 dataType: 'json',
             }).done(function(msg) {
                 // console.log(accumulate([...msg.result.map((item) => item.total_price)]))
-                // console.log([...msg.result.map((item) => item.total_price)]);
-                console.log(msg)
+                // console.log(([...msg.result.map((item) => item.profit).map(cumulativeSum), 1000]), ([...msg.result.map((item) => item.profit)]));
+                // console.log(msg)
                 if (msg.code === 200) {
                     var ctx = $('#chart-line');
                     new Chart(ctx, {
@@ -619,7 +641,7 @@
                         responsive: true,
                         label: 'รายโดยรวม',
                         data: {
-                            labels: [...msg.result.map((item) => item.created_at), 'test'],
+                            labels: [...msg.result.map((item) => item.created_at), 'วันที่'],
                             datasets: [{
                                 fill: false,
                                 label: 'รายได้ต่อวัน (บาท)',
@@ -634,8 +656,28 @@
                                 borderColor: '#2196f3', // Add custom color border (Line)
                                 backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
                                 borderWidth: 1 // Specify bar border width
+                            }, {
+                                fill: false,
+                                label: 'ราคาต้นทุน (บาท)',
+                                data: [...msg.result.map((item) => item.cost_pro), 1000],
+                                borderColor: '#E2811F', // Add custom color border (Line)
+                                backgroundColor: '#E2811F', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
+                            }, {
+                                fill: false,
+                                label: 'ราคากำไร (บาท)',
+                                data: [...msg.result.map((item) => item.profit), 1000],
+                                borderColor: '#FF0000', // Add custom color border (Line)
+                                backgroundColor: '#FF0000', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
+                            }, {
+                                fill: false,
+                                label: 'ราคากำไรสะสม (บาท)',
+                                data: [...msg.result.map((item) => item.profit).map(cumulativeSum2), 1000],
+                                borderColor: '#FFE600', // Add custom color border (Line)
+                                backgroundColor: '#FFE600', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
                             }],
-
                         },
                         options
                     });
@@ -655,7 +697,7 @@
                     action: 'total_admin_order',
                 },
             }).done(function(msg) {
-                console.log(msg)
+                // console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     var res = msg.result;
@@ -672,14 +714,50 @@
                 method: "POST",
                 url: "../service/admin_order.php",
                 data: {
-                    action: 'show_admin_order',
+                    action: 'total_show_member',
                 },
             }).done(function(msg) {
                 console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#rsmember").append(Cardmember(item));
+                        return;
+                    })
+                }
+            });
+        })
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'show_pop_product',
+                },
+            }).done(function(msg) {
+                console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#pop_product").append(pop_product(item));
+                        return;
+                    })
+                }
+            });
+        })
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'show_admin_order',
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
                     var res = msg.result;
-                    // console.log(res);
+                    console.log(res);
                     for (var i = 0; i < res.product.length; i++) {
                         let image = res.product_images.find((item) => res.product[i].product_id == item.fk_product_id);
                         $('#result').append(Card(res.product[i], image));
@@ -689,7 +767,7 @@
         })
 
         Card = (item, image) => {
-            console.log(item, image)
+            // console.log(item, image)
             var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
             return `
                 <tr id="orderremove${item.order_id}">
@@ -707,6 +785,40 @@
                 </tr>
             `;
         };
+        // <button type="button" class="btn btn-danger" onclick=dorder(${item.user_id})><i class="fas fa-times"></i></button>
+
+        Cardmember = (item) => {
+            // console.log(item, image)
+            // var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
+            return `
+                <tr id="orderremove${item.user_id}">
+                    <td class="text-center">${item.user_id}</td>
+                    <td>${item.username}</td>
+                    <td>${item.name}</td>
+                    <td class="text-center">${item.surname}</td>
+                    <td class="text-center">${item.email}</td>
+                    <td>
+                        <a href="edit_member.html?id=${item.user_id}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        
+                    </td>
+                </tr>
+            `;
+        };
+
+        pop_product = (item) => {
+            // console.log(item, image)
+            // var img = image ? '../service/' + image.path : 'https://via.placeholder.com/150';
+            return `
+            <div class="col-6">
+                <h5 class="float-left">${item.pro_pop}</h5>
+            </div>
+            <div class="col-6">
+                <h5 >${item.pop_product} ชิ้น</h5>
+            </div>
+                
+                
+            `;
+        };
 
         $().ready(() => {
             $.ajax({
@@ -716,7 +828,7 @@
                     action: 'show_stock_admin_order',
                 },
             }).done(function(msg) {
-                console.log(msg)
+                // console.log(msg)
                 msg = JSON.parse(msg)
                 if (msg.code === 200) {
                     var res = msg.result;
@@ -729,8 +841,57 @@
             });
         })
 
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'count_order',
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#count_order").append(count_order(item));
+                        return;
+                    })
+                }
+            });
+        })
+        count_order = (item) => {
+            return `
+            <h3>${item.total_order}</h3>
+            <p>New Orders</p>
+            `;
+        }
+
+        $().ready(() => {
+            $.ajax({
+                method: "POST",
+                url: "../service/admin_order.php",
+                data: {
+                    action: 'count_member',
+                },
+            }).done(function(msg) {
+                // console.log(msg)
+                msg = JSON.parse(msg)
+                if (msg.code === 200) {
+                    msg.result.map((item) => {
+                        $("#count_member").append(count_member(item));
+                        return;
+                    })
+                }
+            });
+        })
+        count_member = (item) => {
+            return `
+            <h3>${item.total_member}</h3>
+            <p>User Registrations</p>
+            `;
+        }
         Stock = (item, image) => {
-            console.log(item, image)
+            // console.log(item, image)
 
             if (item.type == '1') {
                 item.type = "ไม้แบดมินตัน";
@@ -767,8 +928,6 @@
         const setId = (id) => {
             _id = id;
         }
-
-
         const createStock = () => {
             $.ajax({
                 method: 'POST',

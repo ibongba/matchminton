@@ -49,8 +49,13 @@
             $mydate = getdate(date("U"));
             $early_month = $mydate["year"] . "-" . $mydate["mon"] . "-01";
     
-            $sql = "SELECT *, SUM(`total_price`) AS total_price  FROM `orders`
-            WHERE  `created_at` between  '" . $early_month . "' AND last_day('" . $early_month . "')  GROUP BY `created_at`  ORDER BY `created_at`  ";
+            $sql = "SELECT *, SUM(`orders`.`total_price`) AS total_price ,SUM(`product`.`cost`) AS cost_pro, (SUM(`orders`.`total_price`)- SUM(`product`.`cost`)) AS profit
+            FROM `orders` 
+            JOIN `order_details` ON `order_details`.`order_id` = `orders`.`order_id`
+            JOIN `product` ON `product`.`product_id` = `order_details`.`product_id`
+            WHERE `orders`.`created_at` between  '" . $early_month . "' AND last_day('" . $early_month . "')  
+            GROUP BY `orders`.`created_at` 
+            ORDER BY `orders`.`created_at` ";
             // echo $sql;
     
             $rs = getpdo($conn, $sql);

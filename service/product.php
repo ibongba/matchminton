@@ -161,8 +161,8 @@
         }
 
     }else if (isset($_POST['action']) && $_POST['action'] == 'show_product_card'){
-//  -- left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` 
-        $sql_pro = "SELECT * FROM `product`"; 
+
+        $sql_pro = "SELECT * FROM `product` left JOIN racket_detail ON `product_id` = `racket_detail`.`fk_product_id` "; 
        
         if (($_POST['search']) != '') {
            $sql_pro .= " WHERE `product_name` LIKE '%".$_POST['search']."%' ";

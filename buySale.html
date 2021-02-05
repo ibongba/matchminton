@@ -399,7 +399,7 @@
 
 
         function getSorted(selector, attrName) {
-            return $($(selector).toArray().sort(function(a, b){
+            return $($(selector).toArray().sort(function(a, b) {
                 var aVal = parseInt(a.getAttribute(attrName)),
                     bVal = parseInt(b.getAttribute(attrName));
                 return aVal - bVal;
@@ -535,7 +535,7 @@
                         <h5 class="card-title">${item.product_name} </h5>
                        
                         
-                        ${item.price_show == '0'? '<span>'+item.price*1+'</span>': '<span>'+item.price*1+'</span> <br> <span><del>'+item.price_show*1+'</del></span>'}
+                        ${item.price_show == '0'? '<span> ฿ '+item.price*1+'</span>': '<span>'+item.price*1+'</span> <br> <span><del>'+item.price_show*1+'</del></span>'}
                         <p class="card-text overflow-hidden" >${item.description}</p>
                         <div class="d-flex" style="justify-content: flex-end;">
                             <a onclick="InsestProduct(${item.product_id})" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
@@ -564,7 +564,7 @@
         }
        InsestProduct = (e) => {
             $.ajax({
-                method: "GET",
+                method: "POST",
                 url: "service/insert_cart.php",
                 data: {
                     user_id: user.user_id,
