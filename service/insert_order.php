@@ -7,9 +7,26 @@
   $date_now = date_format($date, 'Y-m-d H:i:s') . "\n";
   $carts = $_POST['cart'];
 
+  $sql_lastid = "SELECT * FROM order order by order_id desc limit 1";
+  $rs = getpdo($conn, $sql_lastid);
+  
+      if (count($rs) > 0) {
+          $lastid = substr($rs[0]['order_id'], -6, 6);
+      } else {
+          $lastid = 0;
+      }
+
+      $lastid = intval($lastid) + 1;
+      $nextid = "";
+      $nextid .= substr(getdate()["year"], -2, 2);
+      $nextid .= getdate()["mon"];
+      $nextid .= getdate()["mday"];
+      $nextid .= substr("000000" . $lastid, -6, 6);
+
+
   if(isset($_POST['credit_card']) && $_POST['credit_card'] == 'other' ){
     $sql = "INSERT INTO `card_user`(`user_id`, `card_name`, `card_no`, `expire_month`, `expire_year`, `cvc_no`, `address`, `post`)
-    VALUES ('".$_POST['user_id']."','".$_POST['card_name']."','".$_POST['card_no']."','".$_POST['expire_month']."','".$_POST['expire_year']."',
+    VALUES ('".$nextid."','".$_POST['user_id']."','".$_POST['card_name']."','".$_POST['card_no']."','".$_POST['expire_month']."','".$_POST['expire_year']."',
     '".$_POST['cvc_no']."','".$_POST['address']."','".$_POST['post']."')";
     echo $sql;
     $rs = getpdo($conn,$sql);
@@ -20,7 +37,8 @@
     
     if(isset($rsd) && count($rsd) > 0){
       $card_id = $rsd[0]['id'];
-      $sql2 = "INSERT INTO `orders`(`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
+
+      $sql2 = "INSERT INTO `orders`(`order_id`,`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
       VALUES ('".$_POST['user_id']."','".$card_id."','".$_POST['address']."','1','".$_POST['total_price']."','".$_POST['remark']."',
       '".$date_now."', '".$date_now."')";
       echo $sql2;
@@ -48,8 +66,8 @@
       }
     }
   }else{
-    $sql2 = "INSERT INTO `orders`(`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
-    VALUES ('".$_POST['user_id']."','".$_POST['credit_card']."','".$_POST['address']."','1','".$_POST['total_price']."','".$_POST['remark']."',
+    $sql2 = "INSERT INTO `orders`(`order_id`,`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
+    VALUES ('".$nextid."','".$_POST['user_id']."','".$_POST['credit_card']."','".$_POST['address']."','1','".$_POST['total_price']."','".$_POST['remark']."',
     '".$date_now."', '".$date_now."')";
     // echo $sql2;
     $rs2 = getpdo($conn,$sql2);
