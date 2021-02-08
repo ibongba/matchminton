@@ -68,7 +68,19 @@
     
             }
     }else if (isset($_POST['action']) && $_POST['action'] == 'get_filter') {
-        $sql = "SELECT * FROM `product` WHERE `type` = '6' AND `brand_id` = '1'";
+        $sql = "SELECT * FROM `product` WHERE `type` = '6' ";
+        $rs = getpdo($conn, $sql);
+        $res = array("code" => 200, "result" => $rs);
+        echo json_encode($res);
+        return;
+    } else if (isset($_POST['action']) && $_POST['action'] == 'delete_cart') {
+        $sql = "DELETE FROM `cart` WHERE `product_id`= '".$_POST['product_id']."'";
+        $rs = getpdo($conn, $sql);
+        $res = array("code" => 200, "result" => $rs);
+        echo json_encode($res);
+        return;
+    } else if (isset($_POST['action']) && $_POST['action'] == 'update_stock') {
+        $sql = "UPDATE `product` SET `quantity`= '".$_POST['qauntity']."' WHERE `product_id` = '".$_POST['product_id']."'";
         $rs = getpdo($conn, $sql);
         $res = array("code" => 200, "result" => $rs);
         echo json_encode($res);

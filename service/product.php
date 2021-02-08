@@ -2,8 +2,9 @@
     require_once 'config.php';
     
     if(isset($_POST['action']) && $_POST['action'] == 'create'){
-        $sql = "INSERT INTO `product`(`product_name`, `price`, `price_show`, `cost`, `description`, `quantity`, `brand_id`, `type`) VALUES ('".$_POST['product_name']."','".$_POST['price']."','".$_POST['price_show']."','".$_POST['cost']."','".$_POST['description']."','".$_POST['quantity']."','".$_POST['brand_id']."','".$_POST['type']."')";
-        echo $sql;
+        $sql = "INSERT INTO `product`(`product_name`, `price`, `price_show`, `cost`, `description`, `quantity`, `brand_id`, `type`) 
+        VALUES ('".$_POST['product_name']."','".$_POST['price']."','".$_POST['price_show']."','".$_POST['cost']."','".$_POST['description']."','".$_POST['quantity']."','".$_POST['brand_id']."','".$_POST['type']."')";
+        // echo $sql;
         $rs = getpdo($conn,$sql);
         if($rs){
         	$lastid = $conn->lastInsertId();
@@ -25,7 +26,7 @@
 
         	if(isset($_POST['racket']) && $_POST['racket'] == 1){
                 $sql = "INSERT INTO `racket_detail`(`grip_size`, `balance`, `tension`, `weight_min`, `weight_max`, `flex`,`level`,`fk_product_id`) VALUES ('".$_POST['grip_size']."','".$_POST['balance']."','".$_POST['tension']."','".$_POST['weight_min']."','".$_POST['weight_max']."','".$_POST['flex']."','".$_POST['level']."','".$lastid."')";
-                echo $sql;
+                // echo $sql;
         		$rs = getpdo($conn,$sql);
         		if($rs){
 					$res = array("code" => 200, "result" => $rs);

@@ -103,49 +103,32 @@
                         <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                             <div class="row mt-5">
                                 <div class="col-lg-3 col-6">
-                                    <!-- small box -->
                                     <div class="small-box bg-info">
                                         <div class="inner" id="count_order">
                                         </div>
                                         <div class="icon">
                                             <i class="fas fa-shopping-bag"></i>
                                         </div>
-                                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                                     </div>
                                 </div>
-                                <!-- ./col -->
                                 <div class="col-lg-3 col-6">
-                                    <!-- small box -->
                                     <div class="small-box bg-warning">
                                         <div class="inner" id="count_member">
                                         </div>
                                         <div class="icon">
                                             <i class="fas fa-user-plus"></i>
                                         </div>
-                                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-12">
-                                    <!-- small box -->
                                     <h5 class="text-center text-danger">สินค้ายอดนิยม</h5>
                                     <div class="row text-center" id="pop_product">
-                                        <!-- <div class="col"></div>
-                                        <div class="col"></div>                                    -->
                                     </div>
-                                    <!-- <div class="small-box bg-warning">
-                                        <div class="inner" id="count_member">
-                                        </div>
-                                        <div class="icon">
-                                            <i class="fas fa-user-plus"></i>
-                                        </div>
-                                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> 
-                                </div> -->
                                 </div>
-                                <!-- ./col -->
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header" style="background-color: #fff;">
-                                    <h4 class="float-left mr-1">Requisitions</h4><span class="badge badge-pill badge-secondary"> 12</span>
+                                    <h4 class="float-left mr-1">ORDER</h4><span class="badge badge-pill badge-secondary"></span>
                                 </div>
                                 <div class="card-body">
                                     <div style="width: 100%;overflow-x: scroll;">
@@ -237,6 +220,7 @@
 
                                             </tbody>
                                         </table>
+
                                     </div>
                                     <div class="modal fade" id="stock2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -917,14 +901,21 @@
                     <td>${item.price}</td>
                     <td>${item.qauntity_product}</td>
                     <td>
-                        <button type="button" data-toggle="modal" data-target="#stock2" data-whatever="@getbootstrap" onclick="setId('${item.product_id}')" class="btn btn-primary" style="min-width: auto;">Manage Stock</button>
-                       
+                        <div class="input-group my-3" style="width:150px">
+                            <form name=form1 class="row">
+                                <input class="col-3" type=button value="เพิ่ม" onclick="document.form1.input1.value++">
+                                <input class="col-6" id="qauntity" name=input1 value="1" size=10 onfocus="buffer=this.value" onchange="if(isNaN(this.value)){ this.value=buffer}">
+                                
+                                <input class="col-3" type=button value="ลด" onclick="document.form1.input1.value--">
+                            </form>
+                            <a onclick="manageStock(${item.product_id})" class="btn btn-primary my-3 ">Manage</a>
+                        </div>
                     </td>
                 </tr>
             `;
         };
         var _id = '';
-
+        //  <button type="button" data-toggle="modal" data-target="#stock2" data-whatever="@getbootstrap" onclick="setId('${item.product_id}')" class="btn btn-primary" style="min-width: auto;">Manage Stock</button>
         const setId = (id) => {
             _id = id;
         }
@@ -965,6 +956,29 @@
                     $("#orderremove" + id).remove();
                     localStorage.setItem('user', JSON.stringify(msg.result));
                 }
+            });
+        }
+
+        manageStock = (e) => {
+            $.ajax({
+                method: "POST",
+                url: "service/order.php",
+                data: {
+                    action: 'update_stock',
+                    user_id: user.user_id,
+                    product_id: e,
+                    qauntity: $('#qauntity').val(),
+                },
+            }).done(function(msg) {
+                msg = JSON.parse(msg)
+                console.log(msg)
+                if (msg.code === 200) {
+                    // swal("Good job!", "You Can Save!", "success");
+
+                }
+                // else {
+                //     swal("Oops!", "Can not Save!", "error");
+                // }
             });
         }
     </script>
@@ -1068,10 +1082,10 @@
                 contentType: false,
                 processData: false,
             }).done(function(msg) {
+                // msg = JSON.parse(msg)
                 console.log(msg)
-                msg = JSON.parse(msg)
                 if (msg.code === 200) {
-                    // window.location.href = "login.html";
+                    window.location.href = "order.html";
                 }
             });
             e.disabled = false;

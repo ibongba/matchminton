@@ -28,7 +28,7 @@
     $sql = "INSERT INTO `card_user`(`user_id`, `card_name`, `card_no`, `expire_month`, `expire_year`, `cvc_no`, `address`, `post`)
     VALUES ('".$nextid."','".$_POST['user_id']."','".$_POST['card_name']."','".$_POST['card_no']."','".$_POST['expire_month']."','".$_POST['expire_year']."',
     '".$_POST['cvc_no']."','".$_POST['address']."','".$_POST['post']."')";
-    echo $sql;
+    // echo $sql;
     $rs = getpdo($conn,$sql);
     
     $cards = "SELECT * FROM card_user ORDER BY id DESC";
@@ -41,7 +41,7 @@
       $sql2 = "INSERT INTO `orders`(`order_id`,`user_id`,`card_id`, `address`, `payment_status`, `total_price`, `remark`, `created_at`, `updated_at`)
       VALUES ('".$_POST['user_id']."','".$card_id."','".$_POST['address']."','1','".$_POST['total_price']."','".$_POST['remark']."',
       '".$date_now."', '".$date_now."')";
-      echo $sql2;
+      // echo $sql2;
       $rs2 = getpdo($conn,$sql2);
 
       

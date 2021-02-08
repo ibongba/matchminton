@@ -330,62 +330,53 @@
                         ${(item.type == 1) ? '<select id="inputState" class="form-control w-25 float-left mx-2" ><option value="">เอ็น</option></select><input type="text" class="form-control w-25 float-left" id="num_N" placeholder="ขนาดเอ็น"> <button type="button" class="btn btn-primary" onclick="number_n()">เพิ่ม</button> <br>' : '' }
                         
                         <p class="float-left" style="color: #FF8000;">${(item.price)}</p>
+                        <button type="button" class="btn btn-danger float-right" onclick="deleteCart(${item.product_id})">ลบ</button>
                         <div class="input-group col-4 my-3">
                             <input type="text" class="form-control text-center" disabled value="${item.amount}" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         </div>
+                        
                     </div>
                 </div>
             `;
         };
 
-        // const onchangefilter = () => {
-        //     $.ajax({
-        //         method: 'GET',
-        //         url: 'service/insert_cart.php',
-        //         data: {
-        //             // action: 'insert_cart',
-        //             // service_date: date,
-        //             product_id: $('#inputState option:selected').val(),
-        //             // remark: $('#num_N').val(),
-        //             user_id: user.user_id,
-        //         },
-        //         dataType: 'json',
-        //         // contentType: false,
-        //         // processData: false,
-        //     }).done(function(msg) {
-        //         console.log(msg)
-        //         if (msg.code === 200) {
-        //             window.location.reload();
-        //         }
-        //     });
-        // }
+        number_n = () => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/insert_cart.php',
+                data: {
+                    product_id: $('#inputState option:selected').val(),
+                    remark: $('#num_N').val(),
+                    user_id: user.user_id,
+                },
+                dataType: 'json',
+            }).done(function(msg) {
+                // msg = JSON.parse(msg)
+                console.log(msg)
+                if (msg.code === 200) {
+                    window.location.href = "order.html";
+                }
+            });
+        }
 
-        const number_n = () => {
-                $.ajax({
-                    method: 'GET',
-                    url: 'service/insert_cart.php',
-                    data: {
-                        // action: 'number_N',
-                        product_id: $('#inputState option:selected').val(),
-                        remark: $('#num_N').val(),
-                        // order_id: user.order_id,
-                        user_id: user.user_id,
-                    },
-                    dataType: 'json',
-                    // contentType: false,
-                    // processData: false,
-                }).done(function(msg) {
-                    console.log(msg)
-                    if (msg.code === 200) {
-                        window.location.reload();
-                    }
-                });
-            }
-            // <div class="input-group-prepend">
-            //     <button class="btn btn-outline-secondary" type="button" id="button-addon1" style="background-color: #EF6E6E;"><i class="far fa-minus-square"></i></button>
-            // </div> <div class="input-group-append">
-            //     <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #82E37F;"><i class="far fa-plus-square"></i></button>
-            // </div>
+        deleteCart = (id) => {
+            $.ajax({
+                method: 'POST',
+                url: 'service/order.php',
+                data: {
+                    action: 'delete_cart',
+                    product_id: id,
+                    user_id: user.user_id,
+                },
+                dataType: 'json',
+            }).done(function(msg) {
+                // msg = JSON.parse(msg)
+                console.log(msg)
+                if (msg.code === 200) {
+                    window.location.href = "order.html";
+                }
+            });
+        }
 
         selected = (data) => {
             let cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];

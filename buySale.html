@@ -311,8 +311,8 @@
                         <h5 class="card-title">${item.product_name} </h5>
                        
                         
-                        ${item.price_show == '0'? '<span>฿ '+item.price*1+'</span>': '<span>฿ '+item.price*1+'</span> <br> <span><del>฿ '+item.price_show*1+'</del></span>'}
-                        <p class="card-text overflow-hidden" >${item.description}</p>
+                        ${item.price_show == '0'? '<span>฿ '+item.price*1+' บาท</span>': '<span>฿ '+item.price*1+' บาท</span> <br> <span><del>฿ '+item.price_show*1+' บาท</del></span>'}
+                        <p class="card-text text-truncate" >${item.description}</p>
                         <div class="d-flex" style="justify-content: flex-end;">
                             <a onclick="InsestProduct(${item.product_id})" class="btn btn-light" ><i class="fas fa-shopping-cart"></i></a>
                         </div>

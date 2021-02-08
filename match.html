@@ -585,6 +585,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         var user = JSON.parse(localStorage.getItem('user'));
         console.log(user);
@@ -918,11 +919,33 @@
 			                 <h5 class="card-title">${item.product_name}</h5>
 			                 <span>${item.price}</span>
 			                 <p class="card-text">${item.description}</p>
-			                 <a href="service/insert_cart.php?user_id=${user && user.user_id}&product_id=${item.product_id}" class="btn btn-primary">ไปรถเข็น</a>
+			                 <a onclick="InsestProduct(${item.product_id})" class="btn btn-primary">ไปรถเข็น</a>
 			               </div>
 			             </div>
 			         `;
         };
+
+        InsestProduct = (e) => {
+            $.ajax({
+                method: "POST",
+                url: "service/insert_cart.php",
+                data: {
+                    user_id: user.user_id,
+                    product_id: e,
+                },
+            }).done(function(msg) {
+                msg = JSON.parse(msg)
+                console.log(msg)
+                if (msg.code === 200) {
+                    swal("Good job!", "You Can Save!", "success");
+
+                } else {
+                    swal("Oops!", "Can not Save!", "error");
+                }
+                // $('#summernote').summernote('code', msg.result.content);
+
+            });
+        }
 
         function validateForm() {
             // This function deals with validation of the form fields

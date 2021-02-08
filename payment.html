@@ -514,7 +514,7 @@
                     <td class="text-center">${currencyFormat(item.price*1)}</td>
                     <td class="text-center">${item.amount}</td>
                     <td class="text-right">${currencyFormat(item.price * item.amount)}</td>
-                    <td class="text-right">${item.remark}</td>
+                    <td class="text-right">${item.remark == ''? '':'ขนาดเอ็น : '+item.remark}</td>
                 </tr>
             `;
         };
