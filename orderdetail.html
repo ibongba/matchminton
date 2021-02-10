@@ -176,7 +176,7 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="float-right">
-                                        ${list_product.tracking == '' ? '<font class="text-right" style="color: #0CB3AC;">กำลังตรวจสอบ</font>' : '<font class="text-right" style="color: #0CB3AC;">กำลังจัดส่ง</font>'}
+                                        ${list_product[i].tracking == '' ? '<font class="text-right" style="color: #0CB3AC;">กำลังตรวจสอบ</font>' : '<font class="text-right" style="color: #0CB3AC;">กำลังจัดส่ง</font>'}
                                         
                                     </h6>
                                 </div>
@@ -184,7 +184,7 @@
                             <div id="result">${Product(res,list_product)}</div>
                             <div class="text-right">
                                 <h5>สถานะการชำระเงิน : <font class="text-success"> ${list_product.payment_status  = "ชำระเงินเรียบร้อย"}</font></h5>
-                                <h5> TRACKING : ${list_product.tracking}</h5>
+                                <h5> TRACKING : ${list_product[i].tracking}</h5>
                                 <h5><img src="images/LOGO_MATCHMINTON.jpg" alt="" width="100"> ยอดสั่งซื้อทั้งหมด (${list_product.reduce((total,item)=> total + parseInt(item.amount) ,0)} ชิ้น):
                                     <font style="color: #0CB3AC;">฿ ${sum +  Math.round(list_product.reduce((total,item)=> total + parseInt(item.amount) ,0)/2)*20 } บาท</font>
                                 </h5>
@@ -192,7 +192,7 @@
                             <hr>
                         </div>
                         </div>`;
-
+                        // console.log(list_product[i].tracking)
                         $('#main-result').append(data);
                     }
                 }

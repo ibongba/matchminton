@@ -10,8 +10,9 @@
         WHERE `stataus`= '1' AND `tracking` = ''  
         GROUP BY `orders`.`order_id` 
         ORDER BY `orders`.`order_id` DESC LIMIT 10";
+        // echo $sql_pro;
         $rs = getpdo($conn,$sql_pro);
-// echo $sql_pro;
+
         if(gettype($rs) == 'array'){
 
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`)";

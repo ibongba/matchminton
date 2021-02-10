@@ -13,6 +13,7 @@
         if(gettype($rs) == 'array'){
 
             $sql = "SELECT * FROM `product_image`  WHERE `fk_product_id` in (SELECT `product_id` FROM `product` JOIN `racket_detail` ON `product`.`product_id` = `racket_detail`.`fk_product_id`)";
+            // echo $sql;
             $rs2 = getpdo($conn,$sql);
 
             $res = array("code" => 200, "result" => array("product" => $rs,"product_images" => $rs2));
