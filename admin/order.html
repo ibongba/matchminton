@@ -902,13 +902,12 @@
                     <td>${item.qauntity_product}</td>
                     <td>
                         <div class="input-group my-3" style="width:150px">
-                            <form name=form1 class="row">
-                                <input class="col-3" type=button value="เพิ่ม" onclick="document.form1.input1.value++">
-                                <input class="col-6" id="qauntity" name=input1 value="1" size=10 onfocus="buffer=this.value" onchange="if(isNaN(this.value)){ this.value=buffer}">
-                                
-                                <input class="col-3" type=button value="ลด" onclick="document.form1.input1.value--">
+                            <form name=formAdd class="row">
+                                <input class="col-3" type=button value="เพิ่ม" onclick="document.formAdd.input1.value++">
+                                <input class="col-6" id="qauntity" name=input1 value="${item.qauntity_product}" size=10 onfocus="buffer=this.value" onchange="if(isNaN(this.value)){ this.value=buffer}">
+                                <input class="col-3" type=button value="ลด" onclick="document.formAdd.input1.value--">
                             </form>
-                            <a onclick="manageStock(${item.product_id})" class="btn btn-primary my-3 ">Manage</a>
+                            <a onclick="manageStock(${item.product_id})" class="btn btn-primary my-3 ">mange</a>
                         </div>
                     </td>
                 </tr>
@@ -962,7 +961,7 @@
         manageStock = (e) => {
             $.ajax({
                 method: "POST",
-                url: "service/order.php",
+                url: "../service/order.php",
                 data: {
                     action: 'update_stock',
                     user_id: user.user_id,
