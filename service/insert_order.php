@@ -7,7 +7,8 @@
   $date_now = date_format($date, 'Y-m-d H:i:s') . "\n";
   $carts = $_POST['cart'];
 
-  $sql_lastid = "SELECT * FROM order order by order_id desc limit 1";
+  $sql_lastid = "SELECT * FROM `orders` ORDER BY `created_at` DESC";
+  // echo $sql_lastid;
   $rs = getpdo($conn, $sql_lastid);
   
       if (count($rs) > 0) {
@@ -22,6 +23,7 @@
       $nextid .= getdate()["mon"];
       $nextid .= getdate()["mday"];
       $nextid .= substr("000000" . $lastid, -6, 6);
+      // echo $nextid;
 
 
   if(isset($_POST['credit_card']) && $_POST['credit_card'] == 'other' ){

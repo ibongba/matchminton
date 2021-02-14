@@ -902,12 +902,12 @@
                     <td>${item.qauntity_product}</td>
                     <td>
                         <div class="input-group my-3" style="width:150px">
-                            <form name=formAdd class="row">
-                                <input class="col-3" type=button value="เพิ่ม" onclick="document.formAdd.input1.value++">
-                                <input class="col-6" id="qauntity" name=input1 value="${item.qauntity_product}" size=10 onfocus="buffer=this.value" onchange="if(isNaN(this.value)){ this.value=buffer}">
-                                <input class="col-3" type=button value="ลด" onclick="document.formAdd.input1.value--">
+                            <form name=form${item.product_id} class="row">
+                                <input class="btn btn-success col-3" type=button value="เพิ่ม" onclick="document.form${item.product_id}.input1.value++" style="background-color: #82E37F;color:#fff">
+                                <input class="text-center col-6" id="qauntity" name=input1 value="${item.qauntity_product}" size=10 onfocus="buffer=this.value" onchange="if(isNaN(this.value)){ this.value=buffer}">
+                                <input class="btn btn-danger col-3" type=button value="ลด" onclick="document.form${item.product_id}.input1.value--" style="background-color: #EF6E6E;color:#fff">
+                                <a onclick="manageStock(${item.product_id})" class="btn btn-primary my-3 col">mange</a>
                             </form>
-                            <a onclick="manageStock(${item.product_id})" class="btn btn-primary my-3 ">mange</a>
                         </div>
                     </td>
                 </tr>
@@ -972,12 +972,8 @@
                 msg = JSON.parse(msg)
                 console.log(msg)
                 if (msg.code === 200) {
-                    // swal("Good job!", "You Can Save!", "success");
-
+                    window.location.href = "order.html";
                 }
-                // else {
-                //     swal("Oops!", "Can not Save!", "error");
-                // }
             });
         }
     </script>

@@ -116,9 +116,6 @@
                                 </tr>
                             </thead>
                             <tbody id="result">
-
-
-
                             </tbody>
                         </table>
                         <hr>
@@ -131,49 +128,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-3 text-center">
-                            <h5 style="color: #0CB3AC;">Shipping Opion</h5>
-                        </div> -->
                             <div class="col-md-6">
                                 <div class="text-right">
                                     <h5 class="font-weight-bold">จัดส่งแบบปกติ J&T</h5>
                                     <p class="m-0 text-muted">จะได้รับสินค้าไม่เกิน 3 - 7 วัน</p>
                                 </div>
                             </div>
-                            <!-- <div class="col text-right">
-                            <h5>฿22</h5>
-                        </div> -->
                         </div>
                         <hr>
-                        <!-- <div class="text-right">
-                        <p>ค่าธรรมเนียม:
-                            <font style="color: #0CB3AC;">฿15</font>
-                        </p>
-                        <h5>ยอดสั่งซื้อทั้งหมด (1 ชิ้น):
-                            <font style="color: #0CB3AC;" id="total_summary"></font>
-                        </h5>
-                    </div> -->
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-body">
-                        <!-- <h5>วิธีการชำระเงิน</h5>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-info mr-2">
-                        <input type="radio" name="pay" id="pay1" > บัตรเครดิต/บัตรเดบิต
-                        </label>
-                        <label class="btn btn-outline-info mr-2">
-                        <input type="radio" name="pay" id="pay2"> IBanking / Mobile Banking
-                        </label>
-                        <label class="btn btn-outline-info mr-2">
-                        <input type="radio" name="pay" id="pay3"> ชำระผ่าน ATM
-                        </label>
-                        <label class="btn btn-outline-info mr-2">
-                            <input type="radio" name="pay" id="pay4"> โอน/ชำระผ่านบัญชีธนาคาร
-                        </label>
-                        </div>
-                        <hr> -->
                         <h5>เลือกบัญชีการชำระเงิน</h5>
                         <div class="form-check pb-2">
                             <input class="form-check-input pt-2" type="radio" name="credit_card" id="account1" value="555" checked onclick="closeCard()">
@@ -254,87 +221,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-12 my-4">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ยกเลิก</button>
-                                <button type="button" class="btn btn-outline-danger">ยืนยัน</button>
-                            </div> -->
                             </div>
                         </div>
-                        <!-- Modal -->
-                        <!-- <div class="modal fade" id="choose_acc" tabindex="-1" aria-labelledby="choose_accLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="choose_accLabel">เพิ่มบัตรเครดิต/บัตรเดบิต</h5>
-                                
-                                </div>
-                                <form class="m-0">
-                                    <div class="modal-body">
-                                        <div class="form-row">
-                                            <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="card_name" placeholder="Card Name" required>
-                                            </div>
-                                            <div class="col-md-7 mb-3">
-                                                <input type="text" class="form-control" name="card_no" placeholder="Card NO" required  >
-                                            </div>
-                                            <i class="fab fa-cc-visa mr-2" style="font-size: 40px; color:navy;"></i>
-                                            <i class="fab fa-cc-jcb mr-2" style="font-size: 40px; color:#f24b;"></i>
-                                            <i class="fab fa-cc-mastercard" style="font-size: 40px; color:red;"></i>
-
-                                            <div class="form-group col-md-4">
-                                                <label for="inputDate">วันที่หมดอายุ</label>
-                                                <select id="inputDate" class="form-control" name="expire_month">
-                                                <option selected>เดือน</option>
-                                                <option value="1">01</option>
-                                                <option value="2">02</option>
-                                                <option value="3">03</option>
-                                                <option value="4">04</option>
-                                                <option value="5">05</option>
-                                                <option value="6">06</option>
-                                                <option value="7">07</option>
-                                                <option value="8">08</option>
-                                                <option value="9">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <select id="inputYear" class="form-control" name="expire_year" style="margin-top: 2rem;">
-                                                <option selected>ปี</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2025">2025</option>
-                                                <option value="2026">2026</option>
-                                                <option value="2027">2027</option>
-                                                <option value="2028">2028</option>
-                                                <option value="2029">2029</option>
-                                                <option value="2030">2030</option>
-                                            </select>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="inputCvc">CVC</label>
-                                                <input type="text" class="form-control" name="cvc_no" id="inputCvc" required>
-                                            </div>
-
-                                            <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="address" placeholder="ที่อยู่">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" name="post" placeholder="เลขไปรษณีย์">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ยกเลิก</button>
-                                        <button type="submit" class="btn btn-outline-danger">ยืนยัน</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        </div> -->
                         <hr>
                         <div class="row text-right">
                             <div class="col-md-10">
@@ -356,34 +244,6 @@
                 </div>
             </div>
         </form>
-
-        <!--<div class="modal fade" id="confirmPayment" tabindex="-1" aria-labelledby="confirmPaymentLabel" aria-hidden="true">
-                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        จำนวนเงินที่ต้องชำระ
-                                    </div>
-                                    <div class="col text-right">
-                                        ฿ 61
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-dark " data-dismiss="modal">ยกเลิก</button>
-                                <a href="orderdetail.html" class="btn btn-danger">ชำระ</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    </div>
-    </div>-->
     </div>
 
     <!-- container -->
