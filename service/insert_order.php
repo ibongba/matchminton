@@ -63,7 +63,16 @@
           $sql3 = "INSERT INTO `order_details`(`order_id`, `product_id`, `price`,`amount`,`remark`) 
           VALUES ('".$order_id."','".$rs[0]['product_id']."','".$rs[0]['price']."','".$rs[0]['amount']."','".$rs[0]['remark']."')";
           $rs3 = getpdo($conn,$sql3);
-        
+          
+          $strSQL = "DELETE FROM cart WHERE cart_id = '".$value['cart_id']."'";
+          $result = getpdo($conn,$strSQL);
+  
+          $test = $rs[0]['quantity']-$rs[0]['amount'];
+          // echo $test;
+  
+          $sql_quantity = "UPDATE `product` SET `quantity`= '$test' WHERE `product_id`= '".$rs[0]['product_id']."'";
+          echo $sql_quantity;
+          $rs4 = getpdo($conn,$sql_quantity);
         }
       }
     }
@@ -97,8 +106,11 @@
         $strSQL = "DELETE FROM cart WHERE cart_id = '".$value['cart_id']."'";
         $result = getpdo($conn,$strSQL);
 
-        $sql_quantity = "UPDATE `product` SET `quantity`= -'".$rs[0]['quantity']."' WHERE `product_id`= '".$rs[0]['product_id']."'";
-        // echo $sql_quantity;
+        $test = $rs[0]['quantity']-$rs[0]['amount'];
+        // echo $test;
+
+        $sql_quantity = "UPDATE `product` SET `quantity`= '$test' WHERE `product_id`= '".$rs[0]['product_id']."'";
+        echo $sql_quantity;
         $rs4 = getpdo($conn,$sql_quantity);
         
       }
