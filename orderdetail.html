@@ -211,9 +211,6 @@
         Card = (item, image) => {
 
             var img = image ? 'service/' + image.path : 'https://via.placeholder.com/150';
-            if (item.p_type == '6') {
-                item.p_type = item.remark;
-            }
             return `
                 <div class="row">
                     <div class="col-md-9">
@@ -223,7 +220,7 @@
                                 <div class="media-body ">
                                     <p class="m-0">${item.product_name}</p>
                                     <p>x ${item.amount}</p>
-                                    ${item.p_type == ''? '': '<p> ขนาดเอ็น '+item.p_type+'</p>'}
+                                    ${item.p_type == 6? '<p> ขนาดเอ็น '+item.p_remark+'</p>': ''}
                                 </div>
                             </div>
                         </h6>
